@@ -6,6 +6,7 @@
   "scripts": {
     "studio": "remotion studio",
     "voice": "node scripts/generate-voice.mjs",
+    "normalize": "node scripts/normalize-voice.mjs",
     "still": "node scripts/render-stills.mjs",
     "render": "node scripts/render.mjs",
     "typecheck": "tsc --noEmit",

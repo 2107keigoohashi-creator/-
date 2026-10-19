@@ -8,6 +8,7 @@
 import {execFileSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import {normalize} from './loudness.mjs';
 
 const ENGINE = process.env.VOICEVOX_URL ?? 'http://localhost:50021';
 const root = path.resolve(import.meta.dirname, '..');
@@ -103,6 +104,7 @@ for (let i = 0; i < ep.scenes.length; i++) {
   ).arrayBuffer();
   fs.writeFileSync(wav, Buffer.from(audio));
   if (preset.filter === 'radio') radioFilter(wav);
+  normalize(wav);
   fs.writeFileSync(stamp, signature);
   made++;
   console.log(`✓ ${name} (${presetName}) ${text.slice(0, 24)}…`);

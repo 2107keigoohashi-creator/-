@@ -1,5 +1,6 @@
-// 動画全体の定数。アカウント名などはここを書き換える。
-export const ACCOUNT_NAME = '@your_account';
+// 動画全体の定数。
+// 右下の透かし。空文字なら表示しない（例: '@your_account'）
+export const ACCOUNT_NAME = '';
 
 export const WIDTH = 1080;
 export const HEIGHT = 1920;

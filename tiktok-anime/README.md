@@ -19,6 +19,7 @@ src/
   overlays/        テロップ・カード・名前札・透かしなど
 scripts/
   generate-voice.mjs   VOICEVOX で音声を作る
+  normalize-voice.mjs  置いてある wav の音量をそろえる
   make-se.mjs          仮の効果音を ffmpeg で作る
   render-stills.mjs    確認用の静止画
   render.mjs           mp4 書き出し
@@ -35,7 +36,7 @@ npm install
 必要なもの：Node.js 18 以上、ffmpeg（効果音と無線フィルター用）、Docker（VOICEVOX 用）。
 Chrome は Remotion が初回に自動でダウンロードします。手元の Chrome を使う場合は `REMOTION_BROWSER=/path/to/chrome` を指定してください。
 
-アカウント名は `src/config.ts` の `ACCOUNT_NAME` を書き換えます。
+右下の透かしは `src/config.ts` の `ACCOUNT_NAME` です。今は空（非表示）で、`'@アカウント名'` を入れると表示されます。
 
 ## 新しい回を作る手順
 
@@ -83,11 +84,12 @@ npm run voice -- ep02 --force     # 全部作り直す
 npm run voice -- ep02 --only 3,5  # 指定シーンだけ
 ```
 
-`public/audio/ep02/scene01.wav` … ができます。
+`public/audio/ep02/scene01.wav` … ができます。音量は自動で -14 LUFS 前後（TikTok でよく使われる目安）にそろえます。
 
 **VOICEVOX が使えないとき**：`public/audio/ep02/sceneXX.wav` を手で置けば動きます（番号は01から）。
 置いた wav の長さでシーンの長さが決まります。手で置いたファイル（隣に `.txt` が無いもの）は、`npm run voice` でも上書きされません。
 音声が無いシーンは、文字数から仮の長さが付きます。
+手で置いた wav の音量をそろえたいときは `npm run normalize -- ep02` を実行してください。
 
 ### 3. 確認する
 

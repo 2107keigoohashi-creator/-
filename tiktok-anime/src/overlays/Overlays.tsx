@@ -328,7 +328,8 @@ export const NameTags: React.FC<{ids: string[]; cast: Record<string, CastMember>
   );
 };
 
-export const Watermark: React.FC = () => (
+export const Watermark: React.FC = () =>
+  ACCOUNT_NAME ? (
   <div
     style={{
       ...font,
@@ -344,7 +345,7 @@ export const Watermark: React.FC = () => (
   >
     {ACCOUNT_NAME}
   </div>
-);
+  ) : null;
 
 const SCREEN: Record<string, React.FC<{o: Overlay}>> = {
   ruleCard: RuleCard,
