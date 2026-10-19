@@ -1,0 +1,172 @@
+{
+  "title": "もしあなたが乗った飛行機で、機長が倒れたら",
+  "bgm": { "file": "assets/audio/bgm.mp3", "volume": 0.12 },
+  "scenes": [
+    {
+      "memo": "客室、22A席で窓の外を見るあなた。右上に便名と高度",
+      "narration": "もしあなたが乗った飛行機で、機長が倒れたら。",
+      "telop": "もし【機長が倒れた】ら",
+      "background": "cabin",
+      "characters": [
+        { "id": "you", "x": 640, "y": 1330, "scale": 1.3, "pose": "sit", "seat": "cabin", "look": "left" }
+      ],
+      "overlays": [{ "type": "infoBox", "text": "羽田 → 新千歳\n高度 35,000ft", "at": 0.3 }]
+    },
+    {
+      "memo": "コックピットのドア、一瞬暗転",
+      "narration": "「お客様の中に、操縦できる方はいませんか？」……映画でよく見る場面だ。でも現実は、まったく違う。",
+      "telop": "現実は【まったく違う】",
+      "background": "cockpitDoor",
+      "overlays": [{ "type": "blackout", "at": 3.2, "duration": 0.6 }]
+    },
+    {
+      "memo": "巡航中のコックピットの二人。名前札（自動）、右上に経過時間",
+      "narration": "巡航中のコックピット。左席に佐藤機長、右席に高橋副操縦士。旅客機には必ず、操縦できるパイロットが最低2人乗っている。",
+      "telop": "パイロットは【必ず2人】",
+      "background": "cockpit",
+      "characters": [
+        { "id": "sato", "x": 300, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "hold": true },
+        { "id": "takahashi", "x": 780, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "hold": true }
+      ],
+      "overlays": [{ "type": "infoBox", "text": "離陸後 1時間4分", "at": 0.2 }]
+    },
+    {
+      "memo": "機長がゆっくり前に倒れる。心拍のようなSE",
+      "narration": "「佐藤さん？」……返事がない。",
+      "telop": "「佐藤さん？」",
+      "background": "cockpit",
+      "camera": { "from": 1.0, "to": 1.08, "focusX": 420, "focusY": 850 },
+      "characters": [
+        { "id": "sato", "x": 300, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "hold": true, "action": "collapse", "at": 0.2 },
+        { "id": "takahashi", "x": 780, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "hold": true, "look": "left", "expression": "surprised" }
+      ],
+      "overlays": [{ "type": "bubble", "text": "佐藤さん？", "x": 800, "y": 660, "at": 0.3, "tail": "down" }],
+      "se": [{ "file": "assets/audio/heartbeat.wav", "at": 0, "volume": 0.7 }]
+    },
+    {
+      "memo": "ルール#1カード → 高橋が呼びかける",
+      "narration": "パイロットには「ツー・コミュニケーション・ルール」という考え方がある。大事な場面で相手が2回呼びかけに応えなければ、すぐに「操縦不能」と判断する。迷っている時間はない。",
+      "telop": "ルール#1 【返事が2回なければ】倒れたと判断",
+      "background": "cockpit",
+      "characters": [
+        { "id": "sato", "x": 300, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "action": "collapsed" },
+        { "id": "takahashi", "x": 780, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "look": "left", "expression": "panic", "talking": true, "action": "reach", "reachArm": "left", "reachAngle": 10, "at": 1.4 }
+      ],
+      "overlays": [
+        { "type": "ruleCard", "text": "ルール#1", "at": 0 },
+        { "type": "bubble", "text": "佐藤さん！", "x": 800, "y": 660, "at": 1.4, "duration": 1.6, "tail": "down" },
+        { "type": "bubble", "text": "佐藤さん！！", "x": 800, "y": 660, "at": 3.3, "duration": 1.8, "tail": "down" }
+      ]
+    },
+    {
+      "memo": "高橋が操縦桿を握るアップ、「I HAVE CONTROL」",
+      "narration": "高橋はまず「アイ・ハブ・コントロール」と宣言し、操縦を引き継ぐ。自動操縦が入っているので、飛行機は何事もなかったように飛び続ける。一番怖いのは、倒れた体が操縦桿に寄りかかることだ。",
+      "telop": "【一番怖いのは】体が操縦桿に当たること",
+      "background": "yokeCloseup",
+      "bgProps": { "gripAt": 0.2 },
+      "overlays": [{ "type": "bigText", "text": "I HAVE CONTROL", "at": 0.7, "y": 760 }]
+    },
+    {
+      "memo": "美咲がコックピットに入り、機長の座席を後ろへ下げる",
+      "narration": "CAが呼ばれ、機長のシートベルトを締め、座席を後ろに下げる。操縦桿から体を離すためだ。CAはこの手順を訓練で練習している。",
+      "telop": "CAも【訓練済み】",
+      "background": "cockpit",
+      "characters": [
+        { "id": "misaki", "x": 540, "y": 1090, "scale": 0.95, "pose": "stand", "look": "left", "action": "reach", "reachArm": "left", "reachAngle": 25, "at": 0.8 },
+        { "id": "sato", "x": 300, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "action": "collapsed", "move": { "x": 250, "y": 1020, "scale": 0.95, "at": 2.2, "duration": 1.6 } },
+        { "id": "takahashi", "x": 780, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "hold": true, "look": "left" }
+      ]
+    },
+    {
+      "memo": "客室、機内放送アイコン、ざわつく乗客",
+      "narration": "そして機内放送。「お客様の中に、お医者様はいらっしゃいませんか」。探しているのは、パイロットではなく医者だ。",
+      "telop": "探すのは【医者】",
+      "background": "cabinAisle",
+      "bgProps": { "murmur": true },
+      "overlays": [
+        { "type": "paIcon", "text": "機内放送", "at": 0.1 },
+        { "type": "zawa", "at": 1.2 }
+      ],
+      "se": [{ "file": "assets/audio/chime.wav", "at": 0, "volume": 0.6 }]
+    },
+    {
+      "memo": "ルール#2カード → トランスポンダーが7700に変わる",
+      "narration": "高橋は管制に「メーデー、メーデー、メーデー」と緊急事態を宣言する。管制のレーダーには、この飛行機が緊急事態だと表示される。",
+      "telop": "ルール#2 【メーデー】を宣言",
+      "background": "cockpit",
+      "characters": [
+        { "id": "sato", "x": 250, "y": 1020, "scale": 0.95, "pose": "sit", "seat": "pilot", "action": "collapsed", "yoke": true, "yokePos": { "x": 300, "y": 1120, "scale": 1.15 } },
+        { "id": "takahashi", "x": 780, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "hold": true, "talking": true, "expression": "panic" }
+      ],
+      "overlays": [
+        { "type": "ruleCard", "text": "ルール#2", "at": 0 },
+        { "type": "transponder", "from": "2241", "to": "7700", "changeAt": 1.2, "at": 1.3, "y": 240 }
+      ]
+    },
+    {
+      "memo": "日本地図。飛行機が東北上空、近くの空港が光る → 花巻へダイバート",
+      "narration": "ここからは、一番近い「降りられる空港」へ向かう。これをダイバートという。管制は他の飛行機をどかし、この便を最優先で導く。",
+      "telop": "他の飛行機より【最優先】",
+      "background": "japanMap",
+      "bgProps": { "from": "HND", "to": "CTS", "planeAt": 0.62, "glow": ["AOJ", "MSJ", "HNA", "AXT", "SDJ"], "glowAt": 0.4, "divertTo": "HNA", "divertAt": 2.2, "traffic": true },
+      "camera": { "focusX": 560, "focusY": 900 }
+    },
+    {
+      "memo": "一人でチェックリストを読む高橋、汗",
+      "narration": "本来二人で分担する仕事を、一人でこなす。管制との交信、チェックリスト、着陸の準備。だが副操縦士も、この状況をシミュレーターで何度も訓練している。",
+      "telop": "【一人】で2人分の仕事",
+      "background": "cockpit",
+      "camera": { "focusX": 760, "focusY": 850 },
+      "characters": [
+        { "id": "sato", "x": 250, "y": 1020, "scale": 0.95, "pose": "sit", "seat": "pilot", "action": "collapsed", "yoke": true, "yokePos": { "x": 300, "y": 1120, "scale": 1.15 } },
+        { "id": "takahashi", "x": 780, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "item": "checklist", "look": "down", "expression": "panic", "sweat": true }
+      ]
+    },
+    {
+      "memo": "ルール#3カード → 機内食が2つ並ぶ（和食と洋食）",
+      "narration": "そもそも、二人同時に倒れない工夫もある。多くの航空会社では、機長と副操縦士は違う食事を食べる。食中毒で二人とも倒れるのを防ぐためだ。",
+      "telop": "ルール#3 【同じ食事を食べない】",
+      "background": "plain",
+      "overlays": [
+        { "type": "ruleCard", "text": "ルール#3", "at": 0 },
+        { "type": "meals", "labels": ["機長", "副操縦士"], "at": 1.2, "y": 330 }
+      ]
+    },
+    {
+      "memo": "着陸、滑走路脇に救急車と消防車",
+      "narration": "飛行機は、いつもと変わらない着陸をする。滑走路の外には、すでに救急車が待っている。乗客の多くは、何が起きたのか最後まで知らない。",
+      "telop": "乗客は【気づかない】ことも",
+      "background": "runway",
+      "bgProps": { "sky": "dusk", "landAt": 2.6 },
+      "se": [{ "file": "assets/audio/siren.wav", "at": 2.4, "volume": 0.35 }]
+    },
+    {
+      "memo": "22A席のあなた、窓の外に救急車の赤い光が点滅",
+      "narration": "つまり、機長が倒れても、あなたが操縦することはない。あなたにできる一番大事なことは、席に座ってCAの指示を待つことだ。",
+      "telop": "あなたの仕事は【座って待つ】こと",
+      "background": "cabin",
+      "bgProps": { "sky": "dusk", "flashRed": true },
+      "characters": [
+        { "id": "you", "x": 640, "y": 1330, "scale": 1.3, "pose": "sit", "seat": "cabin", "look": "left" }
+      ]
+    },
+    {
+      "memo": "暗転、ノイズ混じりの無線音、波形アニメ",
+      "narration": "だが……もし、パイロットが二人とも倒れたら？",
+      "telop": "【二人とも】倒れたら？",
+      "background": "nightRadio",
+      "overlays": [{ "type": "blackout", "at": 0, "duration": 0.5 }],
+      "se": [{ "file": "assets/audio/radio_noise.wav", "at": 0, "volume": 0.35 }]
+    },
+    {
+      "memo": "黒画面に白文字、無線の声だけ（別の声＋無線フィルター）",
+      "narration": "……こちら管制。この無線を聞いている方、左席に座ってください。",
+      "voice": "radio",
+      "telop": "次回「もしあなたが着陸させることになったら」",
+      "background": "black",
+      "camera": { "from": 1.0, "to": 1.0 },
+      "overlays": [{ "type": "centerText", "text": "……こちら管制。\nこの無線を聞いている方、\n左席に座ってください", "at": 0.2, "size": 60 }],
+      "se": [{ "file": "assets/audio/radio_noise.wav", "at": 0, "volume": 0.2 }]
+    }
+  ]
+}
