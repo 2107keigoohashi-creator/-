@@ -6,7 +6,8 @@ import {
   FPS,
   SCENE_TAIL_SEC,
 } from './config';
-import {CastMember, Episode, EpisodeProps, ResolvedScene, SoundCue} from './types';
+import {displayChunk, splitChunks} from '../shared/text.mjs';
+import {CastMember, Episode, EpisodeProps, ResolvedScene, SoundCue, SubtitleChunk} from './types';
 
 // episodes/ 以下の ep*.json をすべて読み込む（ファイルを足すとコンポジションが増える）
 const ctx = require.context('../episodes', false, /^\.\/ep[^/]*\.json$/);
@@ -51,6 +52,26 @@ const fetchAudioDuration = async (path: string): Promise<number | null> => {
   }
 };
 
+// 音声生成時に書き出した字幕タイミング。無ければ文字数で割り振る
+const loadSubtitles = async (path: string, narration: string, sec: number): Promise<SubtitleChunk[]> => {
+  try {
+    const res = await fetch(staticFile(path));
+    if (res.ok) return ((await res.json()) as {chunks: SubtitleChunk[]}).chunks;
+  } catch {
+    // 無ければ下で作る
+  }
+  const chunks = splitChunks(narration) as string[];
+  const total = chunks.reduce((a, c) => a + [...c].length, 0) || 1;
+  let t = 0.1;
+  const span = Math.max(0.5, sec - 0.2);
+  return chunks.map((c) => {
+    const d = ([...c].length / total) * span;
+    const item = {text: displayChunk(c), start: t, end: t + d};
+    t += d;
+    return item;
+  });
+};
+
 const fileExists = async (path: string): Promise<boolean> => {
   try {
     const res = await fetch(staticFile(path), {method: 'HEAD'});
@@ -88,8 +109,12 @@ export const calculateEpisodeMetadata: CalculateMetadataFunction<EpisodeProps> =
       if (s.nameTags !== false && c.tag !== false && cast[c.id]?.tagName) newTags.push(c.id);
     }
 
+    const showSubs = (s.subtitles ?? ep.subtitles ?? true) && s.narration.trim().length > 0;
+    const subs = showSubs ? await loadSubtitles(audio.replace(/\.wav$/, '.json'), s.narration, sec) : [];
+
     scenes.push({
       ...s,
+      subs,
       index: i,
       from,
       durationInFrames,

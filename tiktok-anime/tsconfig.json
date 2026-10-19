@@ -8,8 +8,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "allowJs": true,
     "noEmit": true,
     "types": ["webpack-env"]
   },
-  "include": ["src"]
+  "include": ["src", "shared"]
 }

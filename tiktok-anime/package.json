@@ -7,6 +7,8 @@
     "studio": "remotion studio",
     "voice": "node scripts/generate-voice.mjs",
     "normalize": "node scripts/normalize-voice.mjs",
+    "kana": "node scripts/check-reading.mjs",
+    "voicevox": "bash scripts/start-voicevox.sh",
     "still": "node scripts/render-stills.mjs",
     "render": "node scripts/render.mjs",
     "typecheck": "tsc --noEmit",

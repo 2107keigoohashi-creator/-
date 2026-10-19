@@ -8,6 +8,7 @@
 import {execFileSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import {displayChunk, speakText, splitChunks} from '../shared/text.mjs';
 import {normalize} from './loudness.mjs';
 
 const ENGINE = process.env.VOICEVOX_URL ?? 'http://localhost:50021';
@@ -67,6 +68,50 @@ const radioFilter = (file) => {
   fs.unlinkSync(tmp);
 };
 
+const PRE = 0.12;
+const POST = 0.12;
+
+const query = async (text, speaker) =>
+  (await get(`/audio_query?text=${encodeURIComponent(text)}&speaker=${speaker}`, {method: 'POST'})).json();
+
+// 音素の長さの合計（秒）
+const spokenLength = (q, params) => {
+  let sec = 0;
+  for (const ap of q.accent_phrases) {
+    for (const m of ap.moras) sec += (m.consonant_length ?? 0) + m.vowel_length;
+    if (ap.pause_mora) sec += ap.pause_mora.vowel_length * params.pauseLengthScale;
+  }
+  return sec / params.speedScale;
+};
+
+const wavSeconds = (file) =>
+  Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', file]).toString());
+
+// 字幕の区切りごとの表示時間を、区切りごとの読み上げの長さから割り振る
+const subtitleTimes = async (scene, speaker, params, wav) => {
+  const shown = splitChunks(scene.narration);
+  const spoken = splitChunks(speakText(scene.reading ?? scene.narration));
+  let weights;
+  if (spoken.length === shown.length) {
+    weights = [];
+    for (const c of spoken) weights.push(spokenLength(await query(c, speaker), params));
+  } else {
+    weights = shown.map((c) => [...c].length);
+  }
+  const total = weights.reduce((a, b) => a + b, 0) || 1;
+  const start = PRE;
+  const span = wavSeconds(wav) - PRE - POST;
+  let t = start;
+  return {
+    chunks: shown.map((c, i) => {
+      const d = (weights[i] / total) * span;
+      const item = {text: displayChunk(c), start: +t.toFixed(3), end: +(t + d).toFixed(3)};
+      t += d;
+      return item;
+    }),
+  };
+};
+
 let made = 0;
 for (let i = 0; i < ep.scenes.length; i++) {
   if (only && !only.has(i + 1)) continue;
@@ -78,7 +123,7 @@ for (let i = 0; i < ep.scenes.length; i++) {
   const preset = voices[presetName];
   if (!preset) throw new Error(`episodes/voices.json に "${presetName}" がありません`);
   // reading があれば読み上げにはそちらを使う（漢字の読み間違い対策）
-  const text = scene.reading ?? scene.narration;
+  const text = speakText(scene.reading ?? scene.narration);
   const signature = JSON.stringify({text, preset});
 
   if (!force && fs.existsSync(wav)) {
@@ -90,21 +135,23 @@ for (let i = 0; i < ep.scenes.length; i++) {
   }
 
   const speaker = styleId(preset);
-  const q = await (await get(`/audio_query?text=${encodeURIComponent(text)}&speaker=${speaker}`, {method: 'POST'})).json();
-  Object.assign(q, {
+  const params = {
     speedScale: preset.speedScale ?? 1,
     pitchScale: preset.pitchScale ?? 0,
     intonationScale: preset.intonationScale ?? 1,
     volumeScale: preset.volumeScale ?? 1,
-    prePhonemeLength: 0.15,
-    postPhonemeLength: 0.15,
-  });
+    pauseLengthScale: preset.pauseLengthScale ?? 1,
+    prePhonemeLength: PRE,
+    postPhonemeLength: POST,
+  };
+  const q = {...(await query(text, speaker)), ...params};
   const audio = await (
     await get(`/synthesis?speaker=${speaker}`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(q)})
   ).arrayBuffer();
   fs.writeFileSync(wav, Buffer.from(audio));
   if (preset.filter === 'radio') radioFilter(wav);
   normalize(wav);
+  fs.writeFileSync(path.join(outDir, `${name}.json`), JSON.stringify(await subtitleTimes(scene, speaker, params, wav), null, 1));
   fs.writeFileSync(stamp, signature);
   made++;
   console.log(`✓ ${name} (${presetName}) ${text.slice(0, 24)}…`);

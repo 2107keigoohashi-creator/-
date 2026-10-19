@@ -58,6 +58,8 @@ Chrome は Remotion が初回に自動でダウンロードします。手元の
       "background": "cockpit",
       "bgProps": { "sky": "night" },
       "camera": { "from": 1.0, "to": 1.08, "focusX": 540, "focusY": 860 },  // 省略可
+      "cuts": [{ "at": 2.5, "zoom": 1.7, "focusX": 780, "focusY": 900 }],   // 省略可。at 秒で (focusX, focusY) のアップに切り替え
+      "subtitles": true,                      // 省略可。ナレーション字幕（既定で表示）
       "characters": [
         { "id": "takahashi", "x": 780, "y": 1120, "scale": 1.15, "pose": "sit", "seat": "pilot", "yoke": true, "hold": true }
       ],
@@ -70,6 +72,8 @@ Chrome は Remotion が初回に自動でダウンロードします。手元の
 }
 ```
 
+- 毎日の制作の決まり（カット・字幕・ナレーションの書き方、前編/後編）は `PRODUCTION.md`、進み具合は `SERIES.md`。
+- 回の ID（ファイル名）は英小文字・数字・ハイフンだけ（例：`ep02-1`）。
 - **シーンの長さは書きません。** 音声の長さ＋0.4秒で自動で決まります（`src/config.ts` の `SCENE_TAIL_SEC`）。
 - `at` はすべて「そのシーンが始まってから何秒後か」です。
 - 名前札は、その回で初めて出たキャラに自動で出ます（`cast.json` の `tagName` / `tagDesc`）。出したくなければキャラに `"tag": false`、シーンに `"nameTags": false`。
@@ -78,13 +82,14 @@ Chrome は Remotion が初回に自動でダウンロードします。手元の
 ### 2. 音声を作る
 
 ```bash
-docker run --rm -d -p 50021:50021 voicevox/voicevox_engine:cpu-latest
+npm run voicevox                  # Docker と VOICEVOX Engine を起動
+npm run kana -- ep02              # 読み方の確認（おかしければ台本の reading で直す）
 npm run voice -- ep02             # 台本が変わったシーンだけ作り直す
 npm run voice -- ep02 --force     # 全部作り直す
 npm run voice -- ep02 --only 3,5  # 指定シーンだけ
 ```
 
-`public/audio/ep02/scene01.wav` … ができます。音量は自動で -14 LUFS 前後（TikTok でよく使われる目安）にそろえます。
+`public/audio/ep02/scene01.wav` … と、字幕のタイミング（`scene01.json`）ができます。音量は自動で -14 LUFS 前後（TikTok でよく使われる目安）にそろえます。
 
 **VOICEVOX が使えないとき**：`public/audio/ep02/sceneXX.wav` を手で置けば動きます（番号は01から）。
 置いた wav の長さでシーンの長さが決まります。手で置いたファイル（隣に `.txt` が無いもの）は、`npm run voice` でも上書きされません。

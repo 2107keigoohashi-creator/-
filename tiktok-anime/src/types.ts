@@ -87,12 +87,21 @@ export type Scene = {
   overlays?: Overlay[];
   se?: SoundCue[];
   camera?: {from?: number; to?: number; focusX?: number; focusY?: number};
+  // シーン内のカット割り。at 秒で画角を切り替える（zoom 倍率で focusX, focusY を画面中央に）
+  cuts?: Cut[];
   nameTags?: boolean;
+  // ナレーション字幕を出すか（既定 true）
+  subtitles?: boolean;
 };
+
+export type Cut = {at: number; zoom?: number; focusX?: number; focusY?: number};
+
+export type SubtitleChunk = {text: string; start: number; end: number};
 
 export type Episode = {
   title: string;
   voice?: string;
+  subtitles?: boolean;
   bgm?: SoundCue;
   cast?: Record<string, CastMember>;
   scenes: Scene[];
@@ -106,6 +115,7 @@ export type ResolvedScene = Scene & {
   audio: string | null;
   se: SoundCue[];
   newTags: string[];
+  subs: SubtitleChunk[];
 };
 
 export type EpisodeProps = {
