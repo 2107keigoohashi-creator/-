@@ -126,9 +126,9 @@ export const YokeCloseup: Background = ({layer, p}) => {
       <rect x={580} y={300} width={360} height={300} rx={14} fill="#1D252C" />
       <path d="M 620,560 A 140 140 0 0 1 900,560" stroke="#7FB89A" strokeWidth={4} fill="none" />
       {/* 操縦桿 */}
-      <rect x={510} y={cy} width={60} height={900} rx={12} fill="#22252A" />
-      <path d={`M 200,${cy - 140} Q 190,${cy + 90} 330,${cy + 100} L 750,${cy + 100} Q 890,${cy + 90} 880,${cy - 140} L 800,${cy - 150} Q 800,${cy + 10} 720,${cy + 16} L 360,${cy + 16} Q 280,${cy + 10} 280,${cy - 150} Z`} fill="#33373E" />
-      <rect x={440} y={cy + 10} width={200} height={80} rx={12} fill="#43474F" />
+      <rect x={510} y={cy} width={60} height={900} rx={12} fill="#1E2024" />
+      <path d={`M 200,${cy - 140} Q 190,${cy + 90} 330,${cy + 100} L 750,${cy + 100} Q 890,${cy + 90} 880,${cy - 140} L 800,${cy - 150} Q 800,${cy + 10} 720,${cy + 16} L 360,${cy + 16} Q 280,${cy + 10} 280,${cy - 150} Z`} fill="#5A6069" stroke="#1E2024" strokeWidth={6} />
+      <rect x={440} y={cy + 10} width={200} height={80} rx={12} fill="#6A717B" />
       <rect x={480} y={cy + 34} width={120} height={22} rx={6} fill="#9AA1A8" />
       {/* 腕と手 */}
       <line x1={120} y1={1920} x2={handL[0]} y2={handL[1]} stroke="#2E2A28" strokeWidth={22} strokeLinecap="round" />

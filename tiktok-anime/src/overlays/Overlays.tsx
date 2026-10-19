@@ -220,7 +220,7 @@ const Tray: React.FC<{kind: 'wa' | 'yo'; label: string; delay: number}> = ({kind
   const p = interpolate(f, [delay, delay + 8], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.back(1.6))});
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `translateY(${(1 - p) * 80}px)`, opacity: p}}>
-      <svg width={420} height={320} viewBox="0 0 420 320">
+      <svg width={340} height={259} viewBox="0 0 420 320">
         <rect x={10} y={20} width={400} height={290} rx={28} fill="#8A7A66" />
         <rect x={24} y={34} width={372} height={262} rx={20} fill="#A08D76" />
         {kind === 'wa' ? (
@@ -255,7 +255,7 @@ const Meals: React.FC<{o: Overlay}> = ({o}) => {
   const labels = Array.isArray(o.labels) ? (o.labels as string[]) : ['機長', '副操縦士'];
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'flex-start', paddingTop: n(o.y, 420)}}>
-      <div style={{display: 'flex', flexDirection: 'column', gap: 40, alignItems: 'center'}}>
+      <div style={{display: 'flex', flexDirection: 'column', gap: 24, alignItems: 'center'}}>
         <Tray kind="wa" label={`${labels[0]}：和食`} delay={0} />
         <Tray kind="yo" label={`${labels[1]}：洋食`} delay={8} />
       </div>

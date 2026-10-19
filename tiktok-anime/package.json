@@ -8,7 +8,8 @@
     "voice": "node scripts/generate-voice.mjs",
     "still": "node scripts/render-stills.mjs",
     "render": "node scripts/render.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "se": "node scripts/make-se.mjs"
   },
   "dependencies": {
     "@remotion/bundler": "^4.0.537",

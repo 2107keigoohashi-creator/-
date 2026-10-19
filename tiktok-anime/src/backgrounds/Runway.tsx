@@ -25,7 +25,7 @@ const Vehicle: React.FC<{x: number; y: number; kind: 'ambulance' | 'fire'; on: b
   const len = kind === 'ambulance' ? 300 : 380;
   return (
     <g transform={`translate(${x}, ${y}) scale(${s})`}>
-      {on && <circle cx={len * 0.55} cy={-150} r={110} fill="#E53935" opacity={0.22} />}
+      {on && <circle cx={len * 0.55} cy={-140} r={60} fill="#FF8A80" opacity={0.35} />}
       <rect x={0} y={-130} width={len * 0.7} height={130} rx={12} fill={body} />
       <path d={`M ${len * 0.7},-90 L ${len * 0.92},-90 L ${len},-40 L ${len},0 L ${len * 0.7},0 Z`} fill={body} />
       <path d={`M ${len * 0.74},-82 L ${len * 0.9},-82 L ${len * 0.96},-46 L ${len * 0.74},-46 Z`} fill="#4E5E72" />

@@ -1,0 +1,1 @@
+{"text":"そもそも、二人同時に倒れない工夫もある。多くの航空会社では、機長と副操縦士は違う食事を食べる。食中毒で二人とも倒れるのを防ぐためだ。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

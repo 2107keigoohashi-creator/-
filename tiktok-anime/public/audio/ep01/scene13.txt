@@ -1,0 +1,1 @@
+{"text":"飛行機は、いつもと変わらない着陸をする。滑走路の外には、すでに救急車が待っている。乗客の多くは、何が起きたのか最後まで知らない。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

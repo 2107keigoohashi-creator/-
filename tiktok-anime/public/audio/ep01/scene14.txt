@@ -1,0 +1,1 @@
+{"text":"つまり、機長が倒れても、あなたが操縦することはない。あなたにできる一番大事なことは、席に座ってCAの指示を待つことだ。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

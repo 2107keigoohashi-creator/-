@@ -77,6 +77,8 @@ export type SoundCue = {
 export type Scene = {
   memo?: string;
   narration: string;
+  // 読み上げ用のテキスト（漢字の読み間違いを直したいとき）
+  reading?: string;
   telop?: string;
   voice?: string;
   background: string;
@@ -90,6 +92,7 @@ export type Scene = {
 
 export type Episode = {
   title: string;
+  voice?: string;
   bgm?: SoundCue;
   cast?: Record<string, CastMember>;
   scenes: Scene[];

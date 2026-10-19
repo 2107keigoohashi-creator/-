@@ -32,9 +32,9 @@ export const CabinAisle: Background = ({layer, p}) => {
           const s = 0.42 + r * 0.2;
           const yBase = 780 + r * r * 34 + r * 90;
           return [-1, 1].map((side) => {
-            const cx = 540 + side * (150 + r * 150);
+            const cx = 540 + side * (120 + r * 55);
             return [0, 1].map((k) => {
-              const sx = cx + side * k * 210 * s;
+              const sx = cx + side * k * 215 * s;
               const idx = (r * 4 + k * 2 + (side > 0 ? 1 : 0)) % 5;
               const turn = murmur ? Math.sin(t * 2.2 + idx * 1.7 + r) : 0;
               const look = turn > 0.4 ? 10 : turn < -0.4 ? -10 : 0;

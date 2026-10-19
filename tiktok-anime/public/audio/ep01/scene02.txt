@@ -1,0 +1,1 @@
+{"text":"「お客様の中に、操縦できる方はいませんか？」……映画でよく見る場面だ。でも現実は、まったく違う。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

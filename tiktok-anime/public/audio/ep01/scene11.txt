@@ -1,0 +1,1 @@
+{"text":"本来二人で分担する仕事を、一人でこなす。管制との交信、チェックリスト、着陸の準備。だが副操縦士も、この状況をシミュレーターで何度も訓練している。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

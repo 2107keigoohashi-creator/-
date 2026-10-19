@@ -1,0 +1,1 @@
+{"text":"CAが呼ばれ、機長のシートベルトを締め、座席を後ろに下げる。操縦かんから体を離すためだ。CAはこの手順を訓練で練習している。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

@@ -1,0 +1,1 @@
+{"text":"ここからは、一番近い「降りられる空港」へ向かう。これをダイバートという。管制は他の飛行機をどかし、この便を最優先で導く。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

@@ -1,0 +1,19 @@
+{
+  "narrator": {
+    "speaker": "青山龍星",
+    "style": "ノーマル",
+    "speedScale": 1.12,
+    "pitchScale": 0,
+    "intonationScale": 1.0,
+    "volumeScale": 1.0
+  },
+  "radio": {
+    "speaker": "玄野武宏",
+    "style": "ノーマル",
+    "speedScale": 1.0,
+    "pitchScale": 0,
+    "intonationScale": 0.9,
+    "volumeScale": 1.0,
+    "filter": "radio"
+  }
+}

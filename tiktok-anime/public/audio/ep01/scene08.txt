@@ -1,0 +1,1 @@
+{"text":"そして機内放送。「お客様の中に、お医者様はいらっしゃいませんか」。探しているのは、パイロットではなく医者だ。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

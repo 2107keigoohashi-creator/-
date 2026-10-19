@@ -1,0 +1,1 @@
+{"text":"だが……もし、パイロットが二人とも倒れたら？","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

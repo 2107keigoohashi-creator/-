@@ -1,0 +1,1 @@
+{"text":"巡航中のコックピット。左席に佐藤機長、右席に高橋副操縦士。旅客機には必ず、操縦できるパイロットが最低2人乗っている。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

@@ -1,0 +1,1 @@
+{"text":"高橋は管制に「メーデー、メーデー、メーデー」と緊急事態を宣言する。管制のレーダーには、この飛行機が緊急事態だと表示される。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}

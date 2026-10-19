@@ -1,0 +1,1 @@
+{"text":"パイロットには「ツー・コミュニケーション・ルール」という考え方がある。大事な場面で相手が2回呼びかけに応えなければ、すぐに「操縦不能」と判断する。迷っている時間はない。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.12,"pitchScale":0,"intonationScale":1,"volumeScale":1}}
