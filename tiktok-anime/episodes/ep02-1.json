@@ -1,0 +1,963 @@
+{
+ "title": "窓の外で、エンジンが燃えていたら（前編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "羽田を飛び立って、まだ4分。",
+   "telop": "離陸して【4分】",
+   "background": "cabin",
+   "bgProps": {
+    "engine": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "羽田 → 新千歳\n離陸後 4分",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "ふと窓の外を見たあなたは、目を疑った。",
+   "telop": "窓の外に【異変】",
+   "background": "cabin",
+   "bgProps": {
+    "fire": true,
+    "fireAt": 1.4
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "expression": "surprised"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.2,
+     "zoom": 2.2,
+     "focusX": 230,
+     "focusY": 760
+    }
+   ]
+  },
+  {
+   "narration": "エンジンから、オレンジ色の炎が出ている。",
+   "telop": "エンジンから【炎】",
+   "background": "cabin",
+   "bgProps": {
+    "fire": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 2.3,
+     "focusX": 230,
+     "focusY": 760
+    }
+   ],
+   "reading": "エンジンから、オレンジいろの炎が出ている。"
+  },
+  {
+   "narration": "えっ、燃えてる……？",
+   "telop": "「えっ…【燃えてる】？」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "fire": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "expression": "panic",
+     "sweat": true,
+     "talking": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 640,
+     "focusY": 1000
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "えっ…燃えてる？",
+     "x": 660,
+     "y": 860,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "周りの乗客も、ざわつき始めた。",
+   "telop": "機内が【ざわつく】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "zawa",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "narration": "あなたは、頭の上の呼び出しボタンを押した。",
+   "telop": "【呼び出しボタン】を押す",
+   "background": "cabin",
+   "bgProps": {
+    "fire": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up",
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -75,
+     "at": 0.5
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 1.1,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "お客様、どうされましたか？",
+   "telop": "CAが【すぐに来た】",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "fire": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 1250,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true,
+     "move": {
+      "x": 900,
+      "at": 0,
+      "duration": 0.8
+     }
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "どうされましたか？",
+     "x": 760,
+     "y": 850,
+     "at": 0.8,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "左のエンジンから、火が出てます！",
+   "telop": "「左のエンジンから【火】が！」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "fire": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    },
+    {
+     "id": "misaki",
+     "x": 900,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "左のエンジンから火が！",
+     "x": 520,
+     "y": 870,
+     "at": 0.1,
+     "tail": "down",
+     "duration": 1.5
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.6,
+     "zoom": 2.2,
+     "focusX": 230,
+     "focusY": 760
+    }
+   ]
+  },
+  {
+   "narration": "美咲は窓の外を確かめると、すぐに機内電話でコックピットに伝えた。",
+   "telop": "すぐに【コックピットへ】",
+   "background": "cabin",
+   "bgProps": {
+    "fire": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 900,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "item": "phone",
+     "talking": true,
+     "expression": "surprised"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 2.2,
+     "zoom": 1.7,
+     "focusX": 900,
+     "focusY": 960
+    }
+   ]
+  },
+  {
+   "narration": "実は、コックピットからは、翼やエンジンはほとんど見えない。",
+   "telop": "ルール#1 操縦席から【エンジンは見えない】",
+   "background": "cockpit",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "だから、乗客やCAが見た異変は、大事な情報になるんだ。",
+   "telop": "異変に気づいたら【すぐCAへ】",
+   "background": "cabin",
+   "bgProps": {
+    "fire": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 900,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "item": "phone"
+    }
+   ]
+  },
+  {
+   "narration": "同じころ、コックピットでは火災の警報が鳴り響いた。",
+   "telop": "【火災警報】が鳴る",
+   "background": "cockpit",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "expression": "surprised"
+    },
+    {
+     "id": "takahashi",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "expression": "surprised",
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "alarm",
+     "text": "ENG 1 FIRE",
+     "at": 0.2
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/fire_bell.wav",
+     "at": 0.2,
+     "volume": 0.45
+    }
+   ]
+  },
+  {
+   "narration": "エンジン1、火災。操縦は、私がやる。",
+   "telop": "機長が【操縦】を担当",
+   "background": "cockpit",
+   "voice": "sato",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "talking": true
+    },
+    {
+     "id": "takahashi",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "alarm",
+     "text": "ENG 1 FIRE",
+     "at": 0,
+     "y": 150
+    },
+    {
+     "type": "bubble",
+     "text": "操縦は私がやる",
+     "x": 330,
+     "y": 800,
+     "at": 0.3,
+     "tail": "down"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 330,
+     "focusY": 900
+    }
+   ]
+  },
+  {
+   "narration": "了解。チェックリスト、始めます。",
+   "telop": "副操縦士は【手順】を担当",
+   "background": "cockpit",
+   "voice": "takahashi",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": false,
+     "item": "checklist",
+     "talking": true,
+     "look": "down"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "チェックリスト、始めます",
+     "x": 700,
+     "y": 720,
+     "at": 0.2,
+     "tail": "down",
+     "size": 50
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 760,
+     "focusY": 900
+    }
+   ]
+  },
+  {
+   "narration": "大事なのは、操縦する人と、手順を進める人を分けること。",
+   "telop": "ルール#2 【役割を分ける】",
+   "background": "cockpit",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": false,
+     "item": "checklist",
+     "look": "down"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "二人とも手順に夢中になると、誰も操縦していない時間ができてしまう。",
+   "telop": "【誰も操縦していない】が一番危ない",
+   "background": "cockpit",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": false,
+     "item": "checklist",
+     "look": "down"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.6,
+     "focusX": 300,
+     "focusY": 900
+    },
+    {
+     "at": 2.6,
+     "zoom": 1.6,
+     "focusX": 780,
+     "focusY": 900
+    }
+   ]
+  },
+  {
+   "narration": "まず、燃えているエンジンへの、燃料を止める。",
+   "telop": "まず【燃料を止める】",
+   "background": "fireHandle",
+   "bgProps": {
+    "pullAt": 99
+   }
+  },
+  {
+   "narration": "エンジン1、火災ハンドル、引きます。",
+   "telop": "【火災ハンドル】を引く",
+   "background": "fireHandle",
+   "voice": "takahashi",
+   "bgProps": {
+    "pullAt": 0.9
+   }
+  },
+  {
+   "narration": "ハンドルを回すと、エンジンの中に消火剤が噴き出す。",
+   "telop": "【消火剤】が噴き出す",
+   "background": "fireHandle",
+   "bgProps": {
+    "pullAt": 0,
+    "rotateAt": 0.8
+   },
+   "se": [
+    {
+     "file": "assets/audio/whoosh.wav",
+     "at": 0.9,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "narration": "窓の外の炎が、少しずつ小さくなっていく。",
+   "telop": "炎が【消えていく】",
+   "background": "cabin",
+   "bgProps": {
+    "fire": true,
+    "fireOutAt": 0.4
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 2.3,
+     "focusX": 230,
+     "focusY": 760
+    }
+   ]
+  },
+  {
+   "narration": "でも、エンジンが止まって、大丈夫なの……？",
+   "telop": "エンジン1つで【大丈夫？】",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "engine": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "center",
+     "expression": "panic",
+     "sweat": true,
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "大丈夫なの…？",
+     "x": 640,
+     "y": 860,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "旅客機は、エンジンが1つ止まっても、安全に飛べるように作られている。",
+   "telop": "ルール#3 エンジン【1つでも飛べる】",
+   "background": "skyPlane",
+   "bgProps": {
+    "smoke": true
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "とはいえ、このまま北海道までは行かない。",
+   "telop": "でも【すぐに降りる】",
+   "background": "skyPlane",
+   "bgProps": {
+    "smoke": true
+   },
+   "camera": {
+    "from": 1.0,
+    "to": 1.15,
+    "focusX": 520,
+    "focusY": 860
+   }
+  },
+  {
+   "narration": "メーデー、メーデー、メーデー。エンジン火災。仙台に向かいます。",
+   "telop": "【メーデー】を宣言",
+   "background": "cockpit",
+   "voice": "takahashi",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "talking": true,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "メーデー！",
+     "x": 780,
+     "y": 720,
+     "at": 0.2,
+     "tail": "down"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 760,
+     "focusY": 900
+    }
+   ]
+  },
+  {
+   "narration": "一番近い、仙台空港へ、緊急着陸だ。",
+   "telop": "【仙台空港】へ緊急着陸",
+   "background": "japanMap",
+   "bgProps": {
+    "from": "HND",
+    "to": "CTS",
+    "planeAt": 0.32,
+    "glow": [
+     "SDJ",
+     "FKS",
+     "GAJ"
+    ],
+    "glowAt": 0.3,
+    "divertTo": "SDJ",
+    "divertAt": 0.9,
+    "traffic": true
+   },
+   "camera": {
+    "focusX": 420,
+    "focusY": 1300
+   }
+  },
+  {
+   "narration": "機長です。エンジンの不具合のため、仙台空港に着陸します。",
+   "telop": "機長から【機内放送】",
+   "background": "cabinAisle",
+   "voice": "sato_pa",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "頭を下げて！姿勢を低く！",
+   "telop": "【頭を下げて】！",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "engine": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "action": "brace",
+     "at": 1.0
+    },
+    {
+     "id": "misaki",
+     "x": 900,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true,
+     "expression": "surprised"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "頭を下げて！",
+     "x": 780,
+     "y": 850,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "飛行機は、なんとか滑走路に降りた。",
+   "telop": "無事に【着陸】",
+   "background": "runway",
+   "bgProps": {
+    "sky": "day",
+    "smoke": true,
+    "landAt": 2.2
+   }
+  },
+  {
+   "narration": "外では、消防車がすぐに駆けつける。",
+   "telop": "【消防車】が駆けつける",
+   "background": "runway",
+   "bgProps": {
+    "sky": "day",
+    "smoke": true,
+    "landing": false
+   },
+   "cuts": [
+    {
+     "at": 1.4,
+     "zoom": 1.5,
+     "focusX": 540,
+     "focusY": 1500
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/siren.wav",
+     "at": 0,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "narration": "緊急脱出！ベルトを外して、外へ！",
+   "telop": "「【緊急脱出】！」",
+   "background": "cabinAisle",
+   "voice": "sato_pa",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "alarm",
+     "text": "緊急脱出",
+     "at": 0
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/evac_horn.wav",
+     "at": 0,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "narration": "あなたは立ち上がり、思わず荷物棚に手を伸ばした。",
+   "telop": "思わず【荷物】に手が…",
+   "background": "cabin",
+   "bgProps": {
+    "engine": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 640,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "up",
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -80,
+     "at": 1.0
+    }
+   ],
+   "cuts": [
+    {
+     "at": 2.0,
+     "zoom": 1.6,
+     "focusX": 700,
+     "focusY": 900
+    }
+   ]
+  },
+  {
+   "narration": "その荷物、持って逃げたら、どうなると思う？",
+   "telop": "その荷物【持っていく】？",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "後編につづく",
+     "at": 1.2,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+{"text":"その荷物、持って逃げたら、どうなると思う？","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

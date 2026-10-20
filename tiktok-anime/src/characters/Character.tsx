@@ -204,6 +204,16 @@ export const Character: React.FC<{
         })
       : 0;
 
+  // 衝撃防止姿勢（頭を下げて、両手で頭を守る）
+  const brace =
+    spec.action === 'brace'
+      ? interpolate(t, [at, at + 0.5], [0, 1], {
+          extrapolateLeft: 'clamp',
+          extrapolateRight: 'clamp',
+          easing: Easing.out(Easing.cubic),
+        })
+      : 0;
+
   const breatheAmp = collapse > 0.5 ? 1.5 : 3;
   const breathe = spec.breathe === false ? 0 : Math.sin((t / 3.4 + seed) * Math.PI * 2) * breatheAmp;
 
@@ -211,7 +221,7 @@ export const Character: React.FC<{
   const blinking = spec.blink !== false && ((t + seed * 2) % period) < 0.13;
   const mouthOpen = !!spec.talking && Math.floor(frame / 4 + seed * 3) % 3 !== 0;
 
-  const expression: Expression = collapse > 0.3 ? 'closed' : spec.expression ?? 'normal';
+  const expression: Expression = collapse > 0.3 || brace > 0.5 ? 'closed' : spec.expression ?? 'normal';
 
   // 腕の基本形
   const restHand = (s: number): Pt => (pose === 'sit' ? [s * 40, -18] : [s * 70, -8]);
@@ -225,6 +235,12 @@ export const Character: React.FC<{
   if (spec.item === 'checklist') {
     hand = (s) => [s * 46, -132];
     elbow = (s) => [s * 80, -110];
+  }
+  if (spec.item === 'phone') {
+    const base = hand;
+    const baseE = elbow;
+    hand = (s) => (s === 1 ? [62, HEAD_Y + 18] : base(s));
+    elbow = (s) => (s === 1 ? [104, -150] : baseE(s));
   }
   const reachSide = spec.reachArm === 'left' ? -1 : 1;
   const ang = ((spec.reachAngle ?? -15) * Math.PI) / 180;
@@ -244,6 +260,13 @@ export const Character: React.FC<{
       e = lerpPt(e, dangleElbow(s), collapse);
       h = lerpPt(h, dangleHand(s), collapse);
     }
+    if (brace > 0) {
+      // 頭の上に手を置く（胴体の縮みぶんを戻して座標を合わせる）
+      const sq = 1 - brace * 0.1;
+      const headTop = (HEAD_Y + brace * 120 - 46 + (1 - sq) * 196) / sq;
+      e = lerpPt(e, [s * 92, headTop + 70], brace);
+      h = lerpPt(h, [s * 34, headTop], brace);
+    }
     return [[s * SHOULDER.x, SHOULDER.y], e, h];
   };
 
@@ -254,10 +277,10 @@ export const Character: React.FC<{
 
   // 上半身の傾き（倒れる）
   const bodyRot = collapse * 6;
-  const bodyDrop = collapse * 26;
-  const torsoSquash = 1 - collapse * 0.14;
+  const bodyDrop = collapse * 26 + brace * 20;
+  const torsoSquash = 1 - collapse * 0.14 - brace * 0.1;
   const headX = collapse * 14;
-  const headY = collapse * 104;
+  const headY = collapse * 104 + brace * 120;
   const headRot = collapse * 22;
   const headScale = 1 + collapse * 0.06;
 
@@ -337,6 +360,13 @@ export const Character: React.FC<{
             const h = armPts(s)[2];
             return <circle key={s} cx={h[0]} cy={h[1]} r={10} fill={a.skin ?? SKIN} />;
           })}
+          {spec.item === 'phone' && (
+            <g transform={`translate(70, ${HEAD_Y + 10}) rotate(-20)`}>
+              <rect x={-12} y={-56} width={26} height={112} rx={12} fill="#3A3F47" />
+              <rect x={-16} y={-62} width={34} height={30} rx={10} fill="#4A4F57" />
+              <rect x={-16} y={34} width={34} height={30} rx={10} fill="#4A4F57" />
+            </g>
+          )}
           {spec.item === 'checklist' && (
             <g transform="translate(0, -150) rotate(-3)">
               <rect x={-56} y={-40} width={112} height={92} rx={6} fill="#F6F1E4" stroke="#B9AF9C" strokeWidth={3} />

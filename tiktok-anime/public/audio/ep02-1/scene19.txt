@@ -1,0 +1,1 @@
+{"text":"ハンドルを回すと、エンジンの中に消火剤が噴き出す。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

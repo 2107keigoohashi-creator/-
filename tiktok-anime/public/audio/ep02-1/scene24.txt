@@ -1,0 +1,1 @@
+{"text":"メーデー、メーデー、メーデー。エンジン火災。仙台に向かいます。","preset":{"speaker":"玄野武宏","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.25,"pauseLengthScale":0.55,"volumeScale":1}}

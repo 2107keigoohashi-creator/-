@@ -43,7 +43,7 @@ export type CharacterInScene = {
   breathe?: boolean;
   talking?: boolean;
   sweat?: boolean;
-  item?: 'checklist' | null;
+  item?: 'checklist' | 'phone' | null;
   // 両手を前に（操縦桿を握る）
   hold?: boolean;
   // 前に操縦桿を描く（位置は最初の x, y に固定）
@@ -51,7 +51,8 @@ export type CharacterInScene = {
   // 操縦桿の位置を別に指定したいとき（座席を下げた後のシーンなど）
   yokePos?: {x: number; y: number; scale?: number};
   // 倒れる。collapse は at 秒から倒れ始める、collapsed は最初から倒れている
-  action?: 'collapse' | 'collapsed' | 'reach' | null;
+  // brace は at 秒から衝撃防止姿勢（頭を下げて手で守る）
+  action?: 'collapse' | 'collapsed' | 'reach' | 'brace' | null;
   at?: number;
   reachArm?: 'left' | 'right';
   reachAngle?: number;

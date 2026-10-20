@@ -112,6 +112,14 @@ const subtitleTimes = async (scene, speaker, params, wav) => {
   };
 };
 
+// 機内放送っぽい音（帯域を少し絞って、軽い反響）
+const paFilter = (file) => {
+  const tmp = file.replace(/\.wav$/, '.raw.wav');
+  fs.renameSync(file, tmp);
+  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-i', tmp, '-af', 'highpass=f=250,lowpass=f=5000,aecho=0.8:0.5:40:0.25', '-ar', '24000', '-ac', '1', file]);
+  fs.unlinkSync(tmp);
+};
+
 let made = 0;
 for (let i = 0; i < ep.scenes.length; i++) {
   if (only && !only.has(i + 1)) continue;
@@ -150,6 +158,7 @@ for (let i = 0; i < ep.scenes.length; i++) {
   ).arrayBuffer();
   fs.writeFileSync(wav, Buffer.from(audio));
   if (preset.filter === 'radio') radioFilter(wav);
+  if (preset.filter === 'pa') paFilter(wav);
   normalize(wav);
   fs.writeFileSync(path.join(outDir, `${name}.json`), JSON.stringify(await subtitleTimes(scene, speaker, params, wav), null, 1));
   fs.writeFileSync(stamp, signature);

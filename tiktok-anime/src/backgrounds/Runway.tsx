@@ -2,7 +2,7 @@ import React from 'react';
 import {Easing, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {Background, bool, Grad, num, SKY, skyKind} from './common';
 
-const Airliner: React.FC<{x: number; y: number; rot: number; s?: number}> = ({x, y, rot, s = 1}) => (
+export const Airliner: React.FC<{x: number; y: number; rot: number; s?: number}> = ({x, y, rot, s = 1}) => (
   <g transform={`translate(${x}, ${y}) rotate(${rot}) scale(${s})`}>
     <path d="M -230,-10 Q -240,-40 -200,-44 L 170,-44 Q 240,-40 250,-6 Q 240,20 170,22 L -200,22 Q -236,18 -230,-10 Z" fill="#EDEAE3" />
     <path d="M -200,-44 L -250,-140 L -205,-140 L -150,-44 Z" fill="#5C7088" />
@@ -94,6 +94,11 @@ export const Runway: Background = ({layer, p}) => {
       {Array.from({length: 14}).map((_, i) => (
         <circle key={i} cx={20 + i * 80} cy={1260} r={6} fill={i % 2 ? '#F2C14E' : '#E9E4DA'} opacity={0.8} />
       ))}
+      {bool(p.smoke) &&
+        Array.from({length: 6}).map((_, i) => {
+          const u = (t * 0.8 + i / 6) % 1;
+          return <circle key={i} cx={px - 60 - u * 380} cy={py + 60 - u * 60} r={16 + u * 44} fill="#6B6E73" opacity={0.45 * (1 - u)} />;
+        })}
       <Airliner x={px} y={py} rot={rot} s={1.1} />
     </g>
   );

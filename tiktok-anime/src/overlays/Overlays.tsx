@@ -347,7 +347,46 @@ export const Watermark: React.FC = () =>
   </div>
   ) : null;
 
+// 警報（画面のふちが赤く点滅し、警告表示が出る）
+const Alarm: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const on = Math.floor(f / 8) % 2 === 0;
+  const p = useIn(4);
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{boxShadow: `inset 0 0 ${on ? 220 : 120}px rgba(229,57,53,${on ? 0.75 : 0.35})`}} />
+      <div style={{position: 'absolute', left: 0, right: 0, top: n(o.y, 260), display: 'flex', justifyContent: 'center', opacity: p}}>
+        <div style={{...font, display: 'flex', alignItems: 'center', gap: 22, background: '#1A1C20', border: `6px solid ${on ? '#FF4D3D' : '#7A2E2A'}`, borderRadius: 18, padding: '16px 34px'}}>
+          <div style={{width: 64, height: 64, borderRadius: 32, background: on ? '#FF4D3D' : '#5A1E1A', boxShadow: on ? '0 0 30px #FF4D3D' : 'none'}} />
+          <div style={{color: on ? '#FF6B5E' : '#B9473F', fontWeight: 900, fontSize: n(o.size, 64), letterSpacing: 4}}>{s(o.text, 'ENG 1 FIRE')}</div>
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// 秒数のタイマー（例：90秒ルール）
+const Timer: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const from = n(o.from, 90);
+  const speed = n(o.speed, 1);
+  const v = Math.max(0, from - (f / fps) * speed);
+  const p = useIn(6);
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: n(o.y, 300), display: 'flex', justifyContent: 'center', opacity: p}}>
+      <div style={{...font, background: 'rgba(24,30,42,0.85)', borderRadius: 24, padding: '14px 40px', color: v <= 10 ? '#FF6B5E' : '#F2EEE6', fontWeight: 900, fontSize: 110, fontVariantNumeric: 'tabular-nums'}}>
+        {s(o.label, '')}
+        {Math.ceil(v)}
+        <span style={{fontSize: 56}}>秒</span>
+      </div>
+    </div>
+  );
+};
+
 const SCREEN: Record<string, React.FC<{o: Overlay}>> = {
+  alarm: Alarm,
+  timer: Timer,
   ruleCard: RuleCard,
   infoBox: InfoBox,
   bigText: BigText,

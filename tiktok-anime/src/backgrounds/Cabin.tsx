@@ -1,6 +1,23 @@
 import React from 'react';
 import {useCurrentFrame, useVideoConfig} from 'remotion';
-import {Background, bool, Cloud, Grad, SKY, skyKind} from './common';
+import {Background, bool, Cloud, Grad, num, SKY, skyKind} from './common';
+
+// 揺らめく炎（x, y が根元。左へなびく）
+export const Flame: React.FC<{x: number; y: number; s: number; t: number}> = ({x, y, s, t}) => {
+  if (s <= 0.01) return null;
+  const w = (k: number) => Math.sin(t * 13 + k) * 6 + Math.sin(t * 21 + k * 2) * 4;
+  return (
+    <g transform={`translate(${x}, ${y}) scale(${s})`}>
+      <path d={`M 0,-26 Q ${-60 + w(1)},${-40 + w(2)} ${-130 + w(3)},${-6 + w(4)} Q ${-70 + w(5)},${6} ${-150 + w(6)},${28 + w(7)} Q ${-50},${30 + w(8)} 0,26 Z`} fill="#E8692E" opacity={0.92} />
+      <path d={`M 0,-16 Q ${-40 + w(9)},${-22} ${-84 + w(10)},${0 + w(11)} Q ${-40},${16 + w(12)} 0,16 Z`} fill="#F6B640" />
+      <path d={`M 0,-8 Q ${-22 + w(13)},${-8} ${-44 + w(14)},${2} Q ${-20},${8} 0,8 Z`} fill="#FCE7A0" />
+      {[0, 1, 2].map((i) => {
+        const u = (t * 0.9 + i / 3) % 1;
+        return <circle key={i} cx={-160 - u * 140} cy={10 - u * 30 + w(i)} r={14 + u * 26} fill="#4A4A4E" opacity={0.45 * (1 - u)} />;
+      })}
+    </g>
+  );
+};
 
 // 旅客機の客室（窓側席）。キャラクターは x≈620, y≈1330 に座らせる想定
 export const Cabin: Background = ({layer, p}) => {
@@ -11,11 +28,20 @@ export const Cabin: Background = ({layer, p}) => {
   const flash = bool(p.flashRed);
   const ground = bool(p.ground) || flash;
   const pulse = flash ? (Math.sin(t * Math.PI * 2 * 1.4) > 0.2 ? 1 : 0) : 0;
+  // エンジン火災：fire（true で炎）、fireAt（燃え始める秒）、fireOutAt（消え始める秒）
+  const fire = bool(p.fire);
+  const engine = fire || bool(p.engine);
+  const fireAt = num(p.fireAt, 0);
+  const fireOutAt = num(p.fireOutAt, 9999);
+  const grow = Math.min(1, Math.max(0, (t - fireAt) / 0.8));
+  const shrink = Math.min(1, Math.max(0, (t - fireOutAt) / 2.5));
+  const fireScale = fire ? grow * (1 - shrink) * (0.95 + Math.sin(t * 17) * 0.05) : 0;
 
   if (layer === 'front') {
     return (
       <g>
         {flash && <rect x={0} y={0} width={1080} height={1920} fill="#E53935" opacity={0.08 * pulse} />}
+        {fireScale > 0 && <rect x={0} y={0} width={1080} height={1920} fill="#F08A3C" opacity={0.07 * fireScale} />}
       </g>
     );
   }
@@ -53,6 +79,14 @@ export const Cabin: Background = ({layer, p}) => {
           })}
         {!ground && (
           <path d={`M ${win.x + 20},${win.y + 330} L ${win.x + 330},${win.y + 250} L ${win.x + 330},${win.y + 290} L ${win.x + 60},${win.y + 350} Z`} fill={sky === 'night' ? '#4A5266' : '#D9DDE0'} />
+        )}
+        {!ground && engine && (
+          <g>
+            <rect x={win.x + 168} y={win.y + 300} width={14} height={30} fill="#B9BEC3" />
+            <rect x={win.x + 120} y={win.y + 322} width={110} height={52} rx={26} fill="#C9CED3" />
+            <ellipse cx={win.x + 228} cy={win.y + 348} rx={12} ry={24} fill="#5E646D" />
+            <Flame x={win.x + 124} y={win.y + 348} s={fireScale} t={t} />
+          </g>
         )}
         {ground && (
           <g>

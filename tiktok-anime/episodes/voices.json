@@ -17,5 +17,51 @@
     "pauseLengthScale": 0.6,
     "volumeScale": 1.0,
     "filter": "radio"
+  },
+  "you": {
+    "speaker": "白上虎太郎",
+    "style": "ふつう",
+    "speedScale": 1.08,
+    "pitchScale": 0,
+    "intonationScale": 1.35,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0
+  },
+  "misaki": {
+    "speaker": "No.7",
+    "style": "ノーマル",
+    "speedScale": 1.05,
+    "pitchScale": 0,
+    "intonationScale": 1.2,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0
+  },
+  "sato": {
+    "speaker": "麒ヶ島宗麟",
+    "style": "ノーマル",
+    "speedScale": 1.02,
+    "pitchScale": 0,
+    "intonationScale": 1.15,
+    "pauseLengthScale": 0.6,
+    "volumeScale": 1.0
+  },
+  "takahashi": {
+    "speaker": "玄野武宏",
+    "style": "ノーマル",
+    "speedScale": 1.06,
+    "pitchScale": 0,
+    "intonationScale": 1.25,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0
+  },
+  "sato_pa": {
+    "speaker": "麒ヶ島宗麟",
+    "style": "ノーマル",
+    "speedScale": 1.02,
+    "pitchScale": 0,
+    "intonationScale": 1.15,
+    "pauseLengthScale": 0.6,
+    "volumeScale": 1.0,
+    "filter": "pa"
   }
 }
