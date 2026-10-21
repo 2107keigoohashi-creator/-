@@ -1,0 +1,1 @@
+{"text":"2024年1月、羽田空港で炎上した旅客機では、乗客乗員379人、全員が脱出した。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

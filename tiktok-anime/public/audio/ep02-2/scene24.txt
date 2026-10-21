@@ -1,0 +1,1 @@
+{"text":"ここでスマホを取り出して、撮影してはいけない。後ろの人が逃げられなくなる。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

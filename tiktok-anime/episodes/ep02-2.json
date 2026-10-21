@@ -1,0 +1,675 @@
+{
+ "title": "窓の外で、エンジンが燃えていたら（後編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "前編のあらすじ。離陸してすぐ、エンジンから火が出た旅客機。",
+   "telop": "【前編】のおさらい",
+   "background": "skyPlane",
+   "bgProps": {
+    "smoke": true,
+    "fire": true
+   }
+  },
+  {
+   "narration": "機長と副操縦士は火を消して、仙台空港に緊急着陸した。",
+   "telop": "仙台空港に【緊急着陸】",
+   "background": "runway",
+   "bgProps": {
+    "sky": "day",
+    "smoke": true,
+    "landAt": 1.6
+   }
+  },
+  {
+   "narration": "そして、機長の声が響く。",
+   "telop": "機長の【放送】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    }
+   ]
+  },
+  {
+   "narration": "緊急脱出！ベルトを外して、外へ！",
+   "telop": "「【緊急脱出】！」",
+   "background": "cabinAisle",
+   "voice": "sato_pa",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "alarm",
+     "text": "緊急脱出",
+     "at": 0
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/evac_horn.wav",
+     "at": 0,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "narration": "あなたは立ち上がり、荷物棚のバッグに手を伸ばした。",
+   "telop": "とっさに【バッグ】へ",
+   "background": "cabin",
+   "bgProps": {
+    "engine": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "up",
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -80,
+     "at": 0.6
+    }
+   ],
+   "cuts": [
+    {
+     "at": 2.2,
+     "zoom": 1.7,
+     "focusX": 700,
+     "focusY": 860
+    }
+   ]
+  },
+  {
+   "narration": "荷物は置いて！そのまま出て！",
+   "telop": "「荷物は【置いて】！」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "engine": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "item": "bag",
+     "look": "right",
+     "expression": "surprised"
+    },
+    {
+     "id": "misaki",
+     "x": 900,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "action": "stop",
+     "talking": true,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "荷物は置いて！",
+     "x": 780,
+     "y": 780,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "でも、パソコンも財布も、全部入ってるのに……",
+   "telop": "「全部【入ってる】のに…」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "engine": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "item": "bag",
+     "look": "right",
+     "expression": "panic",
+     "sweat": true,
+     "talking": true
+    },
+    {
+     "id": "misaki",
+     "x": 900,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "action": "stop"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "全部入ってるのに…",
+     "x": 560,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down",
+     "size": 50
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 960
+    }
+   ]
+  },
+  {
+   "narration": "実はこの指示、命に関わる理由があるんだ。",
+   "telop": "荷物は【命に関わる】",
+   "background": "cabin",
+   "bgProps": {
+    "engine": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "item": "bag",
+     "look": "right",
+     "expression": "surprised"
+    },
+    {
+     "id": "misaki",
+     "x": 900,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "action": "stop"
+    }
+   ]
+  },
+  {
+   "narration": "旅客機は、非常口の半分が使えなくても、全員が90秒以内に脱出できるように作られている。",
+   "telop": "ルール#1 全員【90秒】で脱出",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    },
+    {
+     "type": "timer",
+     "from": 90,
+     "at": 1.3,
+     "y": 520,
+     "speed": 6
+    }
+   ]
+  },
+  {
+   "narration": "火や煙が広がる前に、外へ出るための時間だ。",
+   "telop": "【火と煙】との競争",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "timer",
+     "from": 60,
+     "at": 0,
+     "y": 520,
+     "speed": 8
+    }
+   ]
+  },
+  {
+   "narration": "でも、一人が荷物を取り出すだけで、通路は止まってしまう。",
+   "telop": "【一人の荷物】で通路が止まる",
+   "background": "cabinAisle",
+   "bgProps": {
+    "exit": true,
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 540,
+     "y": 1500,
+     "scale": 1.35,
+     "pose": "stand",
+     "item": "bag",
+     "look": "up"
+    }
+   ]
+  },
+  {
+   "narration": "後ろの人は、そのあいだ、ずっと待つしかない。",
+   "telop": "後ろの人は【待つしかない】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "exit": true,
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "zawa",
+     "at": 0.2
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.6,
+     "zoom": 1.6,
+     "focusX": 540,
+     "focusY": 900
+    }
+   ]
+  },
+  {
+   "narration": "さらに、荷物の角は、脱出スライドを傷つけることもある。",
+   "telop": "荷物は【スライドを傷つける】",
+   "background": "evacSlide",
+   "bgProps": {
+    "sliding": true
+   },
+   "overlays": [
+    {
+     "type": "noSign",
+     "icon": "bag",
+     "text": "荷物",
+     "at": 0.8,
+     "y": 180
+    }
+   ]
+  },
+  {
+   "narration": "ハイヒールも同じ。スライドに穴を開けるおそれがあるんだ。",
+   "telop": "ルール#2 【ヒールは脱ぐ】",
+   "background": "evacSlide",
+   "bgProps": {
+    "sliding": true
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    },
+    {
+     "type": "noSign",
+     "icon": "heel",
+     "text": "ハイヒール",
+     "at": 1.3,
+     "y": 180
+    }
+   ]
+  },
+  {
+   "narration": "……わかった。",
+   "telop": "「…【わかった】」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "engine": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "right",
+     "talking": true
+    },
+    {
+     "id": "misaki",
+     "x": 900,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 960
+    }
+   ]
+  },
+  {
+   "narration": "あなたはバッグを置いて、何も持たずに非常口へ向かった。",
+   "telop": "何も持たずに【非常口へ】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "exit": true,
+    "murmur": true
+   },
+   "camera": {
+    "from": 1.0,
+    "to": 1.2,
+    "focusX": 540,
+    "focusY": 800
+   }
+  },
+  {
+   "narration": "ドアの外には、黄色いスライドが広がっている。",
+   "telop": "【脱出スライド】",
+   "background": "evacSlide",
+   "bgProps": {
+    "sliding": true
+   },
+   "cuts": [
+    {
+     "at": 1.8,
+     "zoom": 1.5,
+     "focusX": 380,
+     "focusY": 560
+    }
+   ]
+  },
+  {
+   "narration": "ジャンプして！座らないで！",
+   "telop": "「【座らないで】！」",
+   "background": "evacSlide",
+   "voice": "misaki",
+   "bgProps": {
+    "sliding": true
+   },
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "ジャンプして！",
+     "x": 330,
+     "y": 480,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "スライドには、座らずに飛び乗る。腕は前に出して、足から滑り降りる。",
+   "telop": "ルール#3 【座らず飛び乗る】",
+   "background": "evacSlide",
+   "bgProps": {
+    "sliding": true
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "ドアの前で座りこむと、そこで流れが止まってしまうからだ。",
+   "telop": "座ると【流れが止まる】",
+   "background": "evacSlide",
+   "bgProps": {
+    "sliding": false
+   },
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.6,
+     "focusX": 330,
+     "focusY": 560
+    }
+   ]
+  },
+  {
+   "narration": "あなたは思い切って、スライドに飛び乗った。",
+   "telop": "思い切って【飛び乗る】",
+   "background": "evacSlide",
+   "bgProps": {
+    "sliding": false,
+    "youAt": 0.8
+   },
+   "se": [
+    {
+     "file": "assets/audio/whoosh.wav",
+     "at": 0.8,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "下に着いたら、すぐに立って、機体から離れる。",
+   "telop": "着いたら【すぐ離れる】",
+   "background": "evacSlide",
+   "bgProps": {
+    "sliding": true,
+    "youAt": 0
+   },
+   "cuts": [
+    {
+     "at": 1.2,
+     "zoom": 1.5,
+     "focusX": 900,
+     "focusY": 1100
+    }
+   ]
+  },
+  {
+   "narration": "外では、消防隊がエンジンに向けて放水している。",
+   "telop": "【消防隊】が放水",
+   "background": "runway",
+   "bgProps": {
+    "sky": "day",
+    "smoke": true,
+    "landing": false
+   },
+   "se": [
+    {
+     "file": "assets/audio/siren.wav",
+     "at": 0,
+     "volume": 0.3
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.8,
+     "zoom": 1.5,
+     "focusX": 620,
+     "focusY": 1500
+    }
+   ]
+  },
+  {
+   "narration": "ここでスマホを取り出して、撮影してはいけない。後ろの人が逃げられなくなる。",
+   "telop": "【撮影より避難】",
+   "background": "runway",
+   "bgProps": {
+    "sky": "day",
+    "smoke": true,
+    "landing": false
+   },
+   "overlays": [
+    {
+     "type": "noSign",
+     "icon": "phone",
+     "text": "立ち止まって撮影",
+     "at": 0.4,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "narration": "全員の脱出が、終わった。",
+   "telop": "【全員】脱出完了",
+   "background": "evacSlide",
+   "bgProps": {
+    "sliding": false,
+    "youAt": 0
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "全員脱出",
+     "at": 0.3,
+     "y": 330,
+     "color": "#FFFFFF",
+     "bg": "#2E9E5B"
+    }
+   ]
+  },
+  {
+   "narration": "2024年1月、羽田空港で炎上した旅客機では、乗客乗員379人、全員が脱出した。",
+   "telop": "379人【全員が脱出】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "379人 全員脱出",
+     "at": 0.5,
+     "y": 520,
+     "color": "#F2C14E"
+    }
+   ]
+  },
+  {
+   "narration": "多くの人が、荷物を持たずに逃げたと伝えられている。",
+   "telop": "荷物を【持たずに】逃げた",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "noSign",
+     "icon": "bag",
+     "at": 0.3,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "narration": "最後に、もしもの時に、あなたがやることは3つ。",
+   "telop": "やることは【3つ】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "ベルトを締めて、CAの指示を聞く",
+      "荷物は置いて、ヒールは脱ぐ",
+      "スライドは飛び乗って、すぐ離れる"
+     ],
+     "show": 0,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "1つ目。ベルトを締めて、CAの指示を聞く。",
+   "telop": "①【指示を聞く】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "ベルトを締めて、CAの指示を聞く",
+      "荷物は置いて、ヒールは脱ぐ",
+      "スライドは飛び乗って、すぐ離れる"
+     ],
+     "show": 1,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "2つ目。荷物は置いて、ヒールは脱ぐ。",
+   "telop": "②【荷物は置く】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "ベルトを締めて、CAの指示を聞く",
+      "荷物は置いて、ヒールは脱ぐ",
+      "スライドは飛び乗って、すぐ離れる"
+     ],
+     "show": 2,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "3つ目。スライドは飛び乗って、下に着いたらすぐ離れる。",
+   "telop": "③【すぐ離れる】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "ベルトを締めて、CAの指示を聞く",
+      "荷物は置いて、ヒールは脱ぐ",
+      "スライドは飛び乗って、すぐ離れる"
+     ],
+     "show": 3,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "生きるか死ぬかを分けるのは、最初の90秒かもしれない。",
+   "telop": "運命を分ける【90秒】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "おわり",
+     "at": 2.0,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

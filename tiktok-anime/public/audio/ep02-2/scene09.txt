@@ -1,0 +1,1 @@
+{"text":"旅客機は、非常口の半分が使えなくても、全員が90秒以内に脱出できるように作られている。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

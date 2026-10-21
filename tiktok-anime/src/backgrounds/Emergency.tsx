@@ -104,3 +104,75 @@ export const SkyPlane: Background = ({layer, p}) => {
     </g>
   );
 };
+
+// 滑り降りる人（横から）
+const Slider: React.FC<{x: number; y: number; ang: number; shirt: string; hair: string}> = ({x, y, ang, shirt, hair}) => (
+  <g transform={`translate(${x}, ${y}) rotate(${ang})`}>
+    <line x1={10} y1={-10} x2={90} y2={-14} stroke="#2E2A28" strokeWidth={8} strokeLinecap="round" />
+    <rect x={-30} y={-80} width={50} height={74} rx={18} fill={shirt} />
+    <line x1={10} y1={-70} x2={60} y2={-96} stroke="#2E2A28" strokeWidth={7} strokeLinecap="round" />
+    <circle cx={-6} cy={-118} r={34} fill="#F1D6C1" />
+    <path d="M -40,-122 A 34 34 0 0 1 28,-124 L 20,-130 Q -6,-150 -34,-130 Z" fill={hair} />
+    <circle cx={6} cy={-118} r={4.5} fill="#2A2522" />
+  </g>
+);
+
+// 脱出スライド（機体の横から）。sliding で人が次々に滑り降りる、you で主人公が at 秒に滑る
+export const EvacSlide: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const sky = skyKind(p.sky);
+  const sliding = bool(p.sliding);
+  const youAt = num(p.youAt, -1);
+  // スライドの上端（ドア）と下端
+  const top: [number, number] = [330, 820];
+  const bottom: [number, number] = [930, 1420];
+  const ang = (Math.atan2(bottom[1] - top[1], bottom[0] - top[0]) * 180) / Math.PI;
+  const at = (u: number): [number, number] => [top[0] + (bottom[0] - top[0]) * u, top[1] + (bottom[1] - top[1]) * u];
+  const people = sliding
+    ? [0, 1, 2].map((i) => {
+        const u = (t * 0.55 + i / 3) % 1;
+        return {u, shirt: ['#8E6F6A', '#6F8A7A', '#A08B6A'][i], hair: ['#3A3330', '#5A463A', '#8C8984'][i]};
+      })
+    : [];
+  const yu = youAt >= 0 ? interpolate(t, [youAt, youAt + 1.3], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.in(Easing.quad)}) : -1;
+  return (
+    <g>
+      <defs>
+        <Grad id="es-sky" from={SKY[sky][0]} to={SKY[sky][1]} />
+        <Grad id="es-slide" from="#F2C14E" to="#E3A93A" />
+      </defs>
+      <rect x={0} y={0} width={1080} height={1920} fill="url(#es-sky)" />
+      <rect x={0} y={1180} width={1080} height={740} fill="#4C5058" />
+      <rect x={0} y={1180} width={1080} height={14} fill="#3C4048" />
+      <g transform="translate(0, -200)">
+      {/* 機体 */}
+      <rect x={-200} y={420} width={1500} height={430} rx={200} fill="#EDEAE3" />
+      <rect x={-200} y={700} width={1500} height={30} fill="#5C7088" />
+      {[-120, 0, 520, 640, 760, 880].map((x) => (
+        <rect key={x} x={x} y={560} width={56} height={72} rx={26} fill="#5C7088" />
+      ))}
+      {/* 開いたドア */}
+      <rect x={240} y={500} width={170} height={330} rx={20} fill="#2A2D33" />
+      <rect x={250} y={520} width={150} height={300} rx={14} fill="#F6EFD6" opacity={0.9} />
+      <rect x={410} y={505} width={36} height={320} rx={10} fill="#C9C6BF" />
+      {/* スライド */}
+      <path d={`M ${top[0] - 70},${top[1]} L ${top[0] + 70},${top[1]} L ${bottom[0] + 60},${bottom[1] - 30} L ${bottom[0] - 40},${bottom[1] + 30} Z`} fill="url(#es-slide)" stroke="#C98F24" strokeWidth={8} strokeLinejoin="round" />
+      <path d={`M ${top[0] - 70},${top[1]} L ${bottom[0] - 40},${bottom[1] + 30}`} stroke="#D99B2B" strokeWidth={26} strokeLinecap="round" />
+      <path d={`M ${top[0] + 70},${top[1]} L ${bottom[0] + 60},${bottom[1] - 30}`} stroke="#D99B2B" strokeWidth={26} strokeLinecap="round" />
+      <path d={`M ${bottom[0] - 60},${bottom[1] + 34} Q ${bottom[0] + 40},${bottom[1] + 60} ${bottom[0] + 120},${bottom[1] - 10}`} fill="none" stroke="#C98F24" strokeWidth={14} />
+      {people.map((pp, i) => {
+        const [x, y] = at(pp.u);
+        return <Slider key={i} x={x} y={y - 10} ang={ang} shirt={pp.shirt} hair={pp.hair} />;
+      })}
+      {yu >= 0 && yu < 1 && (() => {
+        const [x, y] = at(yu);
+        return <Slider x={x} y={y - 10} ang={ang} shirt="#4A5D7E" hair="#3A3330" />;
+      })()}
+      {yu >= 1 && <Slider x={bottom[0] + 60} y={bottom[1] - 20} ang={0} shirt="#4A5D7E" hair="#3A3330" />}
+      </g>
+    </g>
+  );
+};

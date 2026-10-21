@@ -236,6 +236,16 @@ export const Character: React.FC<{
     hand = (s) => [s * 46, -132];
     elbow = (s) => [s * 80, -110];
   }
+  if (spec.action === 'stop') {
+    hand = (s) => [s * 170, -250];
+    elbow = (s) => [s * 120, -200];
+  }
+  if (spec.item === 'bag') {
+    const base = hand;
+    const baseE = elbow;
+    hand = (s) => (s === 1 ? [78, -40] : base(s));
+    elbow = (s) => (s === 1 ? [80, -110] : baseE(s));
+  }
   if (spec.item === 'phone') {
     const base = hand;
     const baseE = elbow;
@@ -360,6 +370,13 @@ export const Character: React.FC<{
             const h = armPts(s)[2];
             return <circle key={s} cx={h[0]} cy={h[1]} r={10} fill={a.skin ?? SKIN} />;
           })}
+          {spec.item === 'bag' && (
+            <g transform="translate(78, -40)">
+              <path d="M -22,0 Q -22,-24 0,-24 Q 22,-24 22,0" fill="none" stroke="#3A3330" strokeWidth={7} />
+              <rect x={-58} y={0} width={116} height={96} rx={16} fill="#8A6A4F" stroke="#5E4634" strokeWidth={4} />
+              <rect x={-58} y={34} width={116} height={10} fill="#5E4634" />
+            </g>
+          )}
           {spec.item === 'phone' && (
             <g transform={`translate(70, ${HEAD_Y + 10}) rotate(-20)`}>
               <rect x={-12} y={-56} width={26} height={112} rx={12} fill="#3A3F47" />

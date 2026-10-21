@@ -156,11 +156,15 @@ for (let i = 0; i < ep.scenes.length; i++) {
   const audio = await (
     await get(`/synthesis?speaker=${speaker}`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(q)})
   ).arrayBuffer();
-  fs.writeFileSync(wav, Buffer.from(audio));
-  if (preset.filter === 'radio') radioFilter(wav);
-  if (preset.filter === 'pa') paFilter(wav);
-  normalize(wav);
-  fs.writeFileSync(path.join(outDir, `${name}.json`), JSON.stringify(await subtitleTimes(scene, speaker, params, wav), null, 1));
+  // 途中で失敗しても半端な wav が「手動の音声」扱いにならないよう、仮の名前で作ってから置き換える
+  const work = wav.replace(/\.wav$/, '.work.wav');
+  fs.writeFileSync(work, Buffer.from(audio));
+  if (preset.filter === 'radio') radioFilter(work);
+  if (preset.filter === 'pa') paFilter(work);
+  normalize(work);
+  const subs = await subtitleTimes(scene, speaker, params, work);
+  fs.renameSync(work, wav);
+  fs.writeFileSync(path.join(outDir, `${name}.json`), JSON.stringify(subs, null, 1));
   fs.writeFileSync(stamp, signature);
   made++;
   console.log(`✓ ${name} (${presetName}) ${text.slice(0, 24)}…`);

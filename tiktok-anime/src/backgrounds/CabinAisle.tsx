@@ -25,6 +25,14 @@ export const CabinAisle: Background = ({layer, p}) => {
       <path d="M 1080,260 L 640,560 L 640,590 L 1080,300 Z" fill="#C9C1B3" />
       <path d="M 440,1000 L 640,1000 L 1080,1920 L 0,1920 Z" fill="#857B6E" />
       <path d="M 520,1000 L 560,1000 L 600,1920 L 480,1920 Z" fill="#9A8F81" opacity={0.6} />
+      {bool(p.exit) && (
+        <g>
+          <rect x={455} y={640} width={170} height={360} rx={16} fill="#F6F1DC" />
+          <rect x={455} y={640} width={170} height={360} rx={16} fill="#FFF7C8" opacity={0.6 + 0.4 * Math.sin(t * 3) ** 2} />
+          <rect x={470} y={585} width={140} height={46} rx={8} fill="#2E9E5B" />
+          <text x={540} y={620} textAnchor="middle" fontSize={30} fontWeight={900} fill="#FFFFFF" fontFamily="Noto Sans JP">非常口</text>
+        </g>
+      )}
       {rows
         .slice()
         .reverse()
