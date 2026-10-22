@@ -1,0 +1,1 @@
+{"text":"上の棚から、煙が出てる！","preset":{"speaker":"剣崎雌雄","style":"ノーマル","speedScale":1.1,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

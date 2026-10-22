@@ -240,6 +240,10 @@ export const Character: React.FC<{
     hand = (s) => [s * 170, -250];
     elbow = (s) => [s * 120, -200];
   }
+  if (spec.item === 'extinguisher') {
+    hand = (s) => (s === 1 ? [70, -120] : [-30, -150]);
+    elbow = (s) => (s === 1 ? [90, -60] : [-80, -120]);
+  }
   if (spec.item === 'bag') {
     const base = hand;
     const baseE = elbow;
@@ -370,6 +374,14 @@ export const Character: React.FC<{
             const h = armPts(s)[2];
             return <circle key={s} cx={h[0]} cy={h[1]} r={10} fill={a.skin ?? SKIN} />;
           })}
+          {spec.item === 'extinguisher' && (
+            <g transform="translate(40, -150)">
+              <rect x={-26} y={-10} width={60} height={150} rx={22} fill="#C9483F" stroke="#8C2F29" strokeWidth={4} />
+              <rect x={-14} y={-34} width={36} height={28} rx={6} fill="#2A2D33" />
+              <path d="M 4,-30 Q -40,-60 -80,-30" fill="none" stroke="#2A2D33" strokeWidth={9} strokeLinecap="round" />
+              <rect x={-20} y={40} width={48} height={40} rx={6} fill="#F2EEE6" />
+            </g>
+          )}
           {spec.item === 'bag' && (
             <g transform="translate(78, -40)">
               <path d="M -22,0 Q -22,-24 0,-24 Q 22,-24 22,0" fill="none" stroke="#3A3330" strokeWidth={7} />

@@ -176,3 +176,61 @@ export const EvacSlide: Background = ({layer, p}) => {
     </g>
   );
 };
+
+// 座席のすき間のアップ。phoneAt で隣の人のスマホが滑り込み、crushAt で座席が動いてつぶれる、smokeAt で煙
+export const SeatGap: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const phoneAt = num(p.phoneAt, -1);
+  const crushAt = num(p.crushAt, 9999);
+  const smokeAt = num(p.smokeAt, 9999);
+  const dim = bool(p.dim, true);
+  const slide = phoneAt < 0 ? 1 : interpolate(t, [phoneAt, phoneAt + 0.7], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.in(Easing.quad)});
+  const crush = interpolate(t, [crushAt, crushAt + 0.6], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)});
+  const spark = t > crushAt + 0.5 && t < crushAt + 1.6 && Math.floor(t * 12) % 2 === 0;
+  const smoke = Math.max(0, Math.min(1, (t - smokeAt) / 0.8));
+  const px = 540;
+  const py = 700 + slide * 520;
+  return (
+    <g>
+      <defs>
+        <Grad id="sg-bg" from="#3B4656" to="#232A35" />
+      </defs>
+      <rect x={0} y={0} width={1080} height={1920} fill="url(#sg-bg)" />
+      {/* 座面（左右）とすき間 */}
+      <rect x={-40} y={900} width={520} height={600} rx={60} fill="#6F8496" />
+      <rect x={600} y={900} width={520} height={600} rx={60} fill="#6F8496" />
+      <rect x={-40} y={900} width={520} height={90} rx={40} fill="#7D93A6" />
+      <rect x={600} y={900} width={520} height={90} rx={40} fill="#7D93A6" />
+      <rect x={470} y={960} width={140} height={700} fill="#151A21" />
+      {/* 座席の機械（リクライニングの金具） */}
+      <g transform={`translate(0, ${-crush * 90})`}>
+        <rect x={430} y={1290} width={220} height={36} rx={8} fill="#8A9098" />
+        <rect x={500} y={1240} width={80} height={130} rx={10} fill="#5E646D" />
+        <circle cx={540} cy={1305} r={22} fill="#3A3F47" />
+      </g>
+      {/* スマホ */}
+      <g transform={`translate(${px}, ${py}) rotate(${8 + crush * 18}) scale(${1}, ${1 - crush * 0.35})`}>
+        <rect x={-34} y={-70} width={68} height={140} rx={12} fill="#2A2D33" stroke="#11141A" strokeWidth={4} />
+        <rect x={-26} y={-58} width={52} height={112} rx={6} fill={crush > 0.5 ? '#3B2A2A' : '#7AB6C4'} opacity={0.9} />
+        {crush > 0.5 && <path d="M -20,-40 L 10,0 L -8,20 L 22,50" stroke="#C9C6BF" strokeWidth={3} fill="none" />}
+      </g>
+      {spark && (
+        <g transform={`translate(${px}, ${py - 60})`}>
+          {[0, 50, 110, 170, 230, 290].map((a) => (
+            <line key={a} x1={0} y1={0} x2={Math.cos((a * Math.PI) / 180) * 70} y2={Math.sin((a * Math.PI) / 180) * 70} stroke="#FFD25A" strokeWidth={6} strokeLinecap="round" />
+          ))}
+          <circle cx={0} cy={0} r={18} fill="#FFF2B0" />
+        </g>
+      )}
+      {smoke > 0 &&
+        Array.from({length: 8}).map((_, i) => {
+          const u = (t * 0.5 + i / 8) % 1;
+          return <circle key={i} cx={px + Math.sin(t * 2 + i) * 40 * u} cy={py - 60 - u * 700} r={(24 + u * 110) * smoke} fill={i % 3 ? '#D9D9DC' : '#8A8D92'} opacity={0.7 * (1 - u) * smoke} />;
+        })}
+      {dim && <rect x={0} y={0} width={1080} height={1920} fill="#0B1020" opacity={0.2} />}
+    </g>
+  );
+};

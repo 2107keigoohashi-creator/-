@@ -117,7 +117,7 @@ npm run render -- ep02               # → out/ep02.mp4
 |---|---|---|---|
 | `cabin` | 客室・窓側席 | `sky`: day / dusk / night、`ground`: 窓の外を地上に、`flashRed`: 赤い光の点滅 | x 640, y 1330, scale 1.3, `pose: "sit"`, `seat: "cabin"` |
 | `cabinAisle` | 通路から見た客室（乗客入り） | `murmur`: 乗客がきょろきょろ | — |
-| `cockpit` | コックピット（左右2席・計器） | `sky` | 左席 x 300 / 右席 x 780, y 1120, scale 1.15, `seat: "pilot"`, `yoke: true` |
+| `cockpit` | コックピット（左右2席・計器） | `sky` | 機長（左席）は画面の右 x 780、副操縦士（右席）は画面の左 x 300（正面から見ているため）。y 1120, scale 1.15, `seat: "pilot"`, `yoke: true` |
 | `cockpitDoor` | コックピットのドア | — | — |
 | `yokeCloseup` | 操縦桿を握る手のアップ | `gripAt`: 握る秒 | — |
 | `nightRadio` | 夜の暗転＋無線の波形 | `amp`, `color`, `label` | — |

@@ -1,0 +1,947 @@
+{
+ "title": "機内で、スマホが燃え始めたら（前編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "夜8時。新千歳行きの、最終便。",
+   "telop": "夜の【最終便】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "羽田 → 新千歳\n20:05 発",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "機内の明かりが落ちて、あなたはうとうとしていた。",
+   "telop": "機内は【暗くなった】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "center",
+     "expression": "closed"
+    }
+   ]
+  },
+  {
+   "narration": "あっ、スマホ落としちゃった……",
+   "telop": "「スマホ【落としちゃった】」",
+   "background": "cabin",
+   "voice": "neighbor",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "center",
+     "expression": "closed"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "down",
+     "talking": true,
+     "expression": "surprised"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "スマホ落としちゃった…",
+     "x": 820,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down",
+     "size": 48
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 800,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "隣の人のスマホが、座席のすき間に滑り込んだ。",
+   "telop": "座席の【すき間】に…",
+   "background": "seatGap",
+   "bgProps": {
+    "phoneAt": 0.4
+   }
+  },
+  {
+   "narration": "座席を倒したら、取れるかな？",
+   "telop": "「座席を【倒したら】取れる？」",
+   "background": "cabin",
+   "voice": "neighbor",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "座席を倒したら取れるかな？",
+     "x": 760,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down",
+     "size": 46
+    }
+   ]
+  },
+  {
+   "narration": "手伝いますよ。",
+   "telop": "「【手伝います】よ」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "talking": true
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 980
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "手伝いますよ",
+     "x": 600,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "あなたは、座席のリクライニングを動かした。",
+   "telop": "リクライニングを【動かした】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "down",
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": 60,
+     "at": 0.4
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "down"
+    }
+   ]
+  },
+  {
+   "narration": "その時。何かが、ギュッとつぶれる音がした。",
+   "telop": "何かが【つぶれる音】",
+   "background": "seatGap",
+   "bgProps": {
+    "crushAt": 0.6
+   },
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 0.9,
+     "volume": 0.7
+    }
+   ]
+  },
+  {
+   "narration": "すき間から、白い煙が上がり始めた。",
+   "telop": "すき間から【白い煙】",
+   "background": "seatGap",
+   "bgProps": {
+    "crushAt": -5,
+    "smokeAt": 0.3
+   }
+  },
+  {
+   "narration": "焦げたにおいが、あたりに広がる。",
+   "telop": "【焦げたにおい】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "panic",
+     "sweat": true
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "expression": "surprised"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 770,
+     "y": 1250,
+     "scale": 0.8
+    }
+   ]
+  },
+  {
+   "narration": "実は、スマホが座席の機械に挟まったまま座席を動かすと、電池がつぶれて、火が出ることがある。",
+   "telop": "ルール#1 挟まったら【座席を動かさない】",
+   "background": "seatGap",
+   "bgProps": {
+    "crushAt": -5,
+    "smokeAt": 0
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "実際に、こうして機内で煙が出た例が、何度も報告されているんだ。",
+   "telop": "実際に【何度も起きている】",
+   "background": "seatGap",
+   "bgProps": {
+    "crushAt": -5,
+    "smokeAt": 0
+   },
+   "cuts": [
+    {
+     "at": 1.5,
+     "zoom": 1.4,
+     "focusX": 540,
+     "focusY": 1000
+    }
+   ]
+  },
+  {
+   "narration": "スマホが挟まったら、自分で取ろうとせず、座席も動かさずに、CAを呼ぶ。",
+   "telop": "取らずに【CAを呼ぶ】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up",
+     "action": "reach",
+     "reachArm": "left",
+     "reachAngle": -80,
+     "at": 0.3
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 770,
+     "y": 1250,
+     "scale": 0.8
+    }
+   ]
+  },
+  {
+   "narration": "でも、もう遅かった。すき間から、小さな炎が見えた。",
+   "telop": "すき間から【炎】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "surprised"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "expression": "surprised"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 770,
+     "y": 1250,
+     "scale": 1
+    },
+    {
+     "type": "flare",
+     "x": 770,
+     "y": 1270,
+     "at": 0.8,
+     "scale": 0.9
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.8,
+     "zoom": 1.7,
+     "focusX": 770,
+     "focusY": 1130
+    }
+   ]
+  },
+  {
+   "narration": "火が出てる！誰か！",
+   "telop": "「【火が出てる】！」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 770,
+     "y": 1250
+    },
+    {
+     "type": "flare",
+     "x": 770,
+     "y": 1270,
+     "scale": 0.9
+    },
+    {
+     "type": "bubble",
+     "text": "火が出てる！",
+     "x": 560,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "機内が、一気にざわついた。",
+   "telop": "機内が【騒然】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "zawa",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "どいてください！",
+   "telop": "「【どいてください】！」",
+   "background": "cabinAisle",
+   "voice": "misaki",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 540,
+     "y": 1700,
+     "scale": 1.5,
+     "pose": "stand",
+     "item": "extinguisher",
+     "talking": true,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "どいてください！",
+     "x": 540,
+     "y": 1050,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "美咲が、消火器を持って駆けつけた。",
+   "telop": "CAが【消火器】を持って",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "panic"
+    },
+    {
+     "id": "misaki",
+     "x": 1250,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "item": "extinguisher",
+     "move": {
+      "x": 980,
+      "at": 0,
+      "duration": 0.7
+     }
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 770,
+     "y": 1250
+    },
+    {
+     "type": "flare",
+     "x": 770,
+     "y": 1270,
+     "scale": 0.9
+    }
+   ]
+  },
+  {
+   "narration": "すき間に向けて、消火器を噴射する。",
+   "telop": "【消火器】を噴射",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "item": "extinguisher",
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 770,
+     "y": 1250
+    },
+    {
+     "type": "flare",
+     "x": 770,
+     "y": 1270,
+     "scale": 0.9,
+     "duration": 1.2
+    },
+    {
+     "type": "spray",
+     "x": 910,
+     "y": 1060,
+     "angle": 125,
+     "at": 0.3
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/whoosh.wav",
+     "at": 0.3,
+     "volume": 0.6
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.6,
+     "zoom": 1.6,
+     "focusX": 820,
+     "focusY": 1150
+    }
+   ]
+  },
+  {
+   "narration": "炎は、すぐに消えた。",
+   "telop": "炎は【消えた】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "item": "extinguisher"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 770,
+     "y": 1250,
+     "scale": 0.5,
+     "color": "#EDEDED"
+    }
+   ]
+  },
+  {
+   "narration": "よかった……",
+   "telop": "「【よかった】…」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "talking": true
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "item": "extinguisher"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "でも、美咲はまだ、そこを離れない。",
+   "telop": "CAは【離れない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "down",
+     "item": "extinguisher",
+     "expression": "panic"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 930,
+     "focusY": 960
+    }
+   ]
+  },
+  {
+   "narration": "まだです。電池は、また燃え出すことがあるんです。",
+   "telop": "「電池は【また燃える】」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "surprised"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "item": "extinguisher",
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "まだです",
+     "x": 900,
+     "y": 800,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "リチウム電池は、一度熱くなると、中で熱が広がり続けることがある。",
+   "telop": "ルール#2 電池は【熱が残る】",
+   "background": "seatGap",
+   "bgProps": {
+    "crushAt": -5,
+    "smokeAt": 0
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "その時、後ろの席から、別の乗客の声がした。",
+   "telop": "後ろの席から【声】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   }
+  },
+  {
+   "narration": "上の棚から、煙が出てる！",
+   "telop": "「上の棚から【煙】が！」",
+   "background": "cabinAisle",
+   "voice": "passenger",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "上の棚から煙が！",
+     "x": 540,
+     "y": 700,
+     "at": 0.1,
+     "tail": "down"
+    },
+    {
+     "type": "smoke",
+     "x": 330,
+     "y": 560,
+     "scale": 0.7,
+     "drift": 0.3
+    }
+   ]
+  },
+  {
+   "narration": "頭の上の、荷物棚。誰かのバッグから、煙が噴き出している。",
+   "telop": "【荷物棚】から煙",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up",
+     "expression": "surprised"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "up",
+     "expression": "surprised",
+     "item": "extinguisher"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 840,
+     "y": 330,
+     "scale": 1.2,
+     "dark": "#4A4D52"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.8,
+     "zoom": 1.6,
+     "focusX": 840,
+     "focusY": 460
+    }
+   ]
+  },
+  {
+   "narration": "バッグの中に、入っていたのは……",
+   "telop": "中に入っていたのは…",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 840,
+     "y": 330,
+     "scale": 1.2,
+     "dark": "#4A4D52"
+    }
+   ],
+   "camera": {
+    "from": 1.3,
+    "to": 1.6,
+    "focusX": 840,
+    "focusY": 330
+   }
+  },
+  {
+   "narration": "モバイルバッテリーだった。後編に、つづく。",
+   "telop": "【モバイルバッテリー】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "後編につづく",
+     "at": 1.6,
+     "y": 560,
+     "color": "#FFFFFF",
+     "bg": "#1E1E1E"
+    }
+   ]
+  }
+ ]
+}

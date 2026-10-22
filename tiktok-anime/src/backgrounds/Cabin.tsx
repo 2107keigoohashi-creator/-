@@ -42,6 +42,7 @@ export const Cabin: Background = ({layer, p}) => {
       <g>
         {flash && <rect x={0} y={0} width={1080} height={1920} fill="#E53935" opacity={0.08 * pulse} />}
         {fireScale > 0 && <rect x={0} y={0} width={1080} height={1920} fill="#F08A3C" opacity={0.07 * fireScale} />}
+        {bool(p.dim) && <rect x={0} y={0} width={1080} height={1920} fill="#1A2546" opacity={0.42} />}
       </g>
     );
   }
@@ -66,6 +67,13 @@ export const Cabin: Background = ({layer, p}) => {
           <circle cx={x} cy={200} r={6} fill="#E3D8B8" />
         </g>
       ))}
+      {bool(p.binOpen) && (
+        <g>
+          <path d="M 600,330 L 1080,300 L 1080,250 Q 840,240 600,280 Z" fill="#3A3F47" />
+          <path d="M 600,330 L 1080,300 L 1080,230 L 620,200 Z" fill="#E3DCCF" stroke="#B9AF9C" strokeWidth={6} transform="rotate(-12, 600, 330)" />
+          <rect x={760} y={270} width={150} height={60} rx={10} fill="#5A6B7E" />
+        </g>
+      )}
       {/* 窓 */}
       <rect x={win.x - 26} y={win.y - 26} width={win.w + 52} height={win.h + 52} rx={150} fill="#CFC6B6" />
       <g clipPath="url(#cabin-win)">

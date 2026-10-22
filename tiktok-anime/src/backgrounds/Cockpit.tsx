@@ -29,7 +29,8 @@ const Nd: React.FC<{x: number; y: number; w: number; h: number}> = ({x, y, w, h}
   </g>
 );
 
-// コックピット（左右2席を正面から）。左席 x≈300、右席 x≈780、y≈1120 に座らせ、"yoke": true で操縦桿を付ける
+// コックピット（左右2席を正面から）。正面から見ているので、機長（左席）は画面の右 x≈780、副操縦士（右席）は画面の左 x≈300。
+// y≈1120 に座らせ、"yoke": true で操縦桿を付ける
 export const Cockpit: Background = ({layer, p}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();

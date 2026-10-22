@@ -312,7 +312,7 @@
    "characters": [
     {
      "id": "sato",
-     "x": 300,
+     "x": 780,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -322,7 +322,7 @@
     },
     {
      "id": "takahashi",
-     "x": 780,
+     "x": 300,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -374,7 +374,7 @@
    "characters": [
     {
      "id": "sato",
-     "x": 300,
+     "x": 780,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -385,7 +385,7 @@
     },
     {
      "id": "takahashi",
-     "x": 780,
+     "x": 300,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -393,7 +393,7 @@
      "yoke": true,
      "hold": true,
      "expression": "surprised",
-     "look": "left"
+     "look": "right"
     }
    ],
    "overlays": [
@@ -419,7 +419,7 @@
    "characters": [
     {
      "id": "sato",
-     "x": 300,
+     "x": 780,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -430,14 +430,14 @@
     },
     {
      "id": "takahashi",
-     "x": 780,
+     "x": 300,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
      "seat": "pilot",
      "yoke": true,
      "hold": true,
-     "look": "left"
+     "look": "right"
     }
    ],
    "overlays": [
@@ -450,7 +450,7 @@
     {
      "type": "bubble",
      "text": "操縦は私がやる",
-     "x": 330,
+     "x": 750,
      "y": 800,
      "at": 0.3,
      "tail": "down"
@@ -460,7 +460,7 @@
     {
      "at": 0,
      "zoom": 1.5,
-     "focusX": 330,
+     "focusX": 750,
      "focusY": 900
     }
    ]
@@ -473,7 +473,7 @@
    "characters": [
     {
      "id": "sato",
-     "x": 300,
+     "x": 780,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -483,7 +483,7 @@
     },
     {
      "id": "takahashi",
-     "x": 780,
+     "x": 300,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -499,7 +499,7 @@
     {
      "type": "bubble",
      "text": "チェックリスト、始めます",
-     "x": 700,
+     "x": 380,
      "y": 720,
      "at": 0.2,
      "tail": "down",
@@ -510,7 +510,7 @@
     {
      "at": 0,
      "zoom": 1.5,
-     "focusX": 760,
+     "focusX": 320,
      "focusY": 900
     }
    ]
@@ -522,7 +522,7 @@
    "characters": [
     {
      "id": "sato",
-     "x": 300,
+     "x": 780,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -532,7 +532,7 @@
     },
     {
      "id": "takahashi",
-     "x": 780,
+     "x": 300,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -558,7 +558,7 @@
    "characters": [
     {
      "id": "sato",
-     "x": 300,
+     "x": 780,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -568,7 +568,7 @@
     },
     {
      "id": "takahashi",
-     "x": 780,
+     "x": 300,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -583,13 +583,13 @@
     {
      "at": 0,
      "zoom": 1.6,
-     "focusX": 300,
+     "focusX": 780,
      "focusY": 900
     },
     {
      "at": 2.6,
      "zoom": 1.6,
-     "focusX": 780,
+     "focusX": 300,
      "focusY": 900
     }
    ]
@@ -725,7 +725,7 @@
    "characters": [
     {
      "id": "sato",
-     "x": 300,
+     "x": 780,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -735,7 +735,7 @@
     },
     {
      "id": "takahashi",
-     "x": 780,
+     "x": 300,
      "y": 1120,
      "scale": 1.15,
      "pose": "sit",
@@ -750,7 +750,7 @@
     {
      "type": "bubble",
      "text": "メーデー！",
-     "x": 780,
+     "x": 300,
      "y": 720,
      "at": 0.2,
      "tail": "down"
@@ -760,7 +760,7 @@
     {
      "at": 0,
      "zoom": 1.5,
-     "focusX": 760,
+     "focusX": 320,
      "focusY": 900
     }
    ]

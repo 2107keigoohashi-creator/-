@@ -43,7 +43,7 @@ export type CharacterInScene = {
   breathe?: boolean;
   talking?: boolean;
   sweat?: boolean;
-  item?: 'checklist' | 'phone' | 'bag' | null;
+  item?: 'checklist' | 'phone' | 'bag' | 'extinguisher' | null;
   // 両手を前に（操縦桿を握る）
   hold?: boolean;
   // 前に操縦桿を描く（位置は最初の x, y に固定）

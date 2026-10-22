@@ -63,5 +63,23 @@
     "pauseLengthScale": 0.6,
     "volumeScale": 1.0,
     "filter": "pa"
+  },
+  "neighbor": {
+    "speaker": "冥鳴ひまり",
+    "style": "ノーマル",
+    "speedScale": 1.06,
+    "pitchScale": 0,
+    "intonationScale": 1.3,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0
+  },
+  "passenger": {
+    "speaker": "剣崎雌雄",
+    "style": "ノーマル",
+    "speedScale": 1.1,
+    "pitchScale": 0,
+    "intonationScale": 1.3,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0
   }
 }

@@ -1,0 +1,1 @@
+{"text":"実は、スマホが座席の機械に挟まったまま座席を動かすと、電池がつぶれて、火が出ることがある。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

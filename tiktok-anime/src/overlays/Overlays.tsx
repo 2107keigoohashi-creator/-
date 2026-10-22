@@ -466,10 +466,76 @@ const SCREEN: Record<string, React.FC<{o: Overlay}>> = {
   paIcon: PaIcon,
 };
 
+// 立ちのぼる煙（ワールド座標。x, y が出どころ）
+const Smoke: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = f / fps;
+  const x = n(o.x, 540);
+  const y = n(o.y, 1000);
+  const sc = n(o.scale, 1);
+  const color = s(o.color, '#D9D9DC');
+  const dark = s(o.dark, '#6B6E73');
+  const grow = Math.min(1, t / 0.8);
+  return (
+    <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+      {Array.from({length: 9}).map((_, i) => {
+        const u = (t * n(o.speed, 0.45) + i / 9) % 1;
+        const wob = Math.sin(t * 2 + i * 1.7) * 30 * u;
+        return (
+          <circle key={i} cx={x + wob + n(o.drift, 0) * u * 200} cy={y - u * 520 * sc} r={(20 + u * 90) * sc * grow} fill={i % 3 === 0 ? dark : color} opacity={0.7 * (1 - u) * grow} />
+        );
+      })}
+    </svg>
+  );
+};
+
+// 小さな炎（上向き）
+const Flare: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const t = f / 30;
+  const x = n(o.x, 540);
+  const y = n(o.y, 1000);
+  const sc = n(o.scale, 1) * Math.min(1, f / 10);
+  const w = (k: number) => Math.sin(t * 14 + k) * 6 + Math.sin(t * 23 + k * 2) * 4;
+  return (
+    <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+      <g transform={`translate(${x}, ${y}) scale(${sc})`}>
+        <circle cx={0} cy={-30} r={70} fill="#F08A3C" opacity={0.25} />
+        <path d={`M -34,0 Q ${-40 + w(1)},-60 ${w(2)},${-120 + w(3)} Q ${40 + w(4)},-60 34,0 Z`} fill="#E8692E" />
+        <path d={`M -20,0 Q ${-22 + w(5)},-40 ${w(6)},${-80 + w(7)} Q ${22 + w(8)},-40 20,0 Z`} fill="#F6B640" />
+        <path d={`M -10,0 Q -10,-20 ${w(9) * 0.5},${-44 + w(10)} Q 10,-20 10,0 Z`} fill="#FCE7A0" />
+      </g>
+    </svg>
+  );
+};
+
+// 消火器の噴射（x, y から angle 度の方向へ）
+const Spray: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const t = f / 30;
+  const x = n(o.x, 540);
+  const y = n(o.y, 1000);
+  const ang = n(o.angle, 120);
+  return (
+    <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+      <g transform={`translate(${x}, ${y}) rotate(${ang})`}>
+        {Array.from({length: 14}).map((_, i) => {
+          const u = (t * 2.2 + i / 14) % 1;
+          return <circle key={i} cx={u * 360} cy={Math.sin(i * 7.3 + t * 9) * 26 * u} r={10 + u * 46} fill="#F4F4F2" opacity={0.85 * (1 - u * 0.8)} />;
+        })}
+      </g>
+    </svg>
+  );
+};
+
 // カメラのズームに合わせて動くもの
 const WORLD: Record<string, React.FC<{o: Overlay}>> = {
   bubble: Bubble,
   zawa: Zawa,
+  smoke: Smoke,
+  flare: Flare,
+  spray: Spray,
 };
 
 export const OVERLAY_TYPES = [...Object.keys(SCREEN), ...Object.keys(WORLD)];

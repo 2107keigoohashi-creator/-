@@ -2,21 +2,51 @@
   "you": {
     "tagName": "あなた",
     "tagDesc": "乗客・22A席（窓側）",
-    "appearance": { "clothes": "#4A5D7E", "hair": "#3A3330", "hairStyle": "short" }
+    "appearance": {
+      "clothes": "#4A5D7E",
+      "hair": "#3A3330",
+      "hairStyle": "short"
+    }
   },
   "sato": {
     "tagName": "佐藤 機長（52）",
     "tagDesc": "左席・この便の機長",
-    "appearance": { "clothes": "#F2F0EA", "hair": "#A9A6A0", "hairStyle": "gray", "stripes": 4, "tie": "#2B2F3A" }
+    "appearance": {
+      "clothes": "#F2F0EA",
+      "hair": "#A9A6A0",
+      "hairStyle": "gray",
+      "stripes": 4,
+      "tie": "#2B2F3A"
+    }
   },
   "takahashi": {
     "tagName": "高橋 副操縦士（31）",
     "tagDesc": "右席・副操縦士",
-    "appearance": { "clothes": "#F2F0EA", "hair": "#2E2926", "hairStyle": "short", "stripes": 3, "tie": "#2B2F3A" }
+    "appearance": {
+      "clothes": "#F2F0EA",
+      "hair": "#2E2926",
+      "hairStyle": "short",
+      "stripes": 3,
+      "tie": "#2B2F3A"
+    }
   },
   "misaki": {
     "tagName": "美咲（CA）",
     "tagDesc": "客室乗務員",
-    "appearance": { "clothes": "#2F3C58", "hair": "#4A3A30", "hairStyle": "bun", "scarf": "#B5545C" }
+    "appearance": {
+      "clothes": "#2F3C58",
+      "hair": "#4A3A30",
+      "hairStyle": "bun",
+      "scarf": "#B5545C"
+    }
+  },
+  "neighbor": {
+    "tagName": "隣の乗客",
+    "tagDesc": "22B席",
+    "appearance": {
+      "clothes": "#9A7C8E",
+      "hair": "#5A463A",
+      "hairStyle": "long"
+    }
   }
 }

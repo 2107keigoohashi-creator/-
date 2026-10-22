@@ -22,6 +22,8 @@ const SE = {
   'whoosh.wav': ['-f', 'lavfi', '-i', 'anoisesrc=c=pink:a=0.6:d=1.8:r=44100', '-af', 'highpass=f=300,afade=t=in:d=0.05,afade=t=out:st=0.5:d=1.3'],
   // 緊急脱出の警報（ピーピー）
   'evac_horn.wav': ['-f', 'lavfi', '-i', "aevalsrc='0.3*sin(2*PI*2200*t)*lt(mod(t,0.5),0.25)':s=44100:d=4"],
+  // つぶれる音（バキッ）
+  'crunch.wav': ['-f', 'lavfi', '-i', "aevalsrc='(random(0)*2-1)*0.8*exp(-18*t)+0.6*sin(2*PI*90*t)*exp(-10*t)':s=44100:d=0.8", '-af', 'lowpass=f=3000'],
 };
 
 for (const [name, args] of Object.entries(SE)) {
