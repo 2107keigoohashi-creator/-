@@ -240,6 +240,10 @@ export const Character: React.FC<{
     hand = (s) => [s * 170, -250];
     elbow = (s) => [s * 120, -200];
   }
+  if (spec.item === 'bottle') {
+    hand = (s) => (s === 1 ? [120, -300] : [-40, -130]);
+    elbow = (s) => (s === 1 ? [110, -200] : [-80, -110]);
+  }
   if (spec.item === 'extinguisher') {
     hand = (s) => (s === 1 ? [70, -120] : [-30, -150]);
     elbow = (s) => (s === 1 ? [90, -60] : [-80, -120]);
@@ -374,6 +378,12 @@ export const Character: React.FC<{
             const h = armPts(s)[2];
             return <circle key={s} cx={h[0]} cy={h[1]} r={10} fill={a.skin ?? SKIN} />;
           })}
+          {spec.item === 'bottle' && (
+            <g transform="translate(130, -320) rotate(-130)">
+              <rect x={-18} y={-50} width={36} height={100} rx={12} fill="#BFE3F0" stroke="#7AB6C4" strokeWidth={4} opacity={0.95} />
+              <rect x={-10} y={-66} width={20} height={18} rx={4} fill="#3A7CA5" />
+            </g>
+          )}
           {spec.item === 'extinguisher' && (
             <g transform="translate(40, -150)">
               <rect x={-26} y={-10} width={60} height={150} rx={22} fill="#C9483F" stroke="#8C2F29" strokeWidth={4} />

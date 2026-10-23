@@ -1,0 +1,1 @@
+{"text":"ところが今度は、頭の上の荷物棚から、煙が出てきた。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

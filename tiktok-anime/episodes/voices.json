@@ -81,5 +81,14 @@
     "intonationScale": 1.3,
     "pauseLengthScale": 0.55,
     "volumeScale": 1.0
+  },
+  "kenta": {
+    "speaker": "雀松朱司",
+    "style": "ノーマル",
+    "speedScale": 1.08,
+    "pitchScale": 0,
+    "intonationScale": 1.25,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0
   }
 }

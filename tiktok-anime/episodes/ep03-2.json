@@ -1,0 +1,966 @@
+{
+ "title": "機内で、スマホが燃え始めたら（後編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "前編のあらすじ。座席に挟まったスマホが、つぶれて燃えた。",
+   "telop": "【前編】のおさらい",
+   "background": "seatGap",
+   "bgProps": {
+    "crushAt": -5,
+    "smokeAt": 0
+   }
+  },
+  {
+   "narration": "CAの美咲が、すぐに火を消した。",
+   "telop": "CAが【火を消した】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "item": "extinguisher"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "spray",
+     "x": 910,
+     "y": 1060,
+     "angle": 125,
+     "duration": 1.4
+    },
+    {
+     "type": "smoke",
+     "x": 770,
+     "y": 1250,
+     "scale": 0.5,
+     "color": "#EDEDED"
+    }
+   ]
+  },
+  {
+   "narration": "ところが今度は、頭の上の荷物棚から、煙が出てきた。",
+   "telop": "今度は【荷物棚】から煙",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up",
+     "expression": "surprised"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "up",
+     "expression": "surprised",
+     "item": "extinguisher"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 840,
+     "y": 330,
+     "scale": 1.2,
+     "dark": "#4A4D52"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 2.0,
+     "zoom": 1.6,
+     "focusX": 840,
+     "focusY": 460
+    }
+   ]
+  },
+  {
+   "narration": "バッグの中には、モバイルバッテリーが入っていた。",
+   "telop": "中身は【モバイルバッテリー】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 840,
+     "y": 330,
+     "scale": 1.2,
+     "dark": "#4A4D52"
+    }
+   ],
+   "camera": {
+    "from": 1.3,
+    "to": 1.5,
+    "focusX": 840,
+    "focusY": 330
+   }
+  },
+  {
+   "narration": "健太さん、消火器をもう1本！",
+   "telop": "「消火器を【もう1本】！」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true,
+     "expression": "panic",
+     "item": "extinguisher"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 840,
+     "y": 330,
+     "scale": 1.2,
+     "dark": "#4A4D52"
+    },
+    {
+     "type": "bubble",
+     "text": "消火器をもう1本！",
+     "x": 900,
+     "y": 800,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "もう一人のCA、健太が、消火器を持って走ってきた。",
+   "telop": "2人目の【CA】も駆けつける",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "kenta",
+     "x": 540,
+     "y": 1700,
+     "scale": 1.5,
+     "pose": "stand",
+     "item": "extinguisher",
+     "expression": "panic"
+    }
+   ]
+  },
+  {
+   "narration": "美咲は、棚の中に向けて、消火器を噴射した。",
+   "telop": "棚の中へ【噴射】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "up",
+     "item": "extinguisher",
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 840,
+     "y": 330,
+     "scale": 1.2,
+     "dark": "#4A4D52"
+    },
+    {
+     "type": "spray",
+     "x": 930,
+     "y": 1020,
+     "angle": -100,
+     "at": 0.3
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/whoosh.wav",
+     "at": 0.3,
+     "volume": 0.6
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.8,
+     "zoom": 1.5,
+     "focusX": 880,
+     "focusY": 650
+    }
+   ]
+  },
+  {
+   "narration": "煙が、少しずつ弱くなっていく。",
+   "telop": "煙が【弱くなる】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "up",
+     "item": "extinguisher"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 840,
+     "y": 330,
+     "scale": 0.6,
+     "dark": "#4A4D52"
+    }
+   ]
+  },
+  {
+   "narration": "でも、リチウム電池の火は、消えたように見えても、終わりじゃない。",
+   "telop": "ルール#1 消えても【終わりじゃない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    },
+    {
+     "type": "smoke",
+     "x": 840,
+     "y": 330,
+     "scale": 0.5,
+     "dark": "#4A4D52"
+    }
+   ]
+  },
+  {
+   "narration": "電池の中に熱が残っていて、また燃え出すことがあるからだ。",
+   "telop": "電池は【また燃え出す】",
+   "background": "seatGap",
+   "bgProps": {
+    "crushAt": -5,
+    "smokeAt": 0
+   }
+  },
+  {
+   "narration": "お水を、たくさんください！",
+   "telop": "「お水を【たくさん】！」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "surprised"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "お水をたくさん！",
+     "x": 900,
+     "y": 800,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "健太は、ペットボトルの水を、バッグに注ぎ続けた。",
+   "telop": "水で【冷やし続ける】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up"
+    },
+    {
+     "id": "kenta",
+     "x": 820,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "up",
+     "item": "bottle"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "smoke",
+     "x": 840,
+     "y": 330,
+     "scale": 0.4,
+     "dark": "#4A4D52"
+    },
+    {
+     "type": "pour",
+     "x": 960,
+     "y": 330,
+     "length": 120
+    }
+   ],
+   "cuts": [
+    {
+     "at": 2.0,
+     "zoom": 1.5,
+     "focusX": 900,
+     "focusY": 600
+    }
+   ]
+  },
+  {
+   "narration": "火が消えたあとも、15分以上、水で冷やし続ける。",
+   "telop": "【15分以上】冷やす",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "15分以上",
+     "at": 0.3,
+     "y": 560,
+     "color": "#9FD3E6",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "narration": "そして、熱いうちは、バッテリーを動かさない。",
+   "telop": "熱いうちは【動かさない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up"
+    },
+    {
+     "id": "kenta",
+     "x": 820,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "up",
+     "item": "bottle"
+    },
+    {
+     "id": "misaki",
+     "x": 1050,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "action": "stop"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "pour",
+     "x": 960,
+     "y": 330,
+     "length": 120
+    }
+   ]
+  },
+  {
+   "narration": "運んでいる途中で燃え出すのが、一番危ないからだ。",
+   "telop": "運ぶ途中が【一番危ない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true,
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "kenta",
+     "x": 820,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "up",
+     "item": "bottle",
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "pour",
+     "x": 960,
+     "y": 330,
+     "length": 120
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 850,
+     "focusY": 800
+    }
+   ]
+  },
+  {
+   "narration": "十分に冷えてから、水を入れた容器などに移して、着陸まで見張り続ける。",
+   "telop": "冷えてから【移して見張る】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "down"
+    }
+   ]
+  },
+  {
+   "narration": "そのころ、コックピットでは、機長が報告を聞いていた。",
+   "telop": "機長に【報告】",
+   "background": "cockpit",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": false,
+     "item": "phone",
+     "look": "left"
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    }
+   ]
+  },
+  {
+   "narration": "火は消えました。今も、水で冷やしています。",
+   "telop": "「今も【冷やしています】」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 980,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "item": "phone",
+     "talking": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 950,
+     "focusY": 960
+    }
+   ]
+  },
+  {
+   "narration": "機長です。火は消えました。このまま、新千歳空港へ向かいます。",
+   "telop": "機長から【機内放送】",
+   "background": "cabinAisle",
+   "voice": "sato_pa",
+   "bgProps": {
+    "murmur": false
+   },
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "では、なぜ荷物棚が危ないのか。",
+   "telop": "なぜ【荷物棚】が危ない？",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.0,
+     "zoom": 1.6,
+     "focusX": 840,
+     "focusY": 420
+    }
+   ]
+  },
+  {
+   "narration": "棚の中で煙が出ても、扉が閉まっていて、すぐには誰も気づけないからだ。",
+   "telop": "ルール#2 棚の中は【気づけない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    },
+    {
+     "type": "smoke",
+     "x": 700,
+     "y": 360,
+     "scale": 0.4,
+     "at": 1.3
+    }
+   ]
+  },
+  {
+   "narration": "そこで2025年7月から、国内線では、モバイルバッテリーを荷物棚に入れないよう、協力が呼びかけられている。",
+   "telop": "国内線は【荷物棚に入れない】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "placeCards",
+     "items": [
+      {
+       "label": "手元・前の座席のポケット",
+       "ok": true
+      },
+      {
+       "label": "頭の上の荷物棚",
+       "ok": false
+      },
+      {
+       "label": "預ける荷物",
+       "ok": false
+      }
+     ],
+     "highlight": 1,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "narration": "置くのは、手元や、前の座席のポケット。いつでも見える場所だ。",
+   "telop": "置くのは【見える場所】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "placeCards",
+     "items": [
+      {
+       "label": "手元・前の座席のポケット",
+       "ok": true
+      },
+      {
+       "label": "頭の上の荷物棚",
+       "ok": false
+      },
+      {
+       "label": "預ける荷物",
+       "ok": false
+      }
+     ],
+     "highlight": 0,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "narration": "そして、預ける荷物に入れるのは、もともと法律で禁止されている。",
+   "telop": "預け荷物は【禁止】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "placeCards",
+     "items": [
+      {
+       "label": "手元・前の座席のポケット",
+       "ok": true
+      },
+      {
+       "label": "頭の上の荷物棚",
+       "ok": false
+      },
+      {
+       "label": "預ける荷物",
+       "ok": false
+      }
+     ],
+     "highlight": 2,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "narration": "飛行機は、無事に新千歳空港に着いた。",
+   "telop": "【無事に】着陸",
+   "background": "runway",
+   "bgProps": {
+    "sky": "night",
+    "landAt": 2.2
+   }
+  },
+  {
+   "narration": "本当に、ありがとうございました……",
+   "telop": "「【ありがとう】ございました」",
+   "background": "cabin",
+   "voice": "neighbor",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "neighbor",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "talking": true,
+     "expression": "closed"
+    },
+    {
+     "id": "misaki",
+     "x": 930,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "ありがとうございました",
+     "x": 640,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down",
+     "size": 46
+    }
+   ]
+  },
+  {
+   "narration": "次からは、スマホが挟まったら、すぐに呼んでくださいね。",
+   "telop": "挟まったら【すぐ呼んで】",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "night",
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "neighbor",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 930,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 930,
+     "focusY": 960
+    }
+   ]
+  },
+  {
+   "narration": "最後に、あなたができることは3つ。",
+   "telop": "できることは【3つ】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "挟まったら座席を動かさずCAへ",
+      "煙やにおいに気づいたらすぐCAへ",
+      "モバイルバッテリーは手元に置く"
+     ],
+     "show": 0,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "1つ目。スマホが挟まったら、座席を動かさずに、CAを呼ぶ。",
+   "telop": "①【座席を動かさない】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "挟まったら座席を動かさずCAへ",
+      "煙やにおいに気づいたらすぐCAへ",
+      "モバイルバッテリーは手元に置く"
+     ],
+     "show": 1,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "2つ目。煙や、焦げたにおいに気づいたら、すぐにCAに伝える。",
+   "telop": "②【すぐCAへ】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "挟まったら座席を動かさずCAへ",
+      "煙やにおいに気づいたらすぐCAへ",
+      "モバイルバッテリーは手元に置く"
+     ],
+     "show": 2,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "3つ目。モバイルバッテリーは、荷物棚ではなく、手元に置く。",
+   "telop": "③【手元に置く】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "挟まったら座席を動かさずCAへ",
+      "煙やにおいに気づいたらすぐCAへ",
+      "モバイルバッテリーは手元に置く"
+     ],
+     "show": 3,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "小さな電池も、空の上では、大きな火になる。",
+   "telop": "小さな電池が【大きな火】に",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "おわり",
+     "at": 2.2,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

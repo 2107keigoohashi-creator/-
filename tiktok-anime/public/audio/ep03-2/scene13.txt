@@ -1,0 +1,1 @@
+{"text":"火が消えたあとも、15分以上、水で冷やし続ける。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

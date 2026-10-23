@@ -25,10 +25,18 @@ const voices = JSON.parse(fs.readFileSync(path.join(root, 'episodes/voices.json'
 const outDir = path.join(root, `public/audio/${episodeId}`);
 fs.mkdirSync(outDir, {recursive: true});
 
-const get = async (p, init) => {
-  const res = await fetch(ENGINE + p, init);
-  if (!res.ok) throw new Error(`${p}: ${res.status} ${await res.text()}`);
-  return res;
+// 起動直後のエンジンは失敗することがあるので、少し待って再試行する
+const get = async (p, init, tries = 5) => {
+  for (let i = 1; ; i++) {
+    try {
+      const res = await fetch(ENGINE + p, init);
+      if (!res.ok) throw new Error(`${p}: ${res.status} ${await res.text()}`);
+      return res;
+    } catch (e) {
+      if (i >= tries) throw e;
+      await new Promise((r) => setTimeout(r, 1000 * i));
+    }
+  }
 };
 
 let speakers;

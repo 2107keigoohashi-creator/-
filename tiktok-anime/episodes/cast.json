@@ -48,5 +48,15 @@
       "hair": "#5A463A",
       "hairStyle": "long"
     }
+  },
+  "kenta": {
+    "tagName": "健太（CA）",
+    "tagDesc": "客室乗務員",
+    "appearance": {
+      "clothes": "#2F3C58",
+      "hair": "#2E2926",
+      "hairStyle": "short",
+      "tie": "#B5545C"
+    }
   }
 }

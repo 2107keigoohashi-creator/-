@@ -451,7 +451,29 @@ const Checklist: React.FC<{o: Overlay}> = ({o}) => {
   );
 };
 
+// 置き場所カード（items: [{label, ok}]）。highlight 番目を強調
+const PlaceCards: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const items = Array.isArray(o.items) ? (o.items as {label: string; ok: boolean}[]) : [];
+  const hi = n(o.highlight, -1);
+  return (
+    <div style={{position: 'absolute', left: SAFE.left, right: SAFE.right, top: n(o.y, 360), display: 'flex', flexDirection: 'column', gap: 26}}>
+      {items.map((it, i) => {
+        const p = interpolate(f, [i * 6, i * 6 + 8], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.back(1.6))});
+        const dim = hi >= 0 && hi !== i;
+        return (
+          <div key={i} style={{...font, display: 'flex', alignItems: 'center', gap: 24, background: it.ok ? '#E4F2E8' : '#F6E3E1', border: `8px solid ${it.ok ? '#2E9E5B' : COLORS.accent}`, borderRadius: 22, padding: '18px 28px', transform: `translateX(${(1 - p) * -80}px) scale(${hi === i ? 1.05 : 1})`, opacity: p * (dim ? 0.45 : 1)}}>
+            <div style={{flex: 'none', width: 96, height: 96, borderRadius: 48, background: it.ok ? '#2E9E5B' : COLORS.accent, color: '#fff', fontWeight: 900, fontSize: 64, lineHeight: '96px', textAlign: 'center'}}>{it.ok ? '○' : '×'}</div>
+            <div style={{fontWeight: 900, fontSize: 54, color: COLORS.ink}}>{it.label}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 const SCREEN: Record<string, React.FC<{o: Overlay}>> = {
+  placeCards: PlaceCards,
   noSign: NoSign,
   checklist: Checklist,
   alarm: Alarm,
@@ -529,6 +551,24 @@ const Spray: React.FC<{o: Overlay}> = ({o}) => {
   );
 };
 
+// 水を注ぐ（x, y から下へしずく）
+const Pour: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const t = f / 30;
+  const x = n(o.x, 540);
+  const y = n(o.y, 800);
+  const len = n(o.length, 260);
+  return (
+    <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+      <path d={`M ${x},${y} Q ${x - 20},${y + len * 0.5} ${x - 30},${y + len}`} stroke="#9FD3E6" strokeWidth={14} fill="none" strokeLinecap="round" opacity={0.85} />
+      {Array.from({length: 8}).map((_, i) => {
+        const u = (t * 1.6 + i / 8) % 1;
+        return <circle key={i} cx={x - 30 + Math.sin(i * 3.1) * 30 * u} cy={y + len + u * 60} r={7} fill="#BFE3F0" opacity={1 - u} />;
+      })}
+    </svg>
+  );
+};
+
 // カメラのズームに合わせて動くもの
 const WORLD: Record<string, React.FC<{o: Overlay}>> = {
   bubble: Bubble,
@@ -536,6 +576,7 @@ const WORLD: Record<string, React.FC<{o: Overlay}>> = {
   smoke: Smoke,
   flare: Flare,
   spray: Spray,
+  pour: Pour,
 };
 
 export const OVERLAY_TYPES = [...Object.keys(SCREEN), ...Object.keys(WORLD)];
