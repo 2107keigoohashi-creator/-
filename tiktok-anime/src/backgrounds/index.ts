@@ -2,7 +2,7 @@ import {Cabin} from './Cabin';
 import {CabinAisle} from './CabinAisle';
 import {Cockpit} from './Cockpit';
 import {Background} from './common';
-import {EvacSlide, FireHandle, SeatGap, SkyPlane} from './Emergency';
+import {EvacSlide, FireHandle, SeatGap, SkyPlane, WeatherRadar} from './Emergency';
 import {JapanMap} from './JapanMap';
 import {Black, CockpitDoor, NightRadio, Plain, YokeCloseup} from './Misc';
 import {Runway} from './Runway';
@@ -21,6 +21,7 @@ export const BACKGROUNDS: Record<string, Background> = {
   skyPlane: SkyPlane,
   evacSlide: EvacSlide,
   seatGap: SeatGap,
+  weatherRadar: WeatherRadar,
   plain: Plain,
   black: Black,
 };

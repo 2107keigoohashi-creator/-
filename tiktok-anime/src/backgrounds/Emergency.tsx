@@ -234,3 +234,48 @@ export const SeatGap: Background = ({layer, p}) => {
     </g>
   );
 };
+
+// 気象レーダー（雨雲は映るが、晴天乱気流は映らない）。cat で「見えない乱気流」を点線で示す
+export const WeatherRadar: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const cat = num(p.catAt, -1);
+  const catShow = cat >= 0 ? Math.min(1, Math.max(0, (t - cat) / 0.6)) : 0;
+  const cx = 540;
+  const cy = 1260;
+  const sweep = (t * 60) % 120 - 60;
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill="#0F1620" />
+      <rect x={90} y={300} width={900} height={1060} rx={30} fill="#1D252C" stroke="#33373E" strokeWidth={12} />
+      <clipPath id="radar-clip">
+        <path d={`M ${cx},${cy} L ${cx - 520},${cy - 900} A 1040 1040 0 0 1 ${cx + 520},${cy - 900} Z`} />
+      </clipPath>
+      <g clipPath="url(#radar-clip)">
+        {[300, 600, 900].map((r) => (
+          <path key={r} d={`M ${cx - r * 0.5},${cy - r * 0.866} A ${r} ${r} 0 0 1 ${cx + r * 0.5},${cy - r * 0.866}`} stroke="#3F7F68" strokeWidth={3} fill="none" opacity={0.7} />
+        ))}
+        {/* 雨雲（映る） */}
+        <g transform="translate(300, 620)">
+          <ellipse cx={0} cy={0} rx={120} ry={80} fill="#3E9E5A" opacity={0.85} />
+          <ellipse cx={20} cy={10} rx={70} ry={45} fill="#E8C547" />
+          <ellipse cx={30} cy={14} rx={30} ry={20} fill="#D9473C" />
+        </g>
+        <g transform={`rotate(${sweep}, ${cx}, ${cy})`}>
+          <path d={`M ${cx},${cy} L ${cx - 60},${cy - 1000} L ${cx + 60},${cy - 1000} Z`} fill="#7FB89A" opacity={0.12} />
+        </g>
+        {catShow > 0 && (
+          <g opacity={catShow}>
+            <ellipse cx={620} cy={800} rx={170} ry={110} fill="none" stroke="#FF6B5E" strokeWidth={8} strokeDasharray="22 16" />
+            <text x={620} y={815} textAnchor="middle" fontSize={64} fontWeight={900} fill="#FF6B5E" fontFamily="Noto Sans JP">？</text>
+          </g>
+        )}
+      </g>
+      <text x={300} y={760} textAnchor="middle" fontSize={34} fontWeight={900} fill="#E8E2D4" fontFamily="Noto Sans JP">雨雲</text>
+      <path d={`M ${cx},${cy - 40} L ${cx - 24},${cy + 10} L ${cx + 24},${cy + 10} Z`} fill="#E8E2D4" />
+      <text x={540} y={390} textAnchor="middle" fontSize={40} fontWeight={900} fill="#7FB89A" fontFamily="Noto Sans JP" letterSpacing={6}>WEATHER RADAR</text>
+    </g>
+  );
+};

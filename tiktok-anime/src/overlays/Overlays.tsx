@@ -472,7 +472,61 @@ const PlaceCards: React.FC<{o: Overlay}> = ({o}) => {
   );
 };
 
+// シートベルトサイン（offAt 秒で消える、onAt 秒で点く）
+const BeltSign: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = f / fps;
+  // 最初の状態（lit、既定は点灯）から、offAt で消え、onAt で点く（後に来た方が勝つ）
+  const events = [
+    {at: n(o.offAt, 999), on: false},
+    {at: n(o.onAt, 999), on: true},
+  ].sort((a, b) => a.at - b.at);
+  let lit = o.lit !== false;
+  for (const e of events) if (t >= e.at) lit = e.on;
+  const color = lit ? '#F2C14E' : '#5A5F66';
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: n(o.y, 300), display: 'flex', justifyContent: 'center'}}>
+      <div style={{...font, display: 'flex', alignItems: 'center', gap: 20, background: '#2A2D33', borderRadius: 24, padding: '20px 36px', border: '6px solid #44484F', boxShadow: lit ? '0 0 40px rgba(242,193,78,0.6)' : 'none'}}>
+        <svg width={110} height={110} viewBox="0 0 110 110">
+          <circle cx={55} cy={22} r={13} fill={color} />
+          <path d="M 30,108 L 34,50 Q 55,38 76,50 L 80,108 Z" fill={color} />
+          <rect x={18} y={70} width={74} height={14} rx={6} fill={lit ? '#2A2D33' : '#3A3F47'} />
+          <rect x={46} y={66} width={18} height={22} rx={4} fill={color} stroke="#2A2D33" strokeWidth={3} />
+        </svg>
+        <div style={{color: lit ? '#F2C14E' : '#7D838B', fontWeight: 900, fontSize: 52}}>{lit ? 'ベルト着用' : 'サイン消灯'}</div>
+      </div>
+    </div>
+  );
+};
+
+// 高度計（from から to へ一気に減る）
+const Altitude: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = f / fps;
+  const from = n(o.from, 37000);
+  const to = n(o.to, 36820);
+  const at = n(o.changeAt, 0.5);
+  const v = interpolate(t, [at, at + n(o.duration, 1.2)], [from, to], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.in(Easing.quad)});
+  const falling = t > at && t < at + n(o.duration, 1.2);
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: n(o.y, 260), display: 'flex', justifyContent: 'center'}}>
+      <div style={{...font, background: '#121417', border: `8px solid ${falling ? COLORS.accent : '#44484F'}`, borderRadius: 24, padding: '18px 40px', textAlign: 'center'}}>
+        <div style={{color: '#9AA1A8', fontWeight: 900, fontSize: 32, letterSpacing: 6}}>ALTITUDE（高度）</div>
+        <div style={{color: falling ? '#FF6B5E' : '#7FB89A', fontWeight: 900, fontSize: 120, fontVariantNumeric: 'tabular-nums', lineHeight: 1.1}}>
+          {Math.round(v).toLocaleString('en-US')}
+          <span style={{fontSize: 52}}> ft</span>
+        </div>
+        <div style={{color: falling ? '#FF6B5E' : 'transparent', fontWeight: 900, fontSize: 56}}>▼▼▼</div>
+      </div>
+    </div>
+  );
+};
+
 const SCREEN: Record<string, React.FC<{o: Overlay}>> = {
+  beltSign: BeltSign,
+  altitude: Altitude,
   placeCards: PlaceCards,
   noSign: NoSign,
   checklist: Checklist,
@@ -569,6 +623,78 @@ const Pour: React.FC<{o: Overlay}> = ({o}) => {
   );
 };
 
+// 宙に浮く物（items: [{kind: cup|phone|coffee|book, x, y}]）。at 秒で一気に浮き、ceiling まで上がる
+const FloatItem: React.FC<{kind: string}> = ({kind}) => {
+  if (kind === 'phone') return <rect x={-16} y={-32} width={32} height={64} rx={7} fill="#2A2D33" stroke="#7AB6C4" strokeWidth={3} />;
+  if (kind === 'book') return <rect x={-34} y={-24} width={68} height={48} rx={4} fill="#B5545C" stroke="#7A2E2A" strokeWidth={3} />;
+  if (kind === 'coffee')
+    return (
+      <g>
+        <ellipse cx={0} cy={0} rx={46} ry={20} fill="#6B4630" opacity={0.9} />
+        <circle cx={-34} cy={-16} r={10} fill="#6B4630" />
+        <circle cx={30} cy={14} r={8} fill="#6B4630" />
+      </g>
+    );
+  return (
+    <g>
+      <path d="M -24,-30 L 24,-30 L 18,30 L -18,30 Z" fill="#F4F1EA" stroke="#B9AF9C" strokeWidth={3} />
+      <rect x={-22} y={-34} width={44} height={8} rx={3} fill="#C9C3B8" />
+    </g>
+  );
+};
+
+const Floaters: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = f / fps;
+  const items = Array.isArray(o.items) ? (o.items as {kind: string; x: number; y: number}[]) : [];
+  const liftAt = n(o.liftAt, 0.3);
+  const ceiling = n(o.ceiling, 380);
+  const fall = n(o.fallAt, 99);
+  return (
+    <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+      {items.map((it, i) => {
+        const up = interpolate(t, [liftAt + i * 0.05, liftAt + 0.5 + i * 0.05], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.quad)});
+        const down = interpolate(t, [fall, fall + 0.5], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.in(Easing.quad)});
+        const y = it.y + (ceiling - it.y) * up * (1 - down);
+        const x = it.x + Math.sin(i * 2.3) * 60 * up;
+        const rot = up * (i % 2 ? 160 : -140) + t * 30 * up;
+        const splash = it.kind === 'coffee' && up > 0.98;
+        return (
+          <g key={i} transform={`translate(${x}, ${y}) rotate(${splash ? 0 : rot}) scale(${splash ? 1.6 : 1})`}>
+            <FloatItem kind={it.kind} />
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+// 飲み物のカート（tipAt 秒で倒れる）
+const Cart: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const tip = interpolate(f / fps, [n(o.tipAt, 99), n(o.tipAt, 99) + 0.4], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.in(Easing.quad)});
+  const tipped = o.tipped === true ? 1 : tip;
+  const x = n(o.x, 900);
+  const y = n(o.y, 1520);
+  const sc = n(o.scale, 1);
+  return (
+    <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+      <g transform={`translate(${x}, ${y}) scale(${sc}) rotate(${tipped * -82}, -90, 0)`}>
+        <rect x={-90} y={-300} width={180} height={300} rx={14} fill="#C9CED3" stroke="#8A9098" strokeWidth={5} />
+        <rect x={-76} y={-286} width={152} height={70} rx={8} fill="#B0B6BC" />
+        <rect x={-76} y={-200} width={152} height={70} rx={8} fill="#B0B6BC" />
+        <rect x={-60} y={-340} width={40} height={42} rx={6} fill="#F4F1EA" />
+        <rect x={-10} y={-352} width={30} height={54} rx={10} fill="#7A4A3A" />
+        <rect x={30} y={-344} width={34} height={46} rx={6} fill="#BFE3F0" />
+        <circle cx={-60} cy={6} r={12} fill="#2A2D33" />
+        <circle cx={60} cy={6} r={12} fill="#2A2D33" />
+      </g>
+    </svg>
+  );
+};
+
 // カメラのズームに合わせて動くもの
 const WORLD: Record<string, React.FC<{o: Overlay}>> = {
   bubble: Bubble,
@@ -577,6 +703,8 @@ const WORLD: Record<string, React.FC<{o: Overlay}>> = {
   flare: Flare,
   spray: Spray,
   pour: Pour,
+  floaters: Floaters,
+  cart: Cart,
 };
 
 export const OVERLAY_TYPES = [...Object.keys(SCREEN), ...Object.keys(WORLD)];

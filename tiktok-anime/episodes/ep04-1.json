@@ -1,0 +1,955 @@
+{
+ "title": "乱気流で、飲み物が天井まで飛んだら（前編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "昼下がり。羽田から、福岡へ向かう便。",
+   "telop": "昼の【福岡行き】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "belt": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "羽田 → 福岡\n高度 37,000ft",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "ポーン。シートベルトのサインが、消えた。",
+   "telop": "ベルトのサインが【消えた】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up",
+     "belt": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "beltSign",
+     "offAt": 0.6,
+     "y": 260
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0.5,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "あなたはベルトを外して、背もたれを倒した。",
+   "telop": "あなたは【ベルトを外した】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "center",
+     "expression": "closed"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.5,
+     "zoom": 1.6,
+     "focusX": 600,
+     "focusY": 1150
+    }
+   ]
+  },
+  {
+   "narration": "CAの美咲が、飲み物を配りに来た。",
+   "telop": "【飲み物】サービス",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 1250,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "move": {
+      "x": 930,
+      "at": 0,
+      "duration": 0.8
+     }
+    }
+   ],
+   "overlays": [
+    {
+     "type": "cart",
+     "x": 1020,
+     "y": 1540,
+     "scale": 0.8
+    }
+   ]
+  },
+  {
+   "narration": "コーヒーと、お茶がございます。",
+   "telop": "「コーヒーと【お茶】が…」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 930,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "cart",
+     "x": 1020,
+     "y": 1540,
+     "scale": 0.8
+    },
+    {
+     "type": "bubble",
+     "text": "コーヒーとお茶がございます",
+     "x": 900,
+     "y": 800,
+     "at": 0.1,
+     "tail": "down",
+     "size": 44
+    }
+   ]
+  },
+  {
+   "narration": "コーヒーで、お願いします。",
+   "telop": "「【コーヒー】で」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "talking": true
+    },
+    {
+     "id": "misaki",
+     "x": 930,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "floaters",
+     "items": [
+      {
+       "kind": "cup",
+       "x": 690,
+       "y": 1160
+      }
+     ],
+     "liftAt": 99
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 640,
+     "focusY": 1000
+    }
+   ]
+  },
+  {
+   "narration": "窓の外は、雲ひとつない、真っ青な空だ。",
+   "telop": "雲ひとつない【青空】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 2.2,
+     "focusX": 220,
+     "focusY": 700
+    }
+   ]
+  },
+  {
+   "narration": "あなたは、なんとなく、ベルトを軽く締め直した。",
+   "telop": "なんとなく【ベルトを締めた】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "down",
+     "belt": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "floaters",
+     "items": [
+      {
+       "kind": "cup",
+       "x": 690,
+       "y": 1160
+      }
+     ],
+     "liftAt": 99
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.6,
+     "zoom": 1.8,
+     "focusX": 600,
+     "focusY": 1250
+    }
+   ]
+  },
+  {
+   "narration": "その時だった。",
+   "telop": "その時だった",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "belt": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "floaters",
+     "items": [
+      {
+       "kind": "cup",
+       "x": 690,
+       "y": 1160
+      }
+     ],
+     "liftAt": 99
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.5,
+     "duration": 0.6,
+     "amp": 10
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/rattle.wav",
+     "at": 0.4,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "narration": "ドンッ！飛行機が、一気に、下へ落ちた。",
+   "telop": "飛行機が【一気に落ちた】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "belt": true,
+     "expression": "surprised"
+    },
+    {
+     "id": "p1",
+     "x": 250,
+     "y": 1290,
+     "scale": 1.0,
+     "pose": "stand",
+     "action": "airborne",
+     "at": 0.4,
+     "airHeight": 320,
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "floaters",
+     "items": [
+      {
+       "kind": "cup",
+       "x": 690,
+       "y": 1160
+      },
+      {
+       "kind": "phone",
+       "x": 520,
+       "y": 1220
+      },
+      {
+       "kind": "book",
+       "x": 760,
+       "y": 1250
+      }
+     ],
+     "liftAt": 0.35,
+     "ceiling": 360
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.2,
+     "duration": 2.6,
+     "amp": 42
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/thud.wav",
+     "at": 0.3,
+     "volume": 0.8
+    },
+    {
+     "file": "assets/audio/rattle.wav",
+     "at": 0.3,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "コーヒーが、天井まで、飛び上がる。",
+   "telop": "コーヒーが【天井まで】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up",
+     "belt": true,
+     "expression": "panic",
+     "sweat": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "floaters",
+     "items": [
+      {
+       "kind": "coffee",
+       "x": 690,
+       "y": 1160
+      },
+      {
+       "kind": "cup",
+       "x": 700,
+       "y": 1170
+      }
+     ],
+     "liftAt": 0.1,
+     "ceiling": 330
+    }
+   ],
+   "shake": [
+    {
+     "at": 0,
+     "duration": 2,
+     "amp": 24
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.0,
+     "zoom": 1.7,
+     "focusX": 690,
+     "focusY": 520
+    }
+   ]
+  },
+  {
+   "narration": "ベルトをしていなかった乗客は、体ごと、浮き上がった。",
+   "telop": "ベルトなしは【体ごと浮く】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "p1",
+     "x": 540,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "action": "airborne",
+     "at": 0.3,
+     "airHeight": 300,
+     "tag": false
+    }
+   ],
+   "shake": [
+    {
+     "at": 0,
+     "duration": 1.6,
+     "amp": 30
+    }
+   ]
+  },
+  {
+   "narration": "頭の上の荷物棚も、勢いで、開いてしまった。",
+   "telop": "【荷物棚】も開く",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day",
+    "binOpen": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up",
+     "belt": true,
+     "expression": "panic"
+    }
+   ],
+   "shake": [
+    {
+     "at": 0,
+     "duration": 1.5,
+     "amp": 20
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.2,
+     "zoom": 1.6,
+     "focusX": 840,
+     "focusY": 450
+    }
+   ]
+  },
+  {
+   "narration": "これが、晴天乱気流。雲のない、晴れた空でも起きる揺れだ。",
+   "telop": "ルール#1 【晴れていても】揺れる",
+   "background": "skyPlane",
+   "bgProps": {
+    "sky": "day"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    }
+   ],
+   "shake": [
+    {
+     "at": 1.4,
+     "duration": 2.0,
+     "amp": 14
+    }
+   ]
+  },
+  {
+   "narration": "雨雲と違って、晴天乱気流は、レーダーにほとんど映らない。",
+   "telop": "レーダーに【映らない】",
+   "background": "weatherRadar",
+   "bgProps": {
+    "catAt": 1.6
+   }
+  },
+  {
+   "narration": "だから、パイロットにも、前もって分からないことがあるんだ。",
+   "telop": "パイロットにも【分からない】",
+   "background": "weatherRadar",
+   "bgProps": {
+    "catAt": 0
+   }
+  },
+  {
+   "narration": "コックピットでは、高度計の数字が、一気に下がっていた。",
+   "telop": "高度が【一気に下がる】",
+   "background": "cockpit",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "expression": "surprised"
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "expression": "surprised"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "altitude",
+     "from": 37000,
+     "to": 36820,
+     "changeAt": 0.4,
+     "y": 495
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.3,
+     "duration": 1.8,
+     "amp": 20
+    }
+   ],
+   "reading": "コックピットでは、こうどけいの数字が、一気に下がっていた。"
+  },
+  {
+   "narration": "シートベルトサイン、オン！",
+   "telop": "「ベルトサイン、【オン】！」",
+   "background": "cockpit",
+   "voice": "sato",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "talking": true,
+     "expression": "panic"
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "beltSign",
+     "lit": false,
+     "onAt": 0.8,
+     "y": 260
+    },
+    {
+     "type": "bubble",
+     "text": "ベルトサイン、オン！",
+     "x": 780,
+     "y": 720,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 760,
+     "focusY": 880
+    }
+   ]
+  },
+  {
+   "narration": "ただいま、気流の悪いところを通過しています。すぐに席に戻り、ベルトを締めてください。",
+   "telop": "機長から【機内放送】",
+   "background": "cabinAisle",
+   "voice": "sato_pa",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    },
+    {
+     "type": "beltSign",
+     "y": 520
+    }
+   ],
+   "shake": [
+    {
+     "at": 0,
+     "duration": 1.5,
+     "amp": 8
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "あなたは、ベルトのおかげで、座席から離れずにすんだ。",
+   "telop": "ベルトのおかげで【無事】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "belt": true,
+     "expression": "panic",
+     "sweat": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.6,
+     "zoom": 1.8,
+     "focusX": 600,
+     "focusY": 1250
+    }
+   ]
+  },
+  {
+   "narration": "あ、危なかった……",
+   "telop": "「【危なかった】…」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "belt": true,
+     "talking": true,
+     "expression": "panic",
+     "sweat": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 960
+    }
+   ]
+  },
+  {
+   "narration": "もし、ベルトをしていなかったら？",
+   "telop": "もし【ベルトがなかったら】？",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "action": "airborne",
+     "at": 0.6,
+     "airHeight": 330,
+     "tag": false
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.5,
+     "duration": 1.4,
+     "amp": 30
+    }
+   ]
+  },
+  {
+   "narration": "体は、天井まで飛ばされて、頭を打っていたかもしれない。",
+   "telop": "【天井】に頭を打つ",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "action": "airborne",
+     "at": 0.2,
+     "airHeight": 520,
+     "tag": false
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 700
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/thud.wav",
+     "at": 0.7,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "narration": "揺れが、少しずつ、おさまってきた。",
+   "telop": "揺れが【おさまる】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "belt": true
+    }
+   ],
+   "shake": [
+    {
+     "at": 0,
+     "duration": 2.5,
+     "amp": 6
+    }
+   ]
+  },
+  {
+   "narration": "その時、通路の方から、ガシャン、と大きな音がした。",
+   "telop": "通路から【大きな音】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "zawa",
+     "at": 0.6
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 1.2,
+     "volume": 0.8
+    }
+   ]
+  },
+  {
+   "narration": "倒れていたのは、カートと、CAの美咲だった。",
+   "telop": "倒れていたのは【CA】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 500,
+     "y": 1460,
+     "scale": 1.3,
+     "pose": "sit",
+     "expression": "panic",
+     "sweat": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "cart",
+     "x": 800,
+     "y": 1540,
+     "scale": 1.0,
+     "tipped": true
+    },
+    {
+     "type": "floaters",
+     "items": [
+      {
+       "kind": "cup",
+       "x": 640,
+       "y": 1560
+      },
+      {
+       "kind": "cup",
+       "x": 930,
+       "y": 1590
+      }
+     ],
+     "liftAt": 99
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.5,
+     "zoom": 1.4,
+     "focusX": 560,
+     "focusY": 1180
+    }
+   ]
+  },
+  {
+   "narration": "美咲は、大丈夫なのか。後編に、つづく。",
+   "telop": "美咲は【大丈夫】なのか",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "後編につづく",
+     "at": 1.4,
+     "y": 560,
+     "color": "#FFFFFF",
+     "bg": "#1E1E1E"
+    }
+   ]
+  }
+ ]
+}

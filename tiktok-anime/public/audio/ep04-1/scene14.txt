@@ -1,0 +1,1 @@
+{"text":"これが、晴天乱気流。雲のない、晴れた空でも起きる揺れだ。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

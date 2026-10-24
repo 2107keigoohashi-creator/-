@@ -53,7 +53,11 @@ export type CharacterInScene = {
   // 倒れる。collapse は at 秒から倒れ始める、collapsed は最初から倒れている
   // brace は at 秒から衝撃防止姿勢（頭を下げて手で守る）
   // stop は両手を広げて止めるポーズ
-  action?: 'collapse' | 'collapsed' | 'reach' | 'brace' | 'stop' | null;
+  // airborne は at 秒から体が浮き上がって落ちる（airHeight で高さ）
+  action?: 'collapse' | 'collapsed' | 'reach' | 'brace' | 'stop' | 'airborne' | null;
+  airHeight?: number;
+  // シートベルトを締めている
+  belt?: boolean;
   at?: number;
   reachArm?: 'left' | 'right';
   reachAngle?: number;
@@ -94,6 +98,8 @@ export type Scene = {
   nameTags?: boolean;
   // ナレーション字幕を出すか（既定 true）
   subtitles?: boolean;
+  // 揺れ：at 秒から duration 秒、amp ピクセルで画面が揺れる（複数可）
+  shake?: {at?: number; duration?: number; amp?: number}[];
 };
 
 export type Cut = {at: number; zoom?: number; focusX?: number; focusY?: number};

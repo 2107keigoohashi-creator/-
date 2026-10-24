@@ -58,5 +58,14 @@
       "hairStyle": "short",
       "tie": "#B5545C"
     }
+  },
+  "p1": {
+    "tagName": "後ろの席の乗客",
+    "tagDesc": "ベルトをしていない",
+    "appearance": {
+      "clothes": "#6F8A7A",
+      "hair": "#8C8984",
+      "hairStyle": "short"
+    }
   }
 }

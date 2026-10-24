@@ -221,7 +221,7 @@ export const Character: React.FC<{
   const blinking = spec.blink !== false && ((t + seed * 2) % period) < 0.13;
   const mouthOpen = !!spec.talking && Math.floor(frame / 4 + seed * 3) % 3 !== 0;
 
-  const expression: Expression = collapse > 0.3 || brace > 0.5 ? 'closed' : spec.expression ?? 'normal';
+  const expression: Expression = collapse > 0.3 || brace > 0.5 ? 'closed' : spec.action === 'airborne' && t >= at ? 'surprised' : spec.expression ?? 'normal';
 
   // 腕の基本形
   const restHand = (s: number): Pt => (pose === 'sit' ? [s * 40, -18] : [s * 70, -8]);
@@ -305,15 +305,23 @@ export const Character: React.FC<{
   const outline = 'rgba(0,0,0,0.16)';
   const isShirt = (a.stripes ?? 0) > 0;
 
-  const outer = `translate(${x}, ${y}) scale(${(spec.flip ? -1 : 1) * scale}, ${scale})`;
+  // 浮き上がる（乱気流など）：at 秒から体が持ち上がって落ちる。座席はその場に残る
+  const air = spec.action === 'airborne' ? Math.max(0, Math.sin((Math.PI * (t - at)) / 1.1)) * (t >= at && t <= at + 1.1 ? 1 : 0) : 0;
+  const airY = -air * (spec.airHeight ?? 260);
+  const base = `translate(${x}, ${y}) scale(${(spec.flip ? -1 : 1) * scale}, ${scale})`;
+  const outer = `translate(${x}, ${y + airY * scale}) scale(${(spec.flip ? -1 : 1) * scale}, ${scale}) rotate(${air * -8})`;
   const upper = `translate(0, ${breathe + bodyDrop}) rotate(${bodyRot}, 0, 0)`;
   const squash = `scale(1, ${torsoSquash})`;
   const headLift = (1 - torsoSquash) * 196;
 
   return (
     <g>
+      {spec.seat && (
+        <g transform={base}>
+          <Seat kind={spec.seat} />
+        </g>
+      )}
       <g transform={outer}>
-        {spec.seat && <Seat kind={spec.seat} />}
         {/* 脚 */}
         {[-1, 1].map((s) => {
           const p = legs(s);
@@ -378,6 +386,12 @@ export const Character: React.FC<{
             const h = armPts(s)[2];
             return <circle key={s} cx={h[0]} cy={h[1]} r={10} fill={a.skin ?? SKIN} />;
           })}
+          {spec.belt && (
+            <g>
+              <rect x={-74} y={-30} width={148} height={20} rx={6} fill="#3A3F47" />
+              <rect x={-18} y={-34} width={36} height={28} rx={5} fill="#B9BEC3" stroke="#6E747C" strokeWidth={3} />
+            </g>
+          )}
           {spec.item === 'bottle' && (
             <g transform="translate(130, -320) rotate(-130)">
               <rect x={-18} y={-50} width={36} height={100} rx={12} fill="#BFE3F0" stroke="#7AB6C4" strokeWidth={4} opacity={0.95} />

@@ -37,8 +37,22 @@ export const SceneView: React.FC<{scene: ResolvedScene; cast: Record<string, Cas
   }
   const overlays = scene.overlays ?? [];
 
+  // 揺れ（乱気流）
+  let sx = 0;
+  let sy = 0;
+  for (const sh of scene.shake ?? []) {
+    const t0 = (sh.at ?? 0) * fps;
+    const t1 = t0 + (sh.duration ?? 1) * fps;
+    if (frame < t0 || frame > t1) continue;
+    const fade = 1 - (frame - t0) / Math.max(1, t1 - t0);
+    const amp = (sh.amp ?? 20) * (0.4 + 0.6 * fade);
+    sx += Math.sin(frame * 2.1) * amp * 0.6 + Math.sin(frame * 5.3) * amp * 0.4;
+    sy += Math.cos(frame * 1.7) * amp * 0.7 + Math.sin(frame * 4.1) * amp * 0.5;
+  }
+
   return (
     <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
+      <AbsoluteFill style={{transform: `translate(${sx}px, ${sy}px) scale(${sx || sy ? 1.04 : 1})`}}>
       <AbsoluteFill style={cameraStyle}>
         <svg width={WIDTH} height={HEIGHT} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} style={{position: 'absolute', inset: 0}}>
           <Bg layer="back" p={p} />
@@ -49,6 +63,7 @@ export const SceneView: React.FC<{scene: ResolvedScene; cast: Record<string, Cas
           <Bg layer="front" p={p} />
         </svg>
         <OverlayLayer overlays={overlays} world sceneFrames={scene.durationInFrames} />
+      </AbsoluteFill>
       </AbsoluteFill>
       <OverlayLayer overlays={overlays} world={false} sceneFrames={scene.durationInFrames} />
       {scene.newTags.length > 0 && <NameTags ids={scene.newTags} cast={cast} />}

@@ -24,6 +24,10 @@ const SE = {
   'evac_horn.wav': ['-f', 'lavfi', '-i', "aevalsrc='0.3*sin(2*PI*2200*t)*lt(mod(t,0.5),0.25)':s=44100:d=4"],
   // つぶれる音（バキッ）
   'crunch.wav': ['-f', 'lavfi', '-i', "aevalsrc='(random(0)*2-1)*0.8*exp(-18*t)+0.6*sin(2*PI*90*t)*exp(-10*t)':s=44100:d=0.8", '-af', 'lowpass=f=3000'],
+  // ドンッ（機体が落ちる衝撃）
+  'thud.wav': ['-f', 'lavfi', '-i', "aevalsrc='0.9*sin(2*PI*55*t)*exp(-6*t)+(random(0)*2-1)*0.5*exp(-12*t)':s=44100:d=1.5", '-af', 'lowpass=f=400'],
+  // ガタガタ（揺れ）
+  'rattle.wav': ['-f', 'lavfi', '-i', 'anoisesrc=c=brown:a=0.6:d=4:r=44100', '-af', "lowpass=f=300,volume='0.5+0.5*sin(2*PI*9*t)':eval=frame,afade=t=out:st=3:d=1"],
 };
 
 for (const [name, args] of Object.entries(SE)) {
