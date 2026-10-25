@@ -1,0 +1,1 @@
+{"text":"揺れた場所は、管制を通して、後ろを飛ぶ飛行機にも伝えられる。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

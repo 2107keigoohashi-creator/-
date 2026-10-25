@@ -1,0 +1,784 @@
+{
+ "title": "乱気流で、飲み物が天井まで飛んだら（後編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "前編のあらすじ。晴れた空で、飛行機が、突然落ちた。",
+   "telop": "【前編】のおさらい",
+   "background": "skyPlane",
+   "bgProps": {
+    "sky": "day"
+   },
+   "shake": [
+    {
+     "at": 0.6,
+     "duration": 1.6,
+     "amp": 26
+    }
+   ]
+  },
+  {
+   "narration": "通路には、倒れたカートと、CAの美咲。",
+   "telop": "通路に【倒れたCA】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 500,
+     "y": 1460,
+     "scale": 1.3,
+     "pose": "sit",
+     "expression": "panic",
+     "sweat": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "cart",
+     "x": 800,
+     "y": 1540,
+     "scale": 1.0,
+     "tipped": true
+    }
+   ]
+  },
+  {
+   "narration": "美咲さん、大丈夫ですか！",
+   "telop": "「美咲さん、【大丈夫】？」",
+   "background": "cabinAisle",
+   "voice": "kenta",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 500,
+     "y": 1460,
+     "scale": 1.3,
+     "pose": "sit",
+     "expression": "panic",
+     "sweat": true
+    },
+    {
+     "id": "kenta",
+     "x": 760,
+     "y": 1440,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "cart",
+     "x": 800,
+     "y": 1540,
+     "scale": 1.0,
+     "tipped": true
+    },
+    {
+     "type": "bubble",
+     "text": "大丈夫ですか！",
+     "x": 760,
+     "y": 880,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "足を、ひねっただけです……",
+   "telop": "「足を【ひねった】だけ」",
+   "background": "cabinAisle",
+   "voice": "misaki",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 500,
+     "y": 1460,
+     "scale": 1.3,
+     "pose": "sit",
+     "expression": "panic",
+     "sweat": true,
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "cart",
+     "x": 800,
+     "y": 1540,
+     "scale": 1.0,
+     "tipped": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 520,
+     "focusY": 1150
+    }
+   ]
+  },
+  {
+   "narration": "美咲のけがは、軽くてすんだ。でも、もっとひどいけがになることもある。",
+   "telop": "もっと【ひどいけが】も",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 500,
+     "y": 1460,
+     "scale": 1.3,
+     "pose": "sit",
+     "expression": "panic",
+     "sweat": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "cart",
+     "x": 800,
+     "y": 1540,
+     "scale": 1.0,
+     "tipped": true
+    }
+   ]
+  },
+  {
+   "narration": "実は、乱気流でけがをしやすいのは、CAなんだ。",
+   "telop": "ルール#1 けがが多いのは【CA】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "アメリカの調査では、乱気流で重いけがをした人の、約8割が乗務員だった。",
+   "telop": "重いけがの【約8割】が乗務員",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "約8割が乗務員",
+     "at": 0.4,
+     "y": 560,
+     "color": "#FF6B5E",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "narration": "立って仕事をしていると、体を固定できないからだ。",
+   "telop": "立っていると【固定できない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "belt": true,
+     "expression": "surprised"
+    },
+    {
+     "id": "misaki",
+     "x": 930,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "action": "airborne",
+     "at": 0.8,
+     "airHeight": 180
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.7,
+     "duration": 1.4,
+     "amp": 24
+    }
+   ]
+  },
+  {
+   "narration": "では、けがをした乗客は、どんな人だったのか。",
+   "telop": "けがをした【乗客】は？",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   }
+  },
+  {
+   "narration": "多くは、席を立っていたか、ベルトをしていなかった人だ。",
+   "telop": "多くは【ベルトなし】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "p1",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "action": "airborne",
+     "at": 0.5,
+     "airHeight": 320,
+     "tag": false
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.4,
+     "duration": 1.4,
+     "amp": 30
+    }
+   ]
+  },
+  {
+   "narration": "ベルトをしていれば、体は、座席から離れない。",
+   "telop": "ベルトなら【座席から離れない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "center",
+     "belt": true
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.4,
+     "duration": 1.6,
+     "amp": 30
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.6,
+     "zoom": 1.8,
+     "focusX": 600,
+     "focusY": 1250
+    }
+   ]
+  },
+  {
+   "narration": "だから、座っている間は、サインが消えていても、ベルトを軽く締めておく。",
+   "telop": "ルール#2 【サインが消えても】締める",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up",
+     "belt": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    },
+    {
+     "type": "beltSign",
+     "lit": false,
+     "y": 420,
+     "at": 1.3
+    }
+   ]
+  },
+  {
+   "narration": "そのころ、コックピットでは。",
+   "telop": "そのころ【コックピット】",
+   "background": "cockpit",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    }
+   ]
+  },
+  {
+   "narration": "管制に、揺れた場所を報告します。",
+   "telop": "揺れた場所を【報告】",
+   "background": "cockpit",
+   "voice": "takahashi",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "talking": true,
+     "look": "right"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "揺れた場所を報告します",
+     "x": 300,
+     "y": 720,
+     "at": 0.1,
+     "tail": "down",
+     "size": 46
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 320,
+     "focusY": 880
+    }
+   ]
+  },
+  {
+   "narration": "揺れた場所は、管制を通して、後ろを飛ぶ飛行機にも伝えられる。",
+   "telop": "後ろの飛行機にも【伝える】",
+   "background": "nightRadio",
+   "bgProps": {
+    "label": "揺れの情報を共有",
+    "color": "#7AB6C4"
+   }
+  },
+  {
+   "narration": "高度を変えて、揺れの少ない高さへ移ります。",
+   "telop": "【高度を変えて】揺れを避ける",
+   "background": "cockpit",
+   "voice": "sato",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "talking": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "altitude",
+     "from": 37000,
+     "to": 33000,
+     "changeAt": 0.6,
+     "duration": 2.5,
+     "y": 495
+    }
+   ]
+  },
+  {
+   "narration": "揺れのため、お飲み物のサービスを中止します。お席で、ベルトをお締めください。",
+   "telop": "機長から【機内放送】",
+   "background": "cabinAisle",
+   "voice": "sato_pa",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    },
+    {
+     "type": "beltSign",
+     "y": 520
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "実際に、2024年5月、シンガポール航空の旅客機が、激しい乱気流にあった。",
+   "telop": "実際に【起きた】乱気流",
+   "background": "skyPlane",
+   "bgProps": {
+    "sky": "day"
+   },
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "2024年5月\nシンガポール航空 321便",
+     "at": 0.2
+    }
+   ],
+   "shake": [
+    {
+     "at": 1.5,
+     "duration": 2.0,
+     "amp": 28
+    }
+   ]
+  },
+  {
+   "narration": "わずか4.6秒で、高さが54メートルも下がった。",
+   "telop": "【4.6秒で54m】降下",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "4.6秒で 54m",
+     "at": 0.4,
+     "y": 560,
+     "color": "#F2C14E",
+     "size": 130
+    }
+   ]
+  },
+  {
+   "narration": "ベルトをしていなかった人は、宙に浮き、そして床に落ちた。",
+   "telop": "ベルトなしの人は【宙に浮いた】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "p1",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "action": "airborne",
+     "at": 0.3,
+     "airHeight": 480,
+     "tag": false
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.2,
+     "duration": 1.8,
+     "amp": 36
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/thud.wav",
+     "at": 1.3,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "narration": "1人が亡くなり、多くの人がけがをした。",
+   "telop": "【多くの人】がけが",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   }
+  },
+  {
+   "narration": "アメリカの運輸安全委員会は、ベルトをしていれば、乱気流でけがをする危険は、ほぼなくせると言っている。",
+   "telop": "ベルトで【危険はほぼなくせる】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "center",
+     "belt": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 2.4,
+     "zoom": 1.8,
+     "focusX": 600,
+     "focusY": 1250
+    }
+   ]
+  },
+  {
+   "narration": "飛行機は、無事に、福岡空港に着いた。",
+   "telop": "【無事に】福岡へ",
+   "background": "runway",
+   "bgProps": {
+    "sky": "day",
+    "landAt": 2.0
+   }
+  },
+  {
+   "narration": "ベルト、締めといてよかった……",
+   "telop": "「締めといて【よかった】」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "belt": true,
+     "talking": true
+    },
+    {
+     "id": "misaki",
+     "x": 930,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 960
+    }
+   ]
+  },
+  {
+   "narration": "座っている間は、これからも、ずっと締めておいてくださいね。",
+   "telop": "「【ずっと】締めておいて」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "belt": true
+    },
+    {
+     "id": "misaki",
+     "x": 930,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "ずっと締めておいてね",
+     "x": 900,
+     "y": 800,
+     "at": 0.1,
+     "tail": "down",
+     "size": 46
+    }
+   ]
+  },
+  {
+   "narration": "最後に、あなたができることは3つ。",
+   "telop": "できることは【3つ】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "座っている間は、ずっとベルト",
+      "サインが点いたら、すぐ席へ",
+      "揺れたら、CAの指示に従う"
+     ],
+     "show": 0,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "1つ目。座っている間は、ずっとベルトを締めておく。",
+   "telop": "①【ずっとベルト】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "座っている間は、ずっとベルト",
+      "サインが点いたら、すぐ席へ",
+      "揺れたら、CAの指示に従う"
+     ],
+     "show": 1,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "2つ目。サインが点いたら、すぐに席に戻る。トイレにいる時は、手すりにつかまる。",
+   "telop": "②【すぐ席へ】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "座っている間は、ずっとベルト",
+      "サインが点いたら、すぐ席へ",
+      "揺れたら、CAの指示に従う"
+     ],
+     "show": 2,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "3つ目。揺れたら、CAの指示に、すぐ従う。",
+   "telop": "③【CAの指示】に従う",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "座っている間は、ずっとベルト",
+      "サインが点いたら、すぐ席へ",
+      "揺れたら、CAの指示に従う"
+     ],
+     "show": 3,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "空の揺れは、目に見えない。だから、ベルトはいつも。",
+   "telop": "ベルトは【いつも】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "おわり",
+     "at": 2.6,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

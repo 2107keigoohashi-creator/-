@@ -1,0 +1,1 @@
+{"text":"アメリカの調査では、乱気流で重いけがをした人の、約8割が乗務員だった。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

@@ -1,0 +1,1 @@
+{"text":"管制に、揺れた場所を報告します。","preset":{"speaker":"玄野武宏","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.25,"pauseLengthScale":0.55,"volumeScale":1}}

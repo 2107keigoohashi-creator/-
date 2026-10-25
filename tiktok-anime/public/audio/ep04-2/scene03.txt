@@ -1,0 +1,1 @@
+{"text":"美咲さん、大丈夫ですか！","preset":{"speaker":"雀松朱司","style":"ノーマル","speedScale":1.08,"pitchScale":0,"intonationScale":1.25,"pauseLengthScale":0.55,"volumeScale":1}}
