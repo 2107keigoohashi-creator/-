@@ -1,0 +1,1 @@
+{"text":"ゴーアラウンド！","preset":{"speaker":"麒ヶ島宗麟","style":"ノーマル","speedScale":1.02,"pitchScale":0,"intonationScale":1.15,"pauseLengthScale":0.6,"volumeScale":1}}

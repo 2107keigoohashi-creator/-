@@ -279,3 +279,117 @@ export const WeatherRadar: Background = ({layer, p}) => {
     </g>
   );
 };
+
+// 夜の進入（コックピットから見た滑走路）。from→to で近づく（0〜1）、intruderAt で滑走路上に別の機体、goAt でゴーアラウンド（滑走路が下へ消える）
+export const Approach: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps, durationInFrames} = useVideoConfig();
+  if (layer === 'front') {
+    return (
+      <g>
+        {/* 窓枠 */}
+        <path d="M 0,0 L 1080,0 L 1080,1920 L 0,1920 Z M 70,330 L 1010,330 L 960,1130 L 120,1130 Z" fill="#2A2D33" fillRule="evenodd" />
+        <rect x={0} y={1130} width={1080} height={790} fill="#33373E" />
+        <rect x={140} y={1180} width={330} height={220} rx={12} fill="#1D252C" />
+        <rect x={610} y={1180} width={330} height={220} rx={12} fill="#1D252C" />
+      </g>
+    );
+  }
+  const t = frame / fps;
+  const from = num(p.from, 0.3);
+  const to = num(p.to, 0.6);
+  const goAt = num(p.goAt, -1);
+  const total = durationInFrames / fps;
+  const go = goAt >= 0 ? interpolate(t, [goAt, goAt + 2.2], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)}) : 0;
+  const prog = interpolate(t, [0, total], [from, to], {extrapolateRight: 'clamp'});
+  // 近づくほど滑走路が大きく、手前に広がる。ゴーアラウンドで地面が下へ
+  const horizon = 560 + go * 700;
+  const near = 1130 + (1 - prog) * -380;
+  const half = 60 + prog * 520;
+  const farHalf = 14 + prog * 30;
+  const cx = 540;
+  const lights = 14;
+  const intruderAt = num(p.intruderAt, -1);
+  const intr = intruderAt >= 0 ? Math.min(1, Math.max(0, (t - intruderAt) / 0.6)) : 0;
+  const blink = Math.floor(t * 2.5) % 2 === 0;
+  const lerp = (a: number, b: number, u: number) => a + (b - a) * u;
+  return (
+    <g>
+      <defs>
+        <Grad id="ap-sky" from="#0B1020" to="#1E2A44" />
+      </defs>
+      <rect x={0} y={0} width={1080} height={1920} fill="url(#ap-sky)" />
+      {[...Array(18)].map((_, i) => (
+        <circle key={i} cx={(i * 197) % 1080} cy={360 + ((i * 89) % 160)} r={2} fill="#E9E6DA" opacity={0.6} />
+      ))}
+      <rect x={0} y={horizon} width={1080} height={1920} fill="#0E121A" />
+      {/* 街の明かり */}
+      {[...Array(40)].map((_, i) => (
+        <circle key={i} cx={(i * 137) % 1080} cy={horizon + 10 + ((i * 53) % 60)} r={2.5} fill={i % 3 ? '#F2C14E' : '#E9E6DA'} opacity={0.7} />
+      ))}
+      {/* 滑走路 */}
+      <path d={`M ${cx - farHalf},${horizon + 4} L ${cx + farHalf},${horizon + 4} L ${cx + half},${near + go * 700} L ${cx - half},${near + go * 700} Z`} fill="#1A1D24" />
+      {[...Array(lights)].map((_, i) => {
+        const u = i / (lights - 1);
+        const k = u * u;
+        const y = lerp(horizon + 4, near + go * 700, k);
+        const hw = lerp(farHalf, half, k);
+        const r = 2 + k * 9;
+        return (
+          <g key={i}>
+            <circle cx={cx - hw} cy={y} r={r} fill="#F4F1EA" />
+            <circle cx={cx + hw} cy={y} r={r} fill="#F4F1EA" />
+            {i % 2 === 0 && <rect x={cx - r * 0.6} y={y - r * 0.3} width={r * 1.2} height={r * 0.6} fill="#E9E6DA" opacity={0.7} />}
+          </g>
+        );
+      })}
+      {/* 進入灯 */}
+      {[...Array(5)].map((_, i) => {
+        const y = near + go * 700 + 30 + i * 40;
+        return <rect key={i} x={cx - 80 - i * 20} y={y} width={160 + i * 40} height={6} fill="#F2C14E" opacity={0.85} />;
+      })}
+      {/* 滑走路上の別の機体 */}
+      {intr > 0 && (
+        <g opacity={intr} transform={`translate(${cx + 6}, ${lerp(horizon + 4, near + go * 700, 0.35)}) scale(${(0.6 + prog * 1.4) * 2.2})`}>
+          <rect x={-60} y={-10} width={120} height={18} rx={9} fill="#3A3F47" />
+          <rect x={-8} y={-26} width={16} height={18} fill="#3A3F47" />
+          <circle cx={-64} cy={-2} r={6} fill="#FF4D3D" />
+          <circle cx={64} cy={-2} r={6} fill="#4DE07A" />
+          {blink && <circle cx={0} cy={-30} r={9} fill="#FFFFFF" />}
+          {blink && <circle cx={0} cy={-30} r={22} fill="#FFFFFF" opacity={0.25} />}
+        </g>
+      )}
+    </g>
+  );
+};
+
+// ゴーアラウンドの説明図（横から見た進入経路）。drawAt から線が描かれる
+export const PathDiagram: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const at = num(p.drawAt, 0.3);
+  const d = interpolate(t, [at, at + 3], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)});
+  const path = 'M 80,560 L 600,1040 Q 680,1110 760,1000 Q 900,760 980,520';
+  const len = 1500;
+  return (
+    <g>
+      <defs>
+        <Grad id="pd-bg" from="#1E2A3C" to="#131B28" />
+      </defs>
+      <rect x={0} y={0} width={1080} height={1920} fill="url(#pd-bg)" />
+      <rect x={40} y={1100} width={1000} height={20} fill="#4C5058" />
+      <rect x={560} y={1094} width={300} height={10} fill="#E9E4DA" />
+      <text x={710} y={1170} textAnchor="middle" fontSize={40} fontWeight={900} fill="#9FB0C4" fontFamily="Noto Sans JP">滑走路</text>
+      <path d="M 80,560 L 680,1104" stroke="#5B6C84" strokeWidth={6} strokeDasharray="16 14" fill="none" />
+      <path d={path} stroke="#F2C14E" strokeWidth={14} fill="none" strokeLinecap="round" strokeDasharray={`${len * d} ${len}`} />
+      {d > 0.55 && (
+        <text x={850} y={720} textAnchor="middle" fontSize={50} fontWeight={900} fill="#F2C14E" fontFamily="Noto Sans JP" opacity={Math.min(1, (d - 0.55) * 4)}>
+          上昇してやり直し
+        </text>
+      )}
+      <text x={250} y={600} fontSize={44} fontWeight={900} fill="#9FB0C4" fontFamily="Noto Sans JP">進入</text>
+    </g>
+  );
+};

@@ -28,6 +28,8 @@ const SE = {
   'thud.wav': ['-f', 'lavfi', '-i', "aevalsrc='0.9*sin(2*PI*55*t)*exp(-6*t)+(random(0)*2-1)*0.5*exp(-12*t)':s=44100:d=1.5", '-af', 'lowpass=f=400'],
   // ガタガタ（揺れ）
   'rattle.wav': ['-f', 'lavfi', '-i', 'anoisesrc=c=brown:a=0.6:d=4:r=44100', '-af', "lowpass=f=300,volume='0.5+0.5*sin(2*PI*9*t)':eval=frame,afade=t=out:st=3:d=1"],
+  // エンジン全開（ゴォーッ）
+  'roar.wav': ['-f', 'lavfi', '-i', 'anoisesrc=c=brown:a=0.8:d=5:r=44100', '-af', "lowpass=f=900,volume='min(1,0.15+t*0.5)':eval=frame,afade=t=out:st=4:d=1"],
 };
 
 for (const [name, args] of Object.entries(SE)) {

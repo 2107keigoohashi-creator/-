@@ -90,5 +90,25 @@
     "intonationScale": 1.25,
     "pauseLengthScale": 0.55,
     "volumeScale": 1.0
+  },
+  "atc": {
+    "speaker": "雀松朱司",
+    "style": "ノーマル",
+    "speedScale": 1.05,
+    "pitchScale": 0,
+    "intonationScale": 1.1,
+    "pauseLengthScale": 0.6,
+    "volumeScale": 1.0,
+    "filter": "radio"
+  },
+  "misaki_pa": {
+    "speaker": "No.7",
+    "style": "ノーマル",
+    "speedScale": 1.05,
+    "pitchScale": 0,
+    "intonationScale": 1.2,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0,
+    "filter": "pa"
   }
 }

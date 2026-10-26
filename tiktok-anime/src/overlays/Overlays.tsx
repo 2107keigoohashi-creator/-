@@ -509,7 +509,11 @@ const Altitude: React.FC<{o: Overlay}> = ({o}) => {
   const to = n(o.to, 36820);
   const at = n(o.changeAt, 0.5);
   const v = interpolate(t, [at, at + n(o.duration, 1.2)], [from, to], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.in(Easing.quad)});
-  const falling = t > at && t < at + n(o.duration, 1.2);
+  const moving = t > at && t < at + n(o.duration, 1.2);
+  const up = to > from;
+  // 下降中は赤▼、上昇中は緑▲
+  const falling = moving && !up;
+  const rising = moving && up;
   return (
     <div style={{position: 'absolute', left: 0, right: 0, top: n(o.y, 260), display: 'flex', justifyContent: 'center'}}>
       <div style={{...font, background: '#121417', border: `8px solid ${falling ? COLORS.accent : '#44484F'}`, borderRadius: 24, padding: '18px 40px', textAlign: 'center'}}>
@@ -518,7 +522,7 @@ const Altitude: React.FC<{o: Overlay}> = ({o}) => {
           {Math.round(v).toLocaleString('en-US')}
           <span style={{fontSize: 52}}> ft</span>
         </div>
-        <div style={{color: falling ? '#FF6B5E' : 'transparent', fontWeight: 900, fontSize: 56}}>▼▼▼</div>
+        <div style={{color: falling ? '#FF6B5E' : rising ? '#7FD39A' : 'transparent', fontWeight: 900, fontSize: 56}}>{up ? '▲▲▲' : '▼▼▼'}</div>
       </div>
     </div>
   );

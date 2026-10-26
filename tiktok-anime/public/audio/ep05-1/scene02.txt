@@ -1,0 +1,1 @@
+{"text":"窓の外には、街の明かりが、どんどん近づいてくる。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

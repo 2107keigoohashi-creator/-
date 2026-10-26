@@ -5,11 +5,15 @@ IMAGE=voicevox/voicevox_engine:cpu-latest
 
 if curl -s localhost:50021/version >/dev/null; then echo "VOICEVOX は起動済み"; exit 0; fi
 
-if ! docker info >/dev/null 2>&1; then
-  echo "Docker を起動します…"
+# Docker を起動（containerd の起動が遅いと失敗することがあるので3回まで試す）
+for attempt in 1 2 3; do
+  docker info >/dev/null 2>&1 && break
+  echo "Docker を起動します…（${attempt}回目）"
+  pkill dockerd >/dev/null 2>&1; sleep 2
   (dockerd >/tmp/dockerd.log 2>&1 &)
-  for i in $(seq 1 30); do docker info >/dev/null 2>&1 && break; sleep 1; done
-fi
+  for i in $(seq 1 60); do docker info >/dev/null 2>&1 && break; sleep 1; done
+done
+docker info >/dev/null 2>&1 || { echo "Docker を起動できませんでした（/tmp/dockerd.log を確認）" >&2; exit 1; }
 
 if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then
   for wait in 0 30 60 120 240; do

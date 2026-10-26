@@ -1,0 +1,1 @@
+{"text":"まもなく着陸いたします。シートベルトを、しっかりお締めください。","preset":{"speaker":"No.7","style":"ノーマル","speedScale":1.05,"pitchScale":0,"intonationScale":1.2,"pauseLengthScale":0.55,"volumeScale":1,"filter":"pa"}}

@@ -1,0 +1,1 @@
+{"text":"了解。滑走路にいる機体を、確認しています。","preset":{"speaker":"雀松朱司","style":"ノーマル","speedScale":1.05,"pitchScale":0,"intonationScale":1.1,"pauseLengthScale":0.6,"volumeScale":1,"filter":"radio"}}

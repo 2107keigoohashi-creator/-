@@ -1,0 +1,1 @@
+{"text":"えっ、何！？着陸するんじゃないの？","preset":{"speaker":"白上虎太郎","style":"ふつう","speedScale":1.08,"pitchScale":0,"intonationScale":1.35,"pauseLengthScale":0.55,"volumeScale":1}}
