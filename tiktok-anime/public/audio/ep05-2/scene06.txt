@@ -1,0 +1,1 @@
+{"text":"入ってはいけない滑走路に、飛行機が入ってしまう。これを、かっそうろごしんにゅうという。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

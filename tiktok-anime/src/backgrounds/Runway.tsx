@@ -62,6 +62,7 @@ export const Runway: Background = ({layer, p}) => {
   if (layer === 'front') {
     return (
       <g>
+        {sky === 'night' && <rect x={0} y={0} width={1080} height={1920} fill="#0B1020" opacity={0.5} />}
         <Vehicle x={90} y={1580} kind="ambulance" on={on} s={1.15} />
         <Vehicle x={560} y={1620} kind="fire" on={!on} s={1.05} />
       </g>

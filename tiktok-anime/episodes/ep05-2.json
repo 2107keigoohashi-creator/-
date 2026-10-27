@@ -1,0 +1,547 @@
+{
+ "title": "着陸直前に、滑走路に別の飛行機がいたら（後編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "前編のあらすじ。着陸の直前、滑走路に、別の飛行機がいた。",
+   "telop": "【前編】のおさらい",
+   "background": "approach",
+   "bgProps": {
+    "from": 0.75,
+    "to": 0.85,
+    "intruderAt": 0
+   }
+  },
+  {
+   "narration": "飛行機は着陸をやめて、もう一度、空へ上がった。",
+   "telop": "着陸をやめて【上昇】",
+   "background": "approach",
+   "bgProps": {
+    "from": 0.85,
+    "to": 0.85,
+    "goAt": 0.3,
+    "intruderAt": 0
+   },
+   "overlays": [
+    {
+     "type": "altitude",
+     "from": 120,
+     "to": 1500,
+     "changeAt": 0.4,
+     "duration": 2.6,
+     "y": 380
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/roar.wav",
+     "at": 0,
+     "volume": 0.45
+    }
+   ]
+  },
+  {
+   "narration": "上空を大きく回りながら、二人は管制からの連絡を待った。",
+   "telop": "上空で【管制を待つ】",
+   "background": "cockpit",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "up"
+    }
+   ]
+  },
+  {
+   "narration": "滑走路にいたのは、小型機です。指示を聞き間違えて、滑走路に入っていました。",
+   "telop": "「指示を【聞き間違えた】」",
+   "background": "nightRadio",
+   "voice": "atc",
+   "bgProps": {
+    "label": "伊丹タワー",
+    "color": "#7AB6C4"
+   }
+  },
+  {
+   "narration": "聞き間違い、か……",
+   "telop": "「【聞き間違い】か…」",
+   "background": "cockpit",
+   "voice": "takahashi",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "talking": true,
+     "look": "right"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 320,
+     "focusY": 880
+    }
+   ]
+  },
+  {
+   "narration": "入ってはいけない滑走路に、飛行機が入ってしまう。これを、滑走路誤進入という。",
+   "telop": "ルール#1 【滑走路誤進入】",
+   "background": "stopBar",
+   "bgProps": {
+    "offAt": 999
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    }
+   ],
+   "reading": "入ってはいけない滑走路に、飛行機が入ってしまう。これを、かっそうろごしんにゅうという。"
+  },
+  {
+   "narration": "それを防ぐ仕組みの一つが、滑走路の手前で光る、赤い停止線灯だ。",
+   "telop": "赤い【停止線灯】",
+   "background": "stopBar",
+   "bgProps": {
+    "offAt": 999
+   },
+   "cuts": [
+    {
+     "at": 1.6,
+     "zoom": 1.6,
+     "focusX": 540,
+     "focusY": 1020
+    }
+   ]
+  },
+  {
+   "narration": "赤く光っている間は、絶対に、滑走路に入ってはいけない。",
+   "telop": "赤なら【絶対に止まる】",
+   "background": "stopBar",
+   "bgProps": {
+    "offAt": 999
+   }
+  },
+  {
+   "narration": "管制の許可が出て、明かりが消えたら、はじめて進める。",
+   "telop": "許可が出て【消えたら進む】",
+   "background": "stopBar",
+   "bgProps": {
+    "offAt": 1.4,
+    "goAt": 2.2
+   }
+  },
+  {
+   "narration": "管制官、パイロット、そして明かり。何重もの見張りで、ぶつかるのを防いでいる。",
+   "telop": "【何重も】の見張り",
+   "background": "nightRadio",
+   "bgProps": {
+    "label": "管制・パイロット・停止線灯",
+    "color": "#F2C14E"
+   }
+  },
+  {
+   "narration": "それでも、人は間違えることがある。",
+   "telop": "それでも【人は間違える】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   }
+  },
+  {
+   "narration": "だから最後は、着陸するパイロットが、自分の目で滑走路を確かめるんだ。",
+   "telop": "最後は【自分の目】で確かめる",
+   "background": "cockpit",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "up"
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "up"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.8,
+     "zoom": 1.5,
+     "focusX": 540,
+     "focusY": 820
+    }
+   ]
+  },
+  {
+   "narration": "実際に、2017年7月、アメリカのサンフランシスコ空港で、こんなことがあった。",
+   "telop": "ルール#2 実際に【起きた】",
+   "background": "sfoDiagram",
+   "bgProps": {
+    "drawAt": 99,
+    "planes": true
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    },
+    {
+     "type": "infoBox",
+     "text": "2017年7月\nサンフランシスコ空港",
+     "at": 1.4
+    }
+   ]
+  },
+  {
+   "narration": "エア・カナダの旅客機が、滑走路と間違えて、隣の誘導路に降りようとした。",
+   "telop": "滑走路と【誘導路】を間違えた",
+   "background": "sfoDiagram",
+   "bgProps": {
+    "drawAt": 0.4
+   }
+  },
+  {
+   "narration": "その誘導路には、出発を待つ旅客機が、4機も並んでいた。",
+   "telop": "誘導路には【4機】が待機",
+   "background": "sfoDiagram",
+   "bgProps": {
+    "drawAt": -5
+   },
+   "cuts": [
+    {
+     "at": 1.0,
+     "zoom": 1.5,
+     "focusX": 420,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "パイロットは、地上わずか18メートルほどで、ゴーアラウンドした。",
+   "telop": "地上【約18m】でゴーアラウンド",
+   "background": "sfoDiagram",
+   "bgProps": {
+    "drawAt": -5,
+    "goAt": 0.6
+   },
+   "se": [
+    {
+     "file": "assets/audio/roar.wav",
+     "at": 0.5,
+     "volume": 0.45
+    }
+   ]
+  },
+  {
+   "narration": "大事故は、ぎりぎりのところで、避けられた。",
+   "telop": "大事故は【ぎりぎり】で回避",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "地上 約18m",
+     "at": 0.3,
+     "y": 560,
+     "color": "#F2C14E",
+     "size": 120
+    }
+   ]
+  },
+  {
+   "narration": "ゴーアラウンドは、失敗ではない。安全を守るための、大事な判断なんだ。",
+   "telop": "ゴーアラウンドは【失敗じゃない】",
+   "background": "pathDiagram",
+   "bgProps": {
+    "drawAt": 0
+   }
+  },
+  {
+   "narration": "滑走路は空いています。着陸を許可します。",
+   "telop": "「【着陸を許可】します」",
+   "background": "nightRadio",
+   "voice": "atc",
+   "bgProps": {
+    "label": "伊丹タワー",
+    "color": "#7FD39A"
+   }
+  },
+  {
+   "narration": "2回目の着陸。滑走路は、もう空いている。",
+   "telop": "【2回目】の着陸",
+   "background": "approach",
+   "bgProps": {
+    "from": 0.3,
+    "to": 0.95
+   },
+   "overlays": [
+    {
+     "type": "altitude",
+     "from": 800,
+     "to": 50,
+     "changeAt": 0.3,
+     "duration": 3,
+     "y": 380
+    }
+   ]
+  },
+  {
+   "narration": "飛行機は、静かに、滑走路に降りた。",
+   "telop": "【無事に】着陸",
+   "background": "runway",
+   "bgProps": {
+    "sky": "night",
+    "landAt": 2.0
+   }
+  },
+  {
+   "narration": "機長です。先ほどの上昇は、滑走路に別の機体がいたためです。安全のための操作でした。",
+   "telop": "機長から【説明】",
+   "background": "cabinAisle",
+   "voice": "sato_pa",
+   "bgProps": {
+    "murmur": false
+   },
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "そうだったんだ。ほっとした……",
+   "telop": "「【ほっとした】…」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night",
+    "ground": true,
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "belt": true,
+     "talking": true,
+     "expression": "closed"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 960
+    }
+   ]
+  },
+  {
+   "narration": "ゴーアラウンドは、みなさんを守るための、ふつうの操作なんですよ。",
+   "telop": "「安全のための【ふつうの操作】」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "night",
+    "ground": true,
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "belt": true
+    },
+    {
+     "id": "misaki",
+     "x": 930,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "ふつうの操作なんですよ",
+     "x": 900,
+     "y": 800,
+     "at": 0.1,
+     "tail": "down",
+     "size": 46
+    }
+   ]
+  },
+  {
+   "narration": "最後に、覚えておきたいことは3つ。",
+   "telop": "覚えておくことは【3つ】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "ゴーアラウンドは怖くない",
+      "止まるまでベルトを締める",
+      "放送を落ち着いて聞く"
+     ],
+     "show": 0,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "1つ目。ゴーアラウンドは、怖いことじゃない。",
+   "telop": "①【怖くない】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "ゴーアラウンドは怖くない",
+      "止まるまでベルトを締める",
+      "放送を落ち着いて聞く"
+     ],
+     "show": 1,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "2つ目。飛行機が完全に止まるまで、ベルトは締めておく。",
+   "telop": "②【止まるまで】ベルト",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "ゴーアラウンドは怖くない",
+      "止まるまでベルトを締める",
+      "放送を落ち着いて聞く"
+     ],
+     "show": 2,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "3つ目。機長や、CAの放送を、落ち着いて聞く。",
+   "telop": "③【放送を聞く】",
+   "background": "plain",
+   "overlays": [
+    {
+     "type": "checklist",
+     "items": [
+      "ゴーアラウンドは怖くない",
+      "止まるまでベルトを締める",
+      "放送を落ち着いて聞く"
+     ],
+     "show": 3,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "着陸のやり直しは、あなたを守るための、勇気ある判断だ。",
+   "telop": "やり直しは【勇気ある判断】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "おわり",
+     "at": 2.6,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

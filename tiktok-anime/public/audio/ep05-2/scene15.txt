@@ -1,0 +1,1 @@
+{"text":"その誘導路には、出発を待つ旅客機が、4機も並んでいた。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

@@ -1,0 +1,1 @@
+{"text":"機長です。先ほどの上昇は、滑走路に別の機体がいたためです。安全のための操作でした。","preset":{"speaker":"麒ヶ島宗麟","style":"ノーマル","speedScale":1.02,"pitchScale":0,"intonationScale":1.15,"pauseLengthScale":0.6,"volumeScale":1,"filter":"pa"}}

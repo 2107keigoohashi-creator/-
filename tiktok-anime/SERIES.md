@@ -10,6 +10,7 @@
 | ep04-1 | 乱気流で、飲み物が天井まで飛んだら（前編） | 完成（27シーン・95.3秒） | 2026-10-24 | output/tiktok_anime_ep04-1.mp4 |
 | ep04-2 | 乱気流で、飲み物が天井まで飛んだら（後編） | 完成（30シーン） | 2026-10-25 | output/tiktok_anime_ep04-2.mp4 |
 | ep05-1 | 着陸直前に、滑走路に別の飛行機がいたら（前編） | 完成（26シーン・93.4秒） | 2026-10-26 | output/tiktok_anime_ep05-1.mp4 |
+| ep05-2 | 着陸直前に、滑走路に別の飛行機がいたら（後編） | 完成（29シーン） | 2026-10-27 | output/tiktok_anime_ep05-2.mp4 |
 
 ## 次回の指示（オーナーより）
 
@@ -20,13 +21,15 @@
 - 10/24：「乱気流」の前編を制作
 - 10/25：「乱気流」の後編を制作し完結
 - 10/26：「ゴーアラウンド」の前編を制作
-- **次の朝**：ep05-2（後編）を提案する。内容：滑走路の飛行機の正体（指示の聞き間違いで滑走路に入った＝滑走路誤進入）→ 管制・パイロット・停止線灯（ストップバー）で守る → 実例：2017年7月 サンフランシスコ、エア・カナダ759便が4機が並ぶ誘導路に降りかけ、約60フィート（約18m）でゴーアラウンド（NTSB）→ 2回目で無事着陸、機長の放送 → まとめ3つ（ゴーアラウンドは怖くない／止まるまでベルト／放送を聞く）
+- 10/27：「ゴーアラウンド」の後編を制作し完結
+- **次の朝**：新しい物語の前編を提案する（候補：機内で、急病人が出たら）
 - 以降は1日1本
 - 声のクレジット（ep02〜）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:麒ヶ島宗麟、VOICEVOX:玄野武宏
 - 声のクレジット（ep03-1）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:冥鳴ひまり、VOICEVOX:剣崎雌雄
 - 声のクレジット（ep04-1）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:麒ヶ島宗麟
 - 声のクレジット（ep04-2）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:麒ヶ島宗麟、VOICEVOX:玄野武宏、VOICEVOX:雀松朱司
 - 声のクレジット（ep05-1）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:麒ヶ島宗麟、VOICEVOX:玄野武宏、VOICEVOX:剣崎雌雄、VOICEVOX:雀松朱司
+- 声のクレジット（ep05-2）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:麒ヶ島宗麟、VOICEVOX:玄野武宏、VOICEVOX:雀松朱司
 - 声のクレジット（ep03-2）：VOICEVOX:青山龍星、VOICEVOX:No.7、VOICEVOX:雀松朱司、VOICEVOX:麒ヶ島宗麟、VOICEVOX:冥鳴ひまり
 
 ## 次の候補

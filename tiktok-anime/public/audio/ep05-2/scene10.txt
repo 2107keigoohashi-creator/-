@@ -1,0 +1,1 @@
+{"text":"管制官、パイロット、そして明かり。何重もの見張りで、ぶつかるのを防いでいる。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

@@ -393,3 +393,101 @@ export const PathDiagram: Background = ({layer, p}) => {
     </g>
   );
 };
+
+// 停止線灯（ストップバー）。滑走路の手前で赤く光る。offAt で消灯、planeAt から小型機が近づいて止まる（goAt 以降は進む）
+export const StopBar: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const offAt = num(p.offAt, 999);
+  const lit = t < offAt;
+  const glow = lit ? 0.6 + 0.4 * Math.sin(t * 6) : 0;
+  const stopY = 1020;
+  const go = num(p.goAt, 999);
+  const approach = interpolate(t, [0, 1.6], [1650, stopY + 150], {extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
+  const py = t > go ? approach - (t - go) * 320 : approach;
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill="#141A22" />
+      {/* 滑走路（横） */}
+      <rect x={0} y={720} width={1080} height={220} fill="#2B2F36" />
+      {[...Array(9)].map((_, i) => (
+        <rect key={i} x={20 + i * 130} y={824} width={70} height={10} fill="#E9E4DA" />
+      ))}
+      <text x={980} y={705} textAnchor="end" fontSize={40} fontWeight={900} fill="#9FB0C4" fontFamily="Noto Sans JP">滑走路</text>
+      {/* 誘導路（縦） */}
+      <path d="M 400,940 L 680,940 L 760,1920 L 320,1920 Z" fill="#23272D" />
+      <path d="M 540,940 L 540,1920" stroke="#E8C547" strokeWidth={8} strokeDasharray="30 20" />
+      {/* 停止位置の黄色い線 */}
+      <rect x={390} y={990} width={300} height={10} fill="#E8C547" />
+      <rect x={390} y={1010} width={300} height={10} fill="#E8C547" />
+      {/* 停止線灯 */}
+      {[...Array(7)].map((_, i) => (
+        <g key={i}>
+          {lit && <circle cx={410 + i * 43} cy={stopY + 20} r={30} fill="#FF3B30" opacity={0.25 * glow} />}
+          <circle cx={410 + i * 43} cy={stopY + 20} r={11} fill={lit ? '#FF3B30' : '#4A3A3A'} />
+        </g>
+      ))}
+      {/* 小型機（上から） */}
+      <g transform={`translate(540, ${py})`}>
+        <rect x={-14} y={-70} width={28} height={140} rx={14} fill="#E9E4DA" />
+        <rect x={-110} y={-20} width={220} height={26} rx={10} fill="#D2CEC6" />
+        <rect x={-50} y={50} width={100} height={16} rx={6} fill="#D2CEC6" />
+        <circle cx={-110} cy={-7} r={6} fill="#FF4D3D" />
+        <circle cx={110} cy={-7} r={6} fill="#4DE07A" />
+      </g>
+      <text x={540} y={640} textAnchor="middle" fontSize={52} fontWeight={900} fill={lit ? '#FF6B5E' : '#7FD39A'} fontFamily="Noto Sans JP">
+        {lit ? '停止線灯：赤＝止まれ' : '消灯＝進んでよい'}
+      </text>
+    </g>
+  );
+};
+
+// 2017年 サンフランシスコの事例（上から見た滑走路と誘導路）。drawAt から進入、goAt で上昇
+export const SfoDiagram: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const drawAt = num(p.drawAt, 0.3);
+  const u = interpolate(t, [drawAt, drawAt + 2.6], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)});
+  const goAt = num(p.goAt, 999);
+  const g = interpolate(t, [goAt, goAt + 1.6], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
+  const showPlanes = bool(p.planes, true);
+  // 進入する機体（右下から左上へ、誘導路の上へ）
+  const x = 1000 - u * 520 - g * 200;
+  const y = 1240 - u * 340 - g * 240;
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill="#0F1620" />
+      <g transform="rotate(-30, 540, 900)">
+        {/* 滑走路 28R / 28L */}
+        <rect x={-200} y={760} width={1480} height={90} fill="#2B2F36" />
+        <rect x={-200} y={600} width={1480} height={90} fill="#2B2F36" />
+        {/* 誘導路 C */}
+        <rect x={-200} y={930} width={1480} height={60} fill="#23272D" />
+        <line x1={-200} y1={960} x2={1280} y2={960} stroke="#E8C547" strokeWidth={4} strokeDasharray="20 14" />
+        {showPlanes &&
+          [0, 1, 2, 3].map((i) => (
+            <g key={i} transform={`translate(${120 + i * 150}, 960)`}>
+              <rect x={-40} y={-8} width={80} height={16} rx={8} fill="#B9BEC3" />
+              <rect x={-8} y={-38} width={16} height={76} rx={6} fill="#B9BEC3" />
+            </g>
+          ))}
+      </g>
+      <text x={160} y={540} fontSize={38} fontWeight={900} fill="#9FB0C4" fontFamily="Noto Sans JP" transform="rotate(-30, 160, 540)">滑走路 28R</text>
+      <text x={330} y={760} fontSize={38} fontWeight={900} fill="#E8C547" fontFamily="Noto Sans JP" transform="rotate(-30, 330, 760)">誘導路C（4機が待機）</text>
+      {u > 0 && (
+        <g transform={`translate(${x}, ${y}) rotate(-120)`}>
+          <path d="M 0,-34 L 8,-8 L 36,6 L 36,14 L 8,8 L 6,26 L 16,34 L 0,30 L -16,34 L -6,26 L -8,8 L -36,14 L -36,6 L -8,-8 Z" fill={g > 0 ? '#7FD39A' : '#F2C14E'} stroke="#111" strokeWidth={3} />
+        </g>
+      )}
+      {g > 0.3 && (
+        <text x={540} y={420} textAnchor="middle" fontSize={56} fontWeight={900} fill="#7FD39A" fontFamily="Noto Sans JP" opacity={Math.min(1, g * 2)}>
+          ゴーアラウンド！
+        </text>
+      )}
+    </g>
+  );
+};

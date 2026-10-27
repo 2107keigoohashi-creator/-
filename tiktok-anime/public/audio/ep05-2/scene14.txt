@@ -1,0 +1,1 @@
+{"text":"エアカナダの旅客機が、滑走路と間違えて、隣の誘導路に降りようとした。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

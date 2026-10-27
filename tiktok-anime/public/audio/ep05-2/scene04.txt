@@ -1,0 +1,1 @@
+{"text":"滑走路にいたのは、小型機です。指示を聞き間違えて、滑走路に入っていました。","preset":{"speaker":"雀松朱司","style":"ノーマル","speedScale":1.05,"pitchScale":0,"intonationScale":1.1,"pauseLengthScale":0.6,"volumeScale":1,"filter":"radio"}}
