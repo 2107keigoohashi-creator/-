@@ -67,5 +67,23 @@
       "hair": "#8C8984",
       "hairStyle": "short"
     }
+  },
+  "ojisan": {
+    "tagName": "隣の男性（72）",
+    "tagDesc": "22B席・孫に会いに行く",
+    "appearance": {
+      "clothes": "#7A6A55",
+      "hair": "#B9B5AE",
+      "hairStyle": "gray"
+    }
+  },
+  "nurse": {
+    "tagName": "後ろの席の女性",
+    "tagDesc": "看護師",
+    "appearance": {
+      "clothes": "#6F8A9A",
+      "hair": "#3A3330",
+      "hairStyle": "long"
+    }
   }
 }

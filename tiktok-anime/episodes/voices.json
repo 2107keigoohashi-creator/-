@@ -110,5 +110,33 @@
     "pauseLengthScale": 0.55,
     "volumeScale": 1.0,
     "filter": "pa"
+  },
+  "ojisan": {
+    "speaker": "剣崎雌雄",
+    "style": "ノーマル",
+    "speedScale": 0.98,
+    "pitchScale": -0.03,
+    "intonationScale": 1.2,
+    "pauseLengthScale": 0.6,
+    "volumeScale": 1.0
+  },
+  "nurse": {
+    "speaker": "春日部つむぎ",
+    "style": "ノーマル",
+    "speedScale": 1.06,
+    "pitchScale": 0,
+    "intonationScale": 1.3,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0
+  },
+  "kenta_pa": {
+    "speaker": "雀松朱司",
+    "style": "ノーマル",
+    "speedScale": 1.08,
+    "pitchScale": 0,
+    "intonationScale": 1.25,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0,
+    "filter": "pa"
   }
 }

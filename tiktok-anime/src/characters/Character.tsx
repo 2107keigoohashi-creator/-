@@ -236,6 +236,16 @@ export const Character: React.FC<{
     hand = (s) => [s * 46, -132];
     elbow = (s) => [s * 80, -110];
   }
+  if (spec.action === 'chest') {
+    hand = (s) => [s * 18, -150];
+    elbow = (s) => [s * 70, -120];
+  }
+  // 心臓マッサージ：ひざをついて、まっすぐ下へ押す
+  const cprPush = spec.action === 'cpr' ? Math.abs(Math.sin((t * Math.PI * 110) / 60)) : 0;
+  if (spec.action === 'cpr') {
+    hand = (s) => [s * 10, 60];
+    elbow = (s) => [s * 30, -60];
+  }
   if (spec.action === 'stop') {
     hand = (s) => [s * 170, -250];
     elbow = (s) => [s * 120, -200];
@@ -248,7 +258,7 @@ export const Character: React.FC<{
     hand = (s) => (s === 1 ? [70, -120] : [-30, -150]);
     elbow = (s) => (s === 1 ? [90, -60] : [-80, -120]);
   }
-  if (spec.item === 'bag') {
+  if (spec.item === 'bag' || spec.item === 'aed') {
     const base = hand;
     const baseE = elbow;
     hand = (s) => (s === 1 ? [78, -40] : base(s));
@@ -289,13 +299,15 @@ export const Character: React.FC<{
   };
 
   const legs = (s: number): Pt[] =>
-    pose === 'sit'
+    pose === 'kneel'
+      ? [[s * 22, -4], [s * 34, 70], [s * 90, 80]]
+      : pose === 'sit'
       ? [[s * 24, -4], [s * 36, 34], [s * 38, 150]]
       : [[s * 22, -4], [s * 26, 100], [s * 28, 205]];
 
   // 上半身の傾き（倒れる）
   const bodyRot = collapse * 6;
-  const bodyDrop = collapse * 26 + brace * 20;
+  const bodyDrop = collapse * 26 + brace * 20 + cprPush * 18 + (spec.action === 'cpr' ? 30 : 0);
   const torsoSquash = 1 - collapse * 0.14 - brace * 0.1;
   const headX = collapse * 14;
   const headY = collapse * 104 + brace * 120;
@@ -309,7 +321,7 @@ export const Character: React.FC<{
   const air = spec.action === 'airborne' ? Math.max(0, Math.sin((Math.PI * (t - at)) / 1.1)) * (t >= at && t <= at + 1.1 ? 1 : 0) : 0;
   const airY = -air * (spec.airHeight ?? 260);
   const base = `translate(${x}, ${y}) scale(${(spec.flip ? -1 : 1) * scale}, ${scale})`;
-  const outer = `translate(${x}, ${y + airY * scale}) scale(${(spec.flip ? -1 : 1) * scale}, ${scale}) rotate(${air * -8})`;
+  const outer = `translate(${x}, ${y + airY * scale}) scale(${(spec.flip ? -1 : 1) * scale}, ${scale}) rotate(${air * -8 + (spec.rotate ?? 0)})`;
   const upper = `translate(0, ${breathe + bodyDrop}) rotate(${bodyRot}, 0, 0)`;
   const squash = `scale(1, ${torsoSquash})`;
   const headLift = (1 - torsoSquash) * 196;
@@ -404,6 +416,14 @@ export const Character: React.FC<{
               <rect x={-14} y={-34} width={36} height={28} rx={6} fill="#2A2D33" />
               <path d="M 4,-30 Q -40,-60 -80,-30" fill="none" stroke="#2A2D33" strokeWidth={9} strokeLinecap="round" />
               <rect x={-20} y={40} width={48} height={40} rx={6} fill="#F2EEE6" />
+            </g>
+          )}
+          {spec.item === 'aed' && (
+            <g transform="translate(78, -40)">
+              <rect x={-60} y={0} width={120} height={100} rx={14} fill="#E8692E" stroke="#A9471C" strokeWidth={4} />
+              <path d="M 0,70 C -40,40 -30,18 -12,22 Q 0,26 0,38 Q 0,26 12,22 C 30,18 40,40 0,70 Z" fill="#FFFFFF" />
+              <path d="M 4,30 L -6,50 L 4,50 L -4,66" stroke="#E8692E" strokeWidth={5} fill="none" />
+              <text x={0} y={-8} textAnchor="middle" fontSize={26} fontWeight={900} fill="#E8692E" fontFamily="Noto Sans JP">AED</text>
             </g>
           )}
           {spec.item === 'bag' && (

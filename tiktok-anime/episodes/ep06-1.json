@@ -1,0 +1,868 @@
+{
+ "title": "機内で、急病人が出たら（前編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "成田から、シンガポールへ向かう便。離陸して、3時間がたった。",
+   "telop": "離陸から【3時間】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "成田 → シンガポール\n離陸後 3時間",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "隣の席には、旅行中だという、70代の男性が座っていた。",
+   "telop": "隣は【70代の男性】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "expression": "normal"
+    }
+   ]
+  },
+  {
+   "narration": "孫に、会いに行くんですよ。",
+   "telop": "「【孫】に会いに行くんです」",
+   "background": "cabin",
+   "voice": "ojisan",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "孫に会いに行くんですよ",
+     "x": 880,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down",
+     "size": 46
+    }
+   ]
+  },
+  {
+   "narration": "その時。男性が急に、胸を押さえた。",
+   "telop": "急に【胸を押さえた】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "surprised"
+    },
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "action": "chest",
+     "expression": "panic",
+     "sweat": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.8,
+     "zoom": 1.6,
+     "focusX": 930,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "う、胸が、苦しい……",
+   "telop": "「胸が【苦しい】…」",
+   "background": "cabin",
+   "voice": "ojisan",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "surprised"
+    },
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "action": "chest",
+     "expression": "panic",
+     "sweat": true,
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "胸が…苦しい…",
+     "x": 880,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "男性は、そのまま、ぐったりと倒れこんだ。",
+   "telop": "そのまま【倒れこんだ】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "panic"
+    },
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "action": "collapse",
+     "at": 0.3
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.8,
+     "duration": 0.4,
+     "amp": 6
+    }
+   ]
+  },
+  {
+   "narration": "大丈夫ですか！聞こえますか！",
+   "telop": "「【聞こえますか】！」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    },
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "action": "collapsed"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "聞こえますか！",
+     "x": 600,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 760,
+     "focusY": 1000
+    }
+   ]
+  },
+  {
+   "narration": "返事が、ない。",
+   "telop": "【返事がない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "panic"
+    },
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "action": "collapsed"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 2.0,
+     "focusX": 940,
+     "focusY": 1080
+    }
+   ]
+  },
+  {
+   "narration": "あなたは、すぐに呼び出しボタンを押した。",
+   "telop": "すぐに【呼び出しボタン】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "up",
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -80,
+     "at": 0.3
+    },
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "action": "collapsed"
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0.8,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "お客様、どうされましたか！",
+   "telop": "「どうされましたか！」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right"
+    },
+    {
+     "id": "misaki",
+     "x": 1250,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true,
+     "move": {
+      "x": 1010,
+      "at": 0,
+      "duration": 0.6
+     }
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "どうされましたか！",
+     "x": 900,
+     "y": 780,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "美咲は、男性の肩をたたきながら、大きな声で呼びかけた。",
+   "telop": "肩をたたいて【呼びかける】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "action": "collapsed"
+    },
+    {
+     "id": "misaki",
+     "x": 1010,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "action": "reach",
+     "reachArm": "left",
+     "reachAngle": 40,
+     "at": 0.2,
+     "talking": true,
+     "expression": "panic"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 960,
+     "focusY": 1000
+    }
+   ]
+  },
+  {
+   "narration": "呼吸が、ありません！",
+   "telop": "「【呼吸がない】！」",
+   "background": "cabin",
+   "voice": "misaki",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "action": "collapsed"
+    },
+    {
+     "id": "misaki",
+     "x": 1010,
+     "y": 1290,
+     "scale": 1.25,
+     "pose": "stand",
+     "look": "left",
+     "talking": true,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "呼吸がありません！",
+     "x": 900,
+     "y": 780,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "健太さん、AEDと、救急キットを！",
+   "telop": "「【AED】を！」",
+   "background": "cabinAisle",
+   "voice": "misaki",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "kenta",
+     "x": 540,
+     "y": 1450,
+     "scale": 1.1,
+     "pose": "stand",
+     "expression": "surprised"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "AEDと救急キットを！",
+     "x": 540,
+     "y": 780,
+     "at": 0.1,
+     "tail": "down",
+     "size": 48
+    }
+   ]
+  },
+  {
+   "narration": "お客様の中に、お医者様、または看護師の方は、いらっしゃいませんか。",
+   "telop": "【お医者様】はいませんか",
+   "background": "cabinAisle",
+   "voice": "kenta_pa",
+   "bgProps": {
+    "murmur": true
+   },
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機内放送",
+     "at": 0.1
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "実は、旅客機には、AEDや、医療用のキットが積まれている。",
+   "telop": "ルール#1 機内には【AEDがある】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "characters": [
+    {
+     "id": "kenta",
+     "x": 540,
+     "y": 1080,
+     "scale": 1.4,
+     "pose": "stand",
+     "item": "aed",
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "たとえばJALは、2001年から、すべての便にAEDを積んでいる。",
+   "telop": "JALは【全便】にAED",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "2001年から全便にAED",
+     "at": 0.3,
+     "y": 560,
+     "color": "#F2C14E",
+     "size": 96
+    }
+   ]
+  },
+  {
+   "narration": "CAも、心臓マッサージや、AEDの使い方を、訓練で身につけている。",
+   "telop": "CAも【訓練済み】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 540,
+     "y": 1450,
+     "scale": 1.1,
+     "pose": "stand",
+     "look": "center"
+    }
+   ]
+  },
+  {
+   "narration": "美咲は、男性を通路に寝かせて、心臓マッサージを始めた。",
+   "telop": "【心臓マッサージ】開始",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "cpr",
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    }
+   ]
+  },
+  {
+   "narration": "強く、速く、休まずに。1分間に、100回から120回のリズムで、胸を押し続ける。",
+   "telop": "1分間に【100〜120回】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "cpr",
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "1分間に100〜120回",
+     "at": 0.4,
+     "y": 240,
+     "color": "#FF6B5E",
+     "size": 90
+    }
+   ],
+   "cuts": [
+    {
+     "at": 2.4,
+     "zoom": 1.5,
+     "focusX": 420,
+     "focusY": 950
+    }
+   ]
+  },
+  {
+   "narration": "健太が、AEDを持って、走ってきた。",
+   "telop": "【AED】が届く",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "cpr",
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    },
+    {
+     "id": "kenta",
+     "x": 820,
+     "y": 1060,
+     "scale": 1.0,
+     "pose": "stand",
+     "item": "aed",
+     "expression": "panic",
+     "tag": false,
+     "move": {
+      "x": 760,
+      "at": 0,
+      "duration": 0.6
+     }
+    }
+   ]
+  },
+  {
+   "narration": "誰か、手を貸してください！",
+   "telop": "「誰か【手を貸して】！」",
+   "background": "cabinAisle",
+   "voice": "misaki",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "cpr",
+     "look": "down",
+     "expression": "panic",
+     "tag": false,
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "誰か、手を貸して！",
+     "x": 420,
+     "y": 640,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "その時、後ろの席から、一人の女性が立ち上がった。",
+   "telop": "後ろの席から【一人の女性】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "nurse",
+     "x": 540,
+     "y": 1180,
+     "scale": 0.8,
+     "pose": "stand",
+     "look": "down",
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -80,
+     "at": 0.5
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.2,
+     "zoom": 1.7,
+     "focusX": 540,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "私、看護師です！",
+   "telop": "「私、【看護師】です！」",
+   "background": "cabinAisle",
+   "voice": "nurse",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "nurse",
+     "x": 540,
+     "y": 1180,
+     "scale": 0.8,
+     "pose": "stand",
+     "talking": true,
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -80,
+     "at": 0,
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "私、看護師です！",
+     "x": 540,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.7,
+     "focusX": 540,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "男性の命は、助かるのか。後編に、つづく。",
+   "telop": "男性の命は【助かるのか】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "後編につづく",
+     "at": 1.6,
+     "y": 560,
+     "color": "#FFFFFF",
+     "bg": "#1E1E1E"
+    }
+   ]
+  }
+ ]
+}

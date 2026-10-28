@@ -34,7 +34,7 @@ export type CharacterInScene = {
   x: number;
   y: number;
   scale?: number;
-  pose?: 'stand' | 'sit';
+  pose?: 'stand' | 'sit' | 'kneel';
   seat?: 'pilot' | 'cabin' | null;
   expression?: Expression;
   look?: Look;
@@ -43,7 +43,7 @@ export type CharacterInScene = {
   breathe?: boolean;
   talking?: boolean;
   sweat?: boolean;
-  item?: 'checklist' | 'phone' | 'bag' | 'extinguisher' | 'bottle' | null;
+  item?: 'checklist' | 'phone' | 'bag' | 'extinguisher' | 'bottle' | 'aed' | null;
   // 両手を前に（操縦桿を握る）
   hold?: boolean;
   // 前に操縦桿を描く（位置は最初の x, y に固定）
@@ -54,7 +54,10 @@ export type CharacterInScene = {
   // brace は at 秒から衝撃防止姿勢（頭を下げて手で守る）
   // stop は両手を広げて止めるポーズ
   // airborne は at 秒から体が浮き上がって落ちる（airHeight で高さ）
-  action?: 'collapse' | 'collapsed' | 'reach' | 'brace' | 'stop' | 'airborne' | null;
+  // chest は胸を押さえる、cpr は心臓マッサージ（pose: 'kneel' と組み合わせる）
+  action?: 'collapse' | 'collapsed' | 'reach' | 'brace' | 'stop' | 'airborne' | 'chest' | 'cpr' | null;
+  // 体全体の回転（度）。-90 で横たわる
+  rotate?: number;
   airHeight?: number;
   // シートベルトを締めている
   belt?: boolean;

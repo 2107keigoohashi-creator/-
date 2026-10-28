@@ -1,0 +1,1 @@
+{"text":"う、胸が、苦しい、","preset":{"speaker":"剣崎雌雄","style":"ノーマル","speedScale":0.98,"pitchScale":-0.03,"intonationScale":1.2,"pauseLengthScale":0.6,"volumeScale":1}}

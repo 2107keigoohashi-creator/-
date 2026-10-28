@@ -1,0 +1,1 @@
+{"text":"実は、旅客機には、AEDや、医療用のキットが積まれている。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

@@ -1,0 +1,1 @@
+{"text":"お客様の中に、お医者様、または看護師の方は、いらっしゃいませんか。","preset":{"speaker":"雀松朱司","style":"ノーマル","speedScale":1.08,"pitchScale":0,"intonationScale":1.25,"pauseLengthScale":0.55,"volumeScale":1,"filter":"pa"}}
