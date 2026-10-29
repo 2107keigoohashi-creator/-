@@ -1,0 +1,1 @@
+{"text":"調べている間に体に触れると、正しく判断できない。全員が、手を離す。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

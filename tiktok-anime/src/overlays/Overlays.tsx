@@ -1,7 +1,9 @@
 import React from 'react';
 import {AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
 import {ACCOUNT_NAME, COLORS, FONT_FAMILY, SAFE} from '../config';
-import {CastMember, Overlay} from '../types';
+import castJson from '../../episodes/cast.json';
+import {Character} from '../characters/Character';
+import {CastMember, CharacterInScene, Overlay} from '../types';
 
 const font: React.CSSProperties = {fontFamily: FONT_FAMILY};
 const s = (v: unknown, d = '') => (typeof v === 'string' ? v : d);
@@ -528,7 +530,123 @@ const Altitude: React.FC<{o: Overlay}> = ({o}) => {
   );
 };
 
+
+// AED の画面：手順の一覧（今の手順が光る）とショックボタン
+// steps: [{text, at}]、shockAt からボタンが点滅、pressAt で押される
+const AedPanel: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = f / fps;
+  const p = useIn(8);
+  const steps = (Array.isArray(o.steps) ? o.steps : []) as {text: string; at?: number}[];
+  let cur = -1;
+  steps.forEach((st, i) => {
+    if (t >= (st.at ?? 0)) cur = i;
+  });
+  const shockAt = typeof o.shockAt === 'number' ? o.shockAt : null;
+  const pressAt = typeof o.pressAt === 'number' ? o.pressAt : null;
+  const ready = shockAt !== null && t >= shockAt && (pressAt === null || t < pressAt);
+  const pressed = pressAt !== null && t >= pressAt;
+  const blink = Math.floor(f / 6) % 2 === 0;
+  const lit = ready && blink;
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: n(o.y, 200), display: 'flex', justifyContent: 'center', opacity: p, transform: `translateY(${(1 - p) * -30}px)`}}>
+      <div style={{...font, width: 800, background: '#E9E6DF', border: '10px solid #F2C14E', borderRadius: 40, padding: '26px 34px', display: 'flex', gap: 30, alignItems: 'center', boxShadow: '0 14px 0 rgba(0,0,0,0.25)'}}>
+        <div style={{flex: 1}}>
+          <div style={{color: '#2E7D4F', fontWeight: 900, fontSize: 40, letterSpacing: 6, marginBottom: 10}}>AED</div>
+          {steps.map((st, i) => (
+            <div
+              key={i}
+              style={{
+                fontWeight: 900,
+                fontSize: 40,
+                lineHeight: 1.35,
+                color: i === cur ? '#FFFFFF' : i < cur ? '#8E8A82' : '#B9B5AE',
+                background: i === cur ? '#2E7D4F' : 'transparent',
+                borderRadius: 12,
+                padding: '2px 14px',
+              }}
+            >
+              {i < cur ? '✓ ' : `${i + 1}. `}
+              {st.text}
+            </div>
+          ))}
+        </div>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10}}>
+          <div
+            style={{
+              width: 190,
+              height: 190,
+              borderRadius: 95,
+              background: lit ? '#FF8A3D' : pressed ? '#B4561E' : '#C98A5E',
+              border: '12px solid #7A3B1E',
+              boxShadow: lit ? '0 0 60px #FF8A3D' : 'none',
+              transform: `scale(${pressed && t < pressAt! + 0.3 ? 0.9 : 1})`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#FFFFFF',
+              fontSize: 96,
+              fontWeight: 900,
+            }}
+          >
+            ⚡
+          </div>
+          <div style={{color: '#7A3B1E', fontWeight: 900, fontSize: 32}}>ショック</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 画面全体が一瞬白く光る（電気ショックなど）
+const Flash: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const v = interpolate(f, [0, 2, Math.round(n(o.fade, 0.35) * fps)], [0, 0.9, 0], {extrapolateRight: 'clamp'});
+  return <AbsoluteFill style={{background: s(o.color, '#FFFFFF'), opacity: v}} />;
+};
+
+// 無線・電話の相手の小窓（顔と肩書き、電波のマーク）
+const CallWindow: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const p = useIn(8);
+  const id = s(o.who, 'doctor');
+  const cast = castJson as Record<string, CastMember>;
+  const look = cast[id]?.appearance ?? {clothes: '#7A7F99', hair: '#3A3330', hairStyle: 'short' as const};
+  const spec: CharacterInScene = {id, x: 0, y: 0, pose: 'stand', look: 'center', talking: o.talking !== false, tag: false};
+  const wave = (f % 30) / 30;
+  const left = o.side === 'right' ? undefined : SAFE.left;
+  const right = o.side === 'right' ? SAFE.right : undefined;
+  return (
+    <div style={{position: 'absolute', left, right, top: n(o.y, 210), opacity: p, transform: `scale(${0.8 + p * 0.2})`, transformOrigin: o.side === 'right' ? 'top right' : 'top left'}}>
+      <div style={{...font, width: 420, background: '#1B2433', border: '8px solid #7FB89A', borderRadius: 30, overflow: 'hidden', boxShadow: '0 12px 0 rgba(0,0,0,0.25)'}}>
+        <div style={{position: 'relative', height: 300, background: 'linear-gradient(#DDE7EA, #B9CBD1)'}}>
+          <svg width={404} height={300} viewBox="-200 -440 400 330" style={{position: 'absolute', left: 0, top: 0}}>
+            <rect x={-200} y={-440} width={400} height={330} fill="none" />
+            <path d="M -130,-440 L -130,-200 M 130,-440 L 130,-200" stroke="#A8BCC2" strokeWidth={10} />
+            <Character spec={spec} appearance={look} />
+          </svg>
+          <svg width={120} height={120} viewBox="0 0 120 120" style={{position: 'absolute', right: 10, top: 10}}>
+            {[0, 1, 2].map((k) => {
+              const r = 20 + ((k + wave) % 3) * 30;
+              return <path key={k} d={`M ${60 - r * 0.7},${60 - r * 0.7} A ${r} ${r} 0 0 1 ${60 + r * 0.7},${60 - r * 0.7}`} stroke="#2E7D4F" strokeWidth={8} fill="none" opacity={1 - ((k + wave) % 3) / 3} />;
+            })}
+          </svg>
+        </div>
+        <div style={{padding: '14px 20px', color: '#F2EEE6', fontWeight: 900, fontSize: 36, lineHeight: 1.3}}>
+          {s(o.label, '地上の医療センター')}
+          <div style={{color: '#7FD39A', fontSize: 28}}>{s(o.sub, '救急の専門医')}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const SCREEN: Record<string, React.FC<{o: Overlay}>> = {
+  aedPanel: AedPanel,
+  flash: Flash,
+  callWindow: CallWindow,
   beltSign: BeltSign,
   altitude: Altitude,
   placeCards: PlaceCards,

@@ -221,7 +221,7 @@ export const Character: React.FC<{
   const blinking = spec.blink !== false && ((t + seed * 2) % period) < 0.13;
   const mouthOpen = !!spec.talking && Math.floor(frame / 4 + seed * 3) % 3 !== 0;
 
-  const expression: Expression = collapse > 0.3 || brace > 0.5 ? 'closed' : spec.action === 'airborne' && t >= at ? 'surprised' : spec.expression ?? 'normal';
+  const expression: Expression = collapse > 0.3 || brace > 0.5 ? 'closed' : spec.action === 'airborne' && t >= at && !spec.rotate ? 'surprised' : spec.expression ?? 'normal';
 
   // 腕の基本形
   const restHand = (s: number): Pt => (pose === 'sit' ? [s * 40, -18] : [s * 70, -8]);
@@ -318,7 +318,8 @@ export const Character: React.FC<{
   const isShirt = (a.stripes ?? 0) > 0;
 
   // 浮き上がる（乱気流など）：at 秒から体が持ち上がって落ちる。座席はその場に残る
-  const air = spec.action === 'airborne' ? Math.max(0, Math.sin((Math.PI * (t - at)) / 1.1)) * (t >= at && t <= at + 1.1 ? 1 : 0) : 0;
+  const airDur = spec.airDur ?? 1.1;
+  const air = spec.action === 'airborne' ? Math.max(0, Math.sin((Math.PI * (t - at)) / airDur)) * (t >= at && t <= at + airDur ? 1 : 0) : 0;
   const airY = -air * (spec.airHeight ?? 260);
   const base = `translate(${x}, ${y}) scale(${(spec.flip ? -1 : 1) * scale}, ${scale})`;
   const outer = `translate(${x}, ${y + airY * scale}) scale(${(spec.flip ? -1 : 1) * scale}, ${scale}) rotate(${air * -8 + (spec.rotate ?? 0)})`;

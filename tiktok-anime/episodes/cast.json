@@ -85,5 +85,15 @@
       "hair": "#3A3330",
       "hairStyle": "long"
     }
+  },
+  "doctor": {
+    "tagName": "地上の医療センター",
+    "tagDesc": "救急の専門医（無線で助言）",
+    "appearance": {
+      "clothes": "#F2F0EA",
+      "hair": "#2E2926",
+      "hairStyle": "short",
+      "tie": "#5C7088"
+    }
   }
 }

@@ -138,5 +138,25 @@
     "pauseLengthScale": 0.55,
     "volumeScale": 1.0,
     "filter": "pa"
+  },
+  "doctor": {
+    "speaker": "黒沢冴白",
+    "style": "ノーマル",
+    "speedScale": 1.04,
+    "pitchScale": 0,
+    "intonationScale": 1.15,
+    "pauseLengthScale": 0.6,
+    "volumeScale": 1.0,
+    "filter": "radio"
+  },
+  "aed": {
+    "speaker": "ナースロボ＿タイプＴ",
+    "style": "ノーマル",
+    "speedScale": 1.0,
+    "pitchScale": 0,
+    "intonationScale": 1.0,
+    "pauseLengthScale": 0.6,
+    "volumeScale": 1.0,
+    "filter": "pa"
   }
 }

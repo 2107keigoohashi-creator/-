@@ -1,0 +1,1407 @@
+{
+ "title": "機内で、急病人が出たら（後編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "前編のあらすじ。隣の男性が倒れ、後ろの席から、看護師が名乗り出た。",
+   "telop": "【前編】のおさらい",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "panic"
+    },
+    {
+     "id": "ojisan",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "action": "collapsed"
+    }
+   ]
+  },
+  {
+   "narration": "交代します！AEDを開けてください！",
+   "telop": "「【交代】します！」",
+   "background": "cabinAisle",
+   "voice": "nurse",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "cpr",
+     "look": "down",
+     "expression": "panic",
+     "tag": false,
+     "talking": true
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "left",
+     "tag": false,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "交代します！\nAEDを開けて！",
+     "x": 440,
+     "y": 620,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "美咲が、AEDのふたを開ける。電源が、入った。",
+   "telop": "AEDの【電源オン】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "cpr",
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "aedPanel",
+     "at": 0,
+     "steps": [
+      {
+       "text": "電源を入れる",
+       "at": 0
+      },
+      {
+       "text": "パッドを貼る",
+       "at": 99
+      },
+      {
+       "text": "心電図を調べる",
+       "at": 99
+      },
+      {
+       "text": "ショック",
+       "at": 99
+      },
+      {
+       "text": "胸骨圧迫を再開",
+       "at": 99
+      }
+     ],
+     "y": 200
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0.9,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "narration": "電極パッドを、胸に、貼ってください。",
+   "telop": "「【パッド】を貼ってください」",
+   "background": "cabinAisle",
+   "voice": "aed",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "cpr",
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "aedPanel",
+     "at": 0,
+     "steps": [
+      {
+       "text": "電源を入れる",
+       "at": 0
+      },
+      {
+       "text": "パッドを貼る",
+       "at": 0
+      },
+      {
+       "text": "心電図を調べる",
+       "at": 99
+      },
+      {
+       "text": "ショック",
+       "at": 99
+      },
+      {
+       "text": "胸骨圧迫を再開",
+       "at": 99
+      }
+     ],
+     "y": 200
+    }
+   ]
+  },
+  {
+   "narration": "パッドは2枚。右の胸の上と、左のわき腹に、貼る。",
+   "telop": "パッドは【2枚】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": null,
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false,
+     "action": "reach",
+     "reachArm": "left",
+     "reachAngle": -150,
+     "at": 0.2
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "右胸の上 ＋ 左のわき腹",
+     "at": 0.6,
+     "y": 300,
+     "color": "#F2C14E",
+     "size": 76
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.4,
+     "zoom": 1.3,
+     "focusX": 620,
+     "focusY": 1000
+    }
+   ]
+  },
+  {
+   "narration": "心電図を、調べています。体に、触れないでください。",
+   "telop": "「体に【触れないで】」",
+   "background": "cabinAisle",
+   "voice": "aed",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": null,
+     "look": "down",
+     "expression": "normal",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "aedPanel",
+     "at": 0,
+     "steps": [
+      {
+       "text": "電源を入れる",
+       "at": 0
+      },
+      {
+       "text": "パッドを貼る",
+       "at": 0
+      },
+      {
+       "text": "心電図を調べる",
+       "at": 0
+      },
+      {
+       "text": "ショック",
+       "at": 99
+      },
+      {
+       "text": "胸骨圧迫を再開",
+       "at": 99
+      }
+     ],
+     "y": 200
+    }
+   ],
+   "reading": "しんでんずを、しらべています。からだに、ふれないでください。"
+  },
+  {
+   "narration": "調べている間に体に触れると、正しく判断できない。全員が、手を離す。",
+   "telop": "解析中は【触れない】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "stop",
+     "look": "down",
+     "expression": "normal",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": null,
+     "look": "left",
+     "tag": false,
+     "action": "stop"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "解析中は 触れない",
+     "at": 0.6,
+     "y": 300,
+     "color": "#FF6B5E",
+     "size": 88
+    }
+   ]
+  },
+  {
+   "narration": "ショックが、必要です。充電しています。",
+   "telop": "「ショックが【必要です】」",
+   "background": "cabinAisle",
+   "voice": "aed",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": null,
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "aedPanel",
+     "at": 0,
+     "steps": [
+      {
+       "text": "電源を入れる",
+       "at": 0
+      },
+      {
+       "text": "パッドを貼る",
+       "at": 0
+      },
+      {
+       "text": "心電図を調べる",
+       "at": 0
+      },
+      {
+       "text": "ショック",
+       "at": 0
+      },
+      {
+       "text": "胸骨圧迫を再開",
+       "at": 99
+      }
+     ],
+     "y": 200,
+     "shockAt": 1.2
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/heartbeat.wav",
+     "at": 0,
+     "volume": 0.4
+    }
+   ]
+  },
+  {
+   "narration": "みんな、離れて！",
+   "telop": "「みんな【離れて】！」",
+   "background": "cabinAisle",
+   "voice": "nurse",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "stop",
+     "look": "down",
+     "expression": "panic",
+     "tag": false,
+     "talking": true
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "みんな、離れて！",
+     "x": 440,
+     "y": 660,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 540,
+     "focusY": 900
+    }
+   ]
+  },
+  {
+   "narration": "ショックボタンを、押してください。",
+   "telop": "「【ボタン】を押してください」",
+   "background": "cabinAisle",
+   "voice": "aed",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": null,
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "aedPanel",
+     "at": 0,
+     "steps": [
+      {
+       "text": "電源を入れる",
+       "at": 0
+      },
+      {
+       "text": "パッドを貼る",
+       "at": 0
+      },
+      {
+       "text": "心電図を調べる",
+       "at": 0
+      },
+      {
+       "text": "ショック",
+       "at": 0
+      },
+      {
+       "text": "胸骨圧迫を再開",
+       "at": 99
+      }
+     ],
+     "y": 200,
+     "shockAt": 0
+    }
+   ]
+  },
+  {
+   "narration": "美咲が、オレンジ色のボタンを、押した。",
+   "telop": "【ショック】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   },
+   "reading": "みさきが、オレンジいろのボタンを、おした。",
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false,
+     "action": "airborne",
+     "at": 1.6,
+     "airHeight": 50,
+     "airDur": 0.3
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": null,
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "aedPanel",
+     "at": 0,
+     "steps": [
+      {
+       "text": "電源を入れる",
+       "at": 0
+      },
+      {
+       "text": "パッドを貼る",
+       "at": 0
+      },
+      {
+       "text": "心電図を調べる",
+       "at": 0
+      },
+      {
+       "text": "ショック",
+       "at": 0
+      },
+      {
+       "text": "胸骨圧迫を再開",
+       "at": 99
+      }
+     ],
+     "y": 200,
+     "shockAt": 0,
+     "pressAt": 1.6
+    },
+    {
+     "type": "flash",
+     "at": 1.6,
+     "duration": 0.5
+    }
+   ],
+   "shake": [
+    {
+     "at": 1.6,
+     "duration": 0.35,
+     "amp": 10
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/thud.wav",
+     "at": 1.6,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "narration": "ただちに、胸骨圧迫を、始めてください。",
+   "telop": "「すぐに【再開】」",
+   "background": "cabinAisle",
+   "voice": "aed",
+   "bgProps": {
+    "murmur": false
+   },
+   "reading": "ただちに、きょうこつあっぱくを、はじめてください。",
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "cpr",
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "aedPanel",
+     "at": 0,
+     "steps": [
+      {
+       "text": "電源を入れる",
+       "at": 0
+      },
+      {
+       "text": "パッドを貼る",
+       "at": 0
+      },
+      {
+       "text": "心電図を調べる",
+       "at": 0
+      },
+      {
+       "text": "ショック",
+       "at": 0
+      },
+      {
+       "text": "胸骨圧迫を再開",
+       "at": 0
+      }
+     ],
+     "y": 200
+    }
+   ]
+  },
+  {
+   "narration": "胸骨圧迫とは、心臓マッサージのこと。ショックの後は、すぐに再開する。",
+   "telop": "ルール#2 ショック後は【すぐ再開】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   },
+   "reading": "きょうこつあっぱくとは、しんぞうマッサージのこと。ショックのあとは、すぐにさいかいする。",
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "nurse",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "action": "cpr",
+     "look": "down",
+     "expression": "panic",
+     "tag": false
+    },
+    {
+     "id": "misaki",
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "item": "aed",
+     "look": "down",
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "心臓マッサージは、とても疲れる。あなたも、交代を申し出た。",
+   "telop": "疲れたら【交代】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": false,
+     "tag": false
+    },
+    {
+     "id": "you",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "look": "down",
+     "tag": false,
+     "action": "cpr",
+     "expression": "panic"
+    },
+    {
+     "id": "nurse",
+     "x": 820,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "look": "left",
+     "tag": false
+    }
+   ]
+  },
+  {
+   "narration": "一方、コックピット。佐藤機長は、地上の医療センターに、連絡した。",
+   "telop": "地上の【医療センター】へ",
+   "background": "cockpit",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "callWindow",
+     "at": 1.6,
+     "y": 220,
+     "talking": false,
+     "side": "right"
+    }
+   ]
+  },
+  {
+   "narration": "心肺停止の男性。AEDでショックを、1回。",
+   "telop": "「ショックを【1回】」",
+   "background": "cockpit",
+   "voice": "sato",
+   "bgProps": {
+    "sky": "day"
+   },
+   "reading": "心肺停止の男性。エーイーディーで、ショックを、1回。",
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "talking": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "callWindow",
+     "at": 0,
+     "y": 220,
+     "talking": false,
+     "side": "right"
+    }
+   ]
+  },
+  {
+   "narration": "了解。心臓マッサージを続けてください。できるだけ早く、着陸を。",
+   "telop": "「できるだけ早く【着陸を】」",
+   "background": "cockpit",
+   "voice": "doctor",
+   "bgProps": {
+    "sky": "day"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "callWindow",
+     "at": 0,
+     "y": 220,
+     "side": "right"
+    }
+   ]
+  },
+  {
+   "narration": "機内からは、無線などで、地上の専門医に、相談できる。",
+   "telop": "ルール#3 地上の【専門医】に相談",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#3",
+     "at": 0
+    },
+    {
+     "type": "callWindow",
+     "at": 1.4,
+     "y": 420
+    },
+    {
+     "type": "bigText",
+     "text": "衛星電話・無線",
+     "at": 1.8,
+     "y": 1000,
+     "color": "#7FD39A",
+     "size": 80
+    }
+   ]
+  },
+  {
+   "narration": "シンガポールまでは、まだ4時間。佐藤機長は、決めた。",
+   "telop": "目的地まで【あと4時間】",
+   "background": "asiaMap",
+   "bgProps": {
+    "planeAt": 0.4
+   },
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "シンガポールまで\nあと4時間",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "台北に、ダイバートする。",
+   "telop": "【台北】にダイバート（行き先変更）",
+   "background": "asiaMap",
+   "voice": "sato",
+   "bgProps": {
+    "planeAt": 0.4,
+    "divertTo": "TPE",
+    "divertAt": 0.4,
+    "divertDur": 2.2
+   },
+   "reading": "たいぺいに、ダイバートする。"
+  },
+  {
+   "narration": "その時。男性の胸が、かすかに、動いた。",
+   "telop": "胸が【かすかに動いた】",
+   "background": "cabinAisle",
+   "bgProps": {
+    "murmur": false
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": true,
+     "tag": false
+    },
+    {
+     "id": "you",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "look": "down",
+     "tag": false,
+     "expression": "surprised"
+    },
+    {
+     "id": "nurse",
+     "x": 820,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "look": "left",
+     "tag": false,
+     "expression": "surprised"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.8,
+     "zoom": 1.8,
+     "focusX": 620,
+     "focusY": 1050
+    }
+   ]
+  },
+  {
+   "narration": "息、してます！",
+   "telop": "「【息、してます】！」",
+   "background": "cabinAisle",
+   "voice": "nurse",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "ojisan",
+     "x": 620,
+     "y": 1110,
+     "scale": 1.0,
+     "pose": "stand",
+     "rotate": -90,
+     "expression": "closed",
+     "blink": false,
+     "breathe": true,
+     "tag": false
+    },
+    {
+     "id": "you",
+     "x": 460,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "look": "down",
+     "tag": false,
+     "expression": "surprised"
+    },
+    {
+     "id": "nurse",
+     "x": 820,
+     "y": 1000,
+     "scale": 1.0,
+     "pose": "kneel",
+     "look": "left",
+     "tag": false,
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "息、してます！",
+     "x": 800,
+     "y": 660,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "40分後、台北に着陸。男性は、救急車で病院へ。",
+   "telop": "【40分後】台北に着陸",
+   "background": "runway",
+   "bgProps": {
+    "sky": "day",
+    "landAt": 2.0
+   },
+   "reading": "40分ご、たいぺいに着陸。男性は、救急車で病院へ。"
+  },
+  {
+   "narration": "機内の急病は、約604便に1回。心停止は、0.3%と、まれだ。",
+   "telop": "急病は【604便に1回】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "reading": "きないのきゅうびょうは、やく、ろっぴゃくよんびんに、いっかい。しんていしは、れいてんさんパーセントと、まれだ。",
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "約604便に1回",
+     "at": 0.4,
+     "y": 420,
+     "color": "#F2C14E",
+     "size": 110
+    },
+    {
+     "type": "bigText",
+     "text": "心停止は 0.3%",
+     "at": 2.6,
+     "y": 720,
+     "color": "#FF6B5E",
+     "size": 90
+    }
+   ]
+  },
+  {
+   "narration": "医師の乗客が手を貸したのは、約48%。",
+   "telop": "医師が手伝った【約48%】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "医師の乗客が手伝った",
+     "at": 0.3,
+     "y": 420,
+     "color": "#FFFFFF",
+     "size": 72
+    },
+    {
+     "type": "bigText",
+     "text": "約48%",
+     "at": 1.6,
+     "y": 640,
+     "color": "#F2C14E",
+     "size": 150
+    },
+    {
+     "type": "bigText",
+     "text": "（NEJM 2013）",
+     "at": 1.6,
+     "y": 900,
+     "color": "#9AA1A8",
+     "size": 44
+    }
+   ]
+  },
+  {
+   "narration": "JALとANAは、2016年から、医師の乗客を登録する仕組みを始めた。",
+   "telop": "医師の【事前登録】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "JAL DOCTOR",
+     "at": 0.6,
+     "y": 420,
+     "color": "#FFFFFF",
+     "size": 80
+    },
+    {
+     "type": "bigText",
+     "text": "ANA Doctor on Board",
+     "at": 1.4,
+     "y": 620,
+     "color": "#FFFFFF",
+     "size": 70
+    },
+    {
+     "type": "bigText",
+     "text": "2016年から",
+     "at": 2.4,
+     "y": 840,
+     "color": "#F2C14E",
+     "size": 80
+    }
+   ],
+   "reading": "ジャルとアナは、にせんじゅうろくねんから、いしのじょうきゃくを、とうろくするしくみを、はじめた。"
+  },
+  {
+   "narration": "覚えておくのは3つ。1つめ、すぐ呼び出しボタン。",
+   "telop": "①すぐ【呼び出しボタン】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "もしもの時は",
+     "items": [
+      "すぐ呼び出しボタン",
+      "機内にはAEDがある",
+      "医療者は名乗り出る"
+     ],
+     "show": 1,
+     "at": 0.2,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "2つめ、機内には、AEDがある。",
+   "telop": "②機内には【AED】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "reading": "ふたつめ、きないには、エーイーディーがある。",
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "もしもの時は",
+     "items": [
+      "すぐ呼び出しボタン",
+      "機内にはAEDがある",
+      "医療者は名乗り出る"
+     ],
+     "show": 2,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "3つめ、医療の仕事をしている人は、迷わず、名乗り出る。",
+   "telop": "③医療者は【名乗り出る】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "もしもの時は",
+     "items": [
+      "すぐ呼び出しボタン",
+      "機内にはAEDがある",
+      "医療者は名乗り出る"
+     ],
+     "show": 3,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "あなたの、すぐの一歩が、命をつなぐ。",
+   "telop": "すぐの一歩が【命をつなぐ】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "おわり",
+     "at": 2.2,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

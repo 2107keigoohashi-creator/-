@@ -12,6 +12,7 @@
 | ep05-1 | 着陸直前に、滑走路に別の飛行機がいたら（前編） | 完成（26シーン・93.4秒） | 2026-10-26 | output/tiktok_anime_ep05-1.mp4 |
 | ep05-2 | 着陸直前に、滑走路に別の飛行機がいたら（後編） | 完成（29シーン） | 2026-10-27 | output/tiktok_anime_ep05-2.mp4 |
 | ep06-1 | 機内で、急病人が出たら（前編） | 完成（24シーン） | 2026-10-28 | output/tiktok_anime_ep06-1.mp4 |
+| ep06-2 | 機内で、急病人が出たら（後編） | 完成（30シーン・129.9秒） | 2026-10-29 | output/tiktok_anime_ep06-2.mp4 |
 
 ## 次回の指示（オーナーより）
 
@@ -24,7 +25,8 @@
 - 10/26：「ゴーアラウンド」の前編を制作
 - 10/27：「ゴーアラウンド」の後編を制作し完結
 - 10/28：「急病人」の前編を制作
-- **次の朝**：ep06-2（後編）を提案する。内容：看護師と美咲でAED → 地上の医師に無線で相談（メディカル・サポート）→ 機長が近くの空港へのダイバートを判断 → 実例の数字：NEJM 2013 約604便に1回の急病、医師の乗客が手伝ったのは約48%、心停止は0.3%とまれ → JAL DOCTOR（2016〜）／ANA Doctor on Board（2016〜）→ まとめ3つ（異変はすぐ呼び出しボタン／機内にAEDがある／医療者なら名乗り出る）
+- 10/29：「急病人」の後編を制作し完結（AEDの音声の流れ：パッド→解析中は触れない→ショック→すぐ胸骨圧迫を再開／地上の専門医に無線で相談→台北へダイバート）
+- **次の朝**：新しい物語の前編を提案する（前編・後編の2本分のあらすじを一緒に出す）
 - 以降は1日1本
 - 声のクレジット（ep02〜）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:麒ヶ島宗麟、VOICEVOX:玄野武宏
 - 声のクレジット（ep03-1）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:冥鳴ひまり、VOICEVOX:剣崎雌雄
@@ -33,6 +35,7 @@
 - 声のクレジット（ep05-1）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:麒ヶ島宗麟、VOICEVOX:玄野武宏、VOICEVOX:剣崎雌雄、VOICEVOX:雀松朱司
 - 声のクレジット（ep05-2）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:麒ヶ島宗麟、VOICEVOX:玄野武宏、VOICEVOX:雀松朱司
 - 声のクレジット（ep06-1）：VOICEVOX:青山龍星、VOICEVOX:白上虎太郎、VOICEVOX:No.7、VOICEVOX:剣崎雌雄、VOICEVOX:雀松朱司、VOICEVOX:春日部つむぎ
+- 声のクレジット（ep06-2）：VOICEVOX:青山龍星、VOICEVOX:春日部つむぎ、VOICEVOX:ナースロボ＿タイプＴ、VOICEVOX:麒ヶ島宗麟、VOICEVOX:黒沢冴白
 - 声のクレジット（ep03-2）：VOICEVOX:青山龍星、VOICEVOX:No.7、VOICEVOX:雀松朱司、VOICEVOX:麒ヶ島宗麟、VOICEVOX:冥鳴ひまり
 
 ## 次の候補

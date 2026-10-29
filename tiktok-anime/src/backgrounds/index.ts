@@ -6,6 +6,7 @@ import {Approach, EvacSlide, FireHandle, PathDiagram, SeatGap, SfoDiagram, SkyPl
 import {JapanMap} from './JapanMap';
 import {Black, CockpitDoor, NightRadio, Plain, YokeCloseup} from './Misc';
 import {Runway} from './Runway';
+import {AsiaMap} from './AsiaMap';
 
 // 台本の "background" に書ける名前
 export const BACKGROUNDS: Record<string, Background> = {
@@ -16,6 +17,7 @@ export const BACKGROUNDS: Record<string, Background> = {
   yokeCloseup: YokeCloseup,
   nightRadio: NightRadio,
   japanMap: JapanMap,
+  asiaMap: AsiaMap,
   runway: Runway,
   fireHandle: FireHandle,
   skyPlane: SkyPlane,

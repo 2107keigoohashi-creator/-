@@ -59,6 +59,8 @@ export type CharacterInScene = {
   // 体全体の回転（度）。-90 で横たわる
   rotate?: number;
   airHeight?: number;
+  // airborne の長さ（秒、既定 1.1）。電気ショックのような一瞬の跳ねは 0.3 くらい
+  airDur?: number;
   // シートベルトを締めている
   belt?: boolean;
   at?: number;

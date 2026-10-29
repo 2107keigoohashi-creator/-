@@ -1,0 +1,1 @@
+{"text":"心臓マッサージは、とても疲れる。あなたも、交代を申し出た。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

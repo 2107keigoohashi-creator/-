@@ -1,0 +1,1 @@
+{"text":"しんでんずを、しらべています。からだに、ふれないでください。","preset":{"speaker":"ナースロボ＿タイプＴ","style":"ノーマル","speedScale":1,"pitchScale":0,"intonationScale":1,"pauseLengthScale":0.6,"volumeScale":1,"filter":"pa"}}
