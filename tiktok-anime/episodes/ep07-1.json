@@ -1,0 +1,1106 @@
+{
+ "title": "上空で、酸素マスクが落ちてきたら（前編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "羽田から、ホノルルへ向かう夜の便。高度は、およそ1万メートル。",
+   "telop": "高度【1万メートル】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "closed",
+     "maskTube": 690
+    }
+   ],
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "羽田 → ホノルル\n高度 35,000ft",
+     "at": 0.2
+    }
+   ],
+   "reading": "はねだから、ホノルルへむかう、よるのびん。こうどは、およそ、いちまんメートル。"
+  },
+  {
+   "narration": "隣では、5歳の娘、ひなたが、ぐっすり眠っている。",
+   "telop": "娘は【ぐっすり】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "normal"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "closed",
+     "maskTube": 690
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.6,
+     "zoom": 1.5,
+     "focusX": 800,
+     "focusY": 1050
+    }
+   ],
+   "reading": "となりでは、ごさいのむすめ、ひなたが、ぐっすり、ねむっている。"
+  },
+  {
+   "narration": "その時。",
+   "telop": "",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "surprised"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "surprised",
+     "maskTube": 690
+    }
+   ],
+   "overlays": [
+    {
+     "type": "flash",
+     "at": 0.15,
+     "duration": 0.4
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.15,
+     "duration": 0.9,
+     "amp": 22
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 0.1,
+     "volume": 0.8
+    }
+   ],
+   "subtitles": false
+  },
+  {
+   "narration": "バンッ！という大きな音。客室が、一瞬で、白い霧に包まれた。",
+   "telop": "【白い霧】に包まれた",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "panic"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "surprised",
+     "maskTube": 690
+    }
+   ],
+   "overlays": [
+    {
+     "type": "fog",
+     "at": 0,
+     "clear": 3.5,
+     "min": 0.35
+    }
+   ],
+   "shake": [
+    {
+     "at": 0,
+     "duration": 0.6,
+     "amp": 10
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/whoosh.wav",
+     "at": 0,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "narration": "耳が、痛い……！",
+   "telop": "「耳が【痛い】…！」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic",
+     "maskTube": 690
+    }
+   ],
+   "overlays": [
+    {
+     "type": "fog",
+     "at": 0,
+     "clear": 0.1,
+     "max": 0.4,
+     "min": 0.35
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "天井から、酸素マスクが、いっせいに落ちてきた。",
+   "telop": "【酸素マスク】が落ちてきた",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": 0.6
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "surprised"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "surprised",
+     "maskTube": 690
+    }
+   ],
+   "overlays": [
+    {
+     "type": "fog",
+     "at": 0,
+     "clear": 0.1,
+     "max": 0.3,
+     "min": 0.25
+    }
+   ],
+   "reading": "てんじょうから、さんそマスクが、いっせいに、おちてきた。"
+  },
+  {
+   "narration": "機内の気圧が、急に下がった。急減圧だ。",
+   "telop": "ルール#1 【急減圧】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    }
+   ],
+   "reading": "きないの、きあつが、きゅうにさがった。きゅうげんあつだ。"
+  },
+  {
+   "narration": "1万メートルの空気は、地上の、およそ4分の1しかない。",
+   "telop": "空気は地上の【約4分の1】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "1万mの空気 ＝ 地上の約1/4",
+     "at": 0.4,
+     "y": 520,
+     "color": "#F2C14E",
+     "size": 76
+    }
+   ],
+   "reading": "いちまんメートルのくうきは、ちじょうの、およそ、よんぶんのいち、しかない。"
+  },
+  {
+   "narration": "ふだんは、機内に空気を送りこんで、地上に近い状態にしている。それが、外と同じになったのだ。",
+   "telop": "機内が【外と同じ】に",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "機内の空気 → 外と同じ薄さ",
+     "at": 1.6,
+     "y": 520,
+     "color": "#FF6B5E",
+     "size": 70
+    }
+   ]
+  },
+  {
+   "narration": "ひなた！",
+   "telop": "「【ひなた】！」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "panic",
+     "talking": true,
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -30
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "panic",
+     "maskTube": 690
+    }
+   ],
+   "overlays": [
+    {
+     "type": "fog",
+     "at": 0,
+     "clear": 0.1,
+     "max": 0.25,
+     "min": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "ご自分のマスクを、先に着けてください！お子さまは、そのあとです！",
+   "telop": "「ご自分のマスクを【先に】！」",
+   "background": "cabin",
+   "voice": "misaki_pa",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "surprised"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "panic",
+     "maskTube": 690
+    }
+   ],
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "CAからの放送",
+     "at": 0.1
+    },
+    {
+     "type": "fog",
+     "at": 0,
+     "clear": 0.1,
+     "max": 0.2,
+     "min": 0.2
+    }
+   ],
+   "reading": "ごじぶんのマスクを、さきに、つけてください！おこさまは、そのあとです！"
+  },
+  {
+   "narration": "子どもが、先じゃないの？",
+   "telop": "「子どもが【先】じゃないの？」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "panic",
+     "maskTube": 690
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 620,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "ちがう。マスクは、自分が先。",
+   "telop": "ルール#2 マスクは【自分が先】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    },
+    {
+     "type": "bigText",
+     "text": "マスクは 自分が先",
+     "at": 1.4,
+     "y": 520,
+     "color": "#F2C14E",
+     "size": 96
+    }
+   ]
+  },
+  {
+   "narration": "この高さで、しっかり意識を保てるのは、わずか30秒から1分ほど。",
+   "telop": "意識が保てるのは【30秒〜1分】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "timer",
+     "from": 60,
+     "speed": 4,
+     "at": 0.3,
+     "y": 420
+    }
+   ],
+   "reading": "このたかさで、しっかり、いしきをたもてるのは、わずか、さんじゅうびょうから、いっぷんほど。"
+  },
+  {
+   "narration": "急に気圧が下がったときは、その半分ほどになることもある。",
+   "telop": "急減圧なら【約半分】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "急減圧なら 15〜30秒",
+     "at": 0.6,
+     "y": 520,
+     "color": "#FF6B5E",
+     "size": 90
+    },
+    {
+     "type": "bigText",
+     "text": "（FAA AC 61-107B）",
+     "at": 0.6,
+     "y": 760,
+     "color": "#9AA1A8",
+     "size": 44
+    }
+   ],
+   "reading": "きゅうに、きあつがさがったときは、そのはんぶんほどに、なることもある。"
+  },
+  {
+   "narration": "先に親が倒れたら、子どもを助ける人が、いなくなってしまう。",
+   "telop": "親が倒れたら【誰も助けられない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "down",
+     "expression": "closed",
+     "action": "collapsed"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic",
+     "maskTube": 690
+    }
+   ],
+   "overlays": [
+    {
+     "type": "fog",
+     "at": 0,
+     "clear": 0.1,
+     "max": 0.2,
+     "min": 0.2
+    }
+   ],
+   "blur": {
+    "at": 0,
+    "amount": 5
+   }
+  },
+  {
+   "narration": "マスクを、ぐっと引っぱる。これで、酸素が流れ始める。",
+   "telop": "ぐっと【引っぱる】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "panic",
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -85
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "panic",
+     "maskTube": 690
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.4,
+     "zoom": 1.6,
+     "focusX": 600,
+     "focusY": 800
+    }
+   ]
+  },
+  {
+   "narration": "口と鼻を覆って、ゴムひもを頭にかける。そして、ふつうに呼吸する。",
+   "telop": "口と鼻を【覆う】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     600
+    ]
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "normal",
+     "mask": true,
+     "maskTube": 500
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "panic",
+     "maskTube": 690
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 620,
+     "focusY": 980
+    }
+   ],
+   "reading": "くちと、はなをおおって、ゴムひもを、あたまにかける。そして、ふつうに、こきゅうする。"
+  },
+  {
+   "narration": "それから、ひなたにも、マスクを着けた。",
+   "telop": "それから【娘にも】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     600,
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "normal",
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -40,
+     "mask": true,
+     "maskTube": 500
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "normal",
+     "maskTube": 690,
+     "mask": true,
+     "maskAt": 0.8
+    }
+   ]
+  },
+  {
+   "narration": "でも、ふと見ると、マスクを着けずに、ぼんやりしている人がいた。",
+   "telop": "マスクを着けない【人がいた】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "p1",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "center",
+     "expression": "normal",
+     "appearance": {
+      "clothes": "#6F8A7A",
+      "hair": "#8C8984",
+      "hairStyle": "short"
+     },
+     "tag": false
+    },
+    {
+     "id": "p2",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "mask": true,
+     "maskTube": 500,
+     "appearance": {
+      "clothes": "#8E6F6A",
+      "hair": "#3A3330",
+      "hairStyle": "long"
+     },
+     "tag": false
+    }
+   ]
+  },
+  {
+   "narration": "あれ……なんだか……眠いな……",
+   "telop": "「なんだか…【眠い】…」",
+   "background": "cabin",
+   "voice": "passenger",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "p1",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "down",
+     "expression": "closed",
+     "talking": true,
+     "appearance": {
+      "clothes": "#6F8A7A",
+      "hair": "#8C8984",
+      "hairStyle": "short"
+     },
+     "tag": false
+    },
+    {
+     "id": "p2",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "mask": true,
+     "maskTube": 500,
+     "appearance": {
+      "clothes": "#8E6F6A",
+      "hair": "#3A3330",
+      "hairStyle": "long"
+     },
+     "tag": false
+    }
+   ],
+   "blur": {
+    "at": 0.3,
+    "amount": 7
+   },
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 600,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "これが、低酸素症。苦しさを感じにくく、自分では気づきにくいのが、怖いところだ。",
+   "telop": "ルール#3 低酸素は【気づきにくい】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#3",
+     "at": 0
+    },
+    {
+     "type": "bigText",
+     "text": "低酸素症",
+     "at": 1.4,
+     "y": 520,
+     "color": "#FF6B5E",
+     "size": 110
+    }
+   ],
+   "reading": "これが、ていさんそしょう。くるしさを、かんじにくく、じぶんでは、きづきにくいのが、こわいところだ。"
+  },
+  {
+   "narration": "マスク、着けてください！",
+   "telop": "「マスク、【着けて】ください！」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "p1",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "right",
+     "expression": "surprised",
+     "mask": true,
+     "maskAt": 1.2,
+     "maskTube": 500,
+     "appearance": {
+      "clothes": "#6F8A7A",
+      "hair": "#8C8984",
+      "hairStyle": "short"
+     },
+     "tag": false
+    },
+    {
+     "id": "p2",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "look": "left",
+     "mask": true,
+     "maskTube": 500,
+     "appearance": {
+      "clothes": "#8E6F6A",
+      "hair": "#3A3330",
+      "hairStyle": "long"
+     },
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "マスク、着けて！",
+     "x": 420,
+     "y": 640,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "その時。機体が、ぐっと、機首を下げ始めた。",
+   "telop": "機首が【下がり始めた】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     600,
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "surprised",
+     "mask": true,
+     "maskTube": 500
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic",
+     "maskTube": 690,
+     "mask": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "altitude",
+     "from": 35000,
+     "to": 31000,
+     "changeAt": 0.8,
+     "duration": 3.5,
+     "y": 260
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.6,
+     "duration": 1.6,
+     "amp": 8
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/roar.wav",
+     "at": 0.5,
+     "volume": 0.45
+    }
+   ]
+  },
+  {
+   "narration": "落ちてる……？",
+   "telop": "「【落ちてる】…？」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     600,
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "panic",
+     "sweat": true,
+     "mask": true,
+     "maskTube": 500
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic",
+     "maskTube": 690,
+     "mask": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "altitude",
+     "from": 31000,
+     "to": 29500,
+     "changeAt": 0,
+     "duration": 2.5,
+     "y": 260
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 620,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "飛行機は、どうなってしまうのか。後編に、つづく。",
+   "telop": "飛行機は【どうなる】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "後編につづく",
+     "at": 1.6,
+     "y": 560,
+     "color": "#FFFFFF",
+     "bg": "#1E1E1E"
+    }
+   ]
+  }
+ ]
+}

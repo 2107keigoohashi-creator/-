@@ -63,6 +63,10 @@ export type CharacterInScene = {
   airDur?: number;
   // シートベルトを締めている
   belt?: boolean;
+  // 酸素マスクを着ける（maskAt 秒から。maskTube は上へのびる管の長さ）
+  mask?: boolean;
+  maskAt?: number;
+  maskTube?: number;
   at?: number;
   reachArm?: 'left' | 'right';
   reachAngle?: number;
@@ -105,6 +109,8 @@ export type Scene = {
   subtitles?: boolean;
   // 揺れ：at 秒から duration 秒、amp ピクセルで画面が揺れる（複数可）
   shake?: {at?: number; duration?: number; amp?: number}[];
+  // ぼやけ（低酸素でぼんやりする）：at 秒から amount ピクセルまでぼやけて揺れる
+  blur?: {at?: number; amount?: number};
 };
 
 export type Cut = {at: number; zoom?: number; focusX?: number; focusY?: number};

@@ -50,9 +50,19 @@ export const SceneView: React.FC<{scene: ResolvedScene; cast: Record<string, Cas
     sy += Math.cos(frame * 1.7) * amp * 0.7 + Math.sin(frame * 4.1) * amp * 0.5;
   }
 
+  // ぼやけ（低酸素）
+  let blurPx = 0;
+  let sway = 0;
+  if (scene.blur) {
+    const b0 = (scene.blur.at ?? 0) * fps;
+    const k = interpolate(frame, [b0, b0 + fps * 1.5], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+    blurPx = k * (scene.blur.amount ?? 8) * (0.7 + 0.3 * Math.sin(frame / 9));
+    sway = k * Math.sin(frame / 14) * 2.5;
+  }
+
   return (
     <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
-      <AbsoluteFill style={{transform: `translate(${sx}px, ${sy}px) scale(${sx || sy ? 1.04 : 1})`}}>
+      <AbsoluteFill style={{transform: `translate(${sx}px, ${sy}px) scale(${sx || sy || sway ? 1.06 : 1}) rotate(${sway}deg)`, filter: blurPx ? `blur(${blurPx}px)` : undefined}}>
       <AbsoluteFill style={cameraStyle}>
         <svg width={WIDTH} height={HEIGHT} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} style={{position: 'absolute', inset: 0}}>
           <Bg layer="back" p={p} />

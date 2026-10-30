@@ -643,7 +643,28 @@ const CallWindow: React.FC<{o: Overlay}> = ({o}) => {
   );
 };
 
+// 白い霧（急減圧）：最初は濃く、clear 秒かけて薄いもやになる
+const Fog: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = f / fps;
+  const k = interpolate(t, [0, 0.15, 0.15 + n(o.clear, 2.5)], [0, n(o.max, 0.9), n(o.min, 0.3)], {extrapolateRight: 'clamp'});
+  return (
+    <AbsoluteFill style={{opacity: k}}>
+      <AbsoluteFill style={{background: 'rgba(236,238,240,0.75)'}} />
+      <svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
+        {Array.from({length: 14}).map((_, i) => {
+          const x = ((i * 173 + t * (30 + (i % 4) * 14)) % 1300) - 110;
+          const y = 120 + ((i * 331) % 1500);
+          return <circle key={i} cx={x} cy={y} r={160 + (i % 5) * 40} fill="#FFFFFF" opacity={0.35} />;
+        })}
+      </svg>
+    </AbsoluteFill>
+  );
+};
+
 const SCREEN: Record<string, React.FC<{o: Overlay}>> = {
+  fog: Fog,
   aedPanel: AedPanel,
   flash: Flash,
   callWindow: CallWindow,

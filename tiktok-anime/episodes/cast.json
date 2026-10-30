@@ -95,5 +95,14 @@
       "hairStyle": "short",
       "tie": "#5C7088"
     }
+  },
+  "hinata": {
+    "tagName": "ひなた（5）",
+    "tagDesc": "あなたの娘・22B席",
+    "appearance": {
+      "clothes": "#D98A8A",
+      "hair": "#4A3A30",
+      "hairStyle": "bun"
+    }
   }
 }

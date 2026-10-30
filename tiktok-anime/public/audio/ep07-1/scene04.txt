@@ -1,0 +1,1 @@
+{"text":"バンッ！という大きな音。客室が、一瞬で、白い霧に包まれた。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

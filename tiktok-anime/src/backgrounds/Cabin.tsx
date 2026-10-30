@@ -122,6 +122,36 @@ export const Cabin: Background = ({layer, p}) => {
         <rect x={-92} y={-376} width={184} height={70} rx={22} fill="#E9E4DA" />
       </g>
       {flash && <rect x={0} y={0} width={1080} height={1540} fill="#E53935" opacity={0.06 * pulse} />}
+      {bool(p.masks) && <MaskDrop t={t} at={num(p.maskAt, 0)} taken={Array.isArray(p.maskTaken) ? (p.maskTaken as number[]) : []} xs={Array.isArray(p.maskXs) ? (p.maskXs as number[]) : [600, 930]} />}
+    </g>
+  );
+};
+
+// 天井から落ちてくる酸素マスク（xs の位置に1つずつ。taken の位置は着けたので描かない）
+export const MaskDrop: React.FC<{t: number; at: number; xs: number[]; taken: number[]; top?: number; len?: number}> = ({t, at, xs, taken, top = 345, len = 430}) => {
+  const u = Math.max(0, t - at);
+  if (t < at) return null;
+  // 落ちてから、ばねのように揺れて止まる
+  const drop = Math.min(1, u / 0.35);
+  const bounce = u > 0.35 ? Math.sin((u - 0.35) * 14) * Math.exp(-(u - 0.35) * 3) * 0.12 : 0;
+  const L = len * (drop * drop + bounce);
+  return (
+    <g>
+      {xs.map((x, i) => {
+        const swing = Math.sin(t * 2.2 + i) * 10 * Math.min(1, u);
+        return (
+          <g key={x}>
+            <rect x={x - 70} y={top - 12} width={140} height={22} rx={6} fill="#3A3F47" opacity={0.85} />
+            {!taken.includes(x) && (
+              <g>
+                <path d={`M ${x},${top} Q ${x + swing * 0.3},${top + L * 0.5} ${x + swing},${top + L}`} stroke="#E8E4DA" strokeWidth={6} fill="none" />
+                <ellipse cx={x + swing} cy={top + L + 26} rx={34} ry={28} fill="#F2C14E" stroke="#C99A2E" strokeWidth={4} />
+                <path d={`M ${x + swing - 30},${top + L + 50} q 30,26 60,0`} stroke="#E3D8B8" strokeWidth={5} fill="none" />
+              </g>
+            )}
+          </g>
+        );
+      })}
     </g>
   );
 };

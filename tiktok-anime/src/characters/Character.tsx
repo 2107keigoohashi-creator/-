@@ -462,6 +462,14 @@ export const Character: React.FC<{
             <circle cx={0} cy={HEAD_Y} r={HEAD_R} fill={a.skin ?? SKIN} />
             <Hair a={a} />
             <Face expression={expression} look={spec.look ?? 'center'} blinking={blinking} mouthOpen={mouthOpen} sweat={!!spec.sweat} frame={frame} />
+            {spec.mask && t >= (spec.maskAt ?? 0) && (
+              <g>
+                <path d={`M 0,${HEAD_Y + 30} C 10,${HEAD_Y - 120} -30,${HEAD_Y - (spec.maskTube ?? 500) * 0.6} 0,${HEAD_Y - (spec.maskTube ?? 500)}`} stroke="#E8E4DA" strokeWidth={7} fill="none" />
+                <line x1={-HEAD_R + 2} y1={HEAD_Y + 6} x2={HEAD_R - 2} y2={HEAD_Y + 6} stroke="#8A7F6E" strokeWidth={5} />
+                <ellipse cx={0} cy={HEAD_Y + 32} rx={30} ry={25} fill="#F2C14E" stroke="#C99A2E" strokeWidth={4} />
+                <ellipse cx={0} cy={HEAD_Y + 32} rx={12} ry={9} fill="#E0AE3A" />
+              </g>
+            )}
           </g>
         </g>
       </g>
