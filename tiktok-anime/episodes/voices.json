@@ -158,5 +158,24 @@
     "pauseLengthScale": 0.6,
     "volumeScale": 1.0,
     "filter": "pa"
+  },
+  "hinata": {
+    "speaker": "雨晴はう",
+    "style": "ノーマル",
+    "speedScale": 1.02,
+    "pitchScale": 0.06,
+    "intonationScale": 1.35,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0
+  },
+  "takahashi_pa": {
+    "speaker": "玄野武宏",
+    "style": "ノーマル",
+    "speedScale": 1.06,
+    "pitchScale": 0,
+    "intonationScale": 1.25,
+    "pauseLengthScale": 0.55,
+    "volumeScale": 1.0,
+    "filter": "pa"
   }
 }

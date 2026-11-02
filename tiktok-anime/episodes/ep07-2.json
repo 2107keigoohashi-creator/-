@@ -1,0 +1,807 @@
+{
+ "title": "上空で、酸素マスクが落ちてきたら（後編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "前編のあらすじ。上空1万メートルで、機内の気圧が急に下がった。マスクは、自分が先に着けた。",
+   "telop": "【前編】のおさらい",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     600,
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "mask": true,
+     "maskTube": 500
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "mask": true,
+     "maskTube": 690,
+     "expression": "panic"
+    }
+   ]
+  },
+  {
+   "narration": "そして、機体が、機首を下げ始めた。",
+   "telop": "機首が【下がる】",
+   "background": "skyPlane",
+   "bgProps": {
+    "sky": "night",
+    "pitch": -8,
+    "pitchAt": 0.3
+   }
+  },
+  {
+   "narration": "時間を、少し戻そう。バンッという音の直後の、コックピット。",
+   "telop": "【コックピット】では",
+   "background": "cockpit",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "mask": false,
+     "maskKind": "pilot",
+     "expression": "surprised"
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "mask": false,
+     "maskKind": "pilot",
+     "expression": "surprised"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "alarm",
+     "text": "CABIN ALTITUDE",
+     "at": 0.4,
+     "y": 520
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/fire_bell.wav",
+     "at": 0.4,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "narration": "二人がまずしたのは、自分の酸素マスクを、着けることだった。",
+   "telop": "まず【自分のマスク】",
+   "background": "cockpit",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "mask": true,
+     "maskKind": "pilot",
+     "maskAt": 1.0
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "mask": true,
+     "maskKind": "pilot",
+     "maskAt": 1.4
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.6,
+     "zoom": 1.4,
+     "focusX": 540,
+     "focusY": 800
+    }
+   ]
+  },
+  {
+   "narration": "緊急降下！",
+   "telop": "「【緊急降下】！」",
+   "background": "cockpit",
+   "voice": "sato",
+   "bgProps": {
+    "sky": "night"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "mask": true,
+     "maskKind": "pilot",
+     "talking": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "mask": true,
+     "maskKind": "pilot"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "alarm",
+     "text": "EMERGENCY DESCENT",
+     "at": 0.1,
+     "size": 56
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 780,
+     "focusY": 800
+    }
+   ]
+  },
+  {
+   "narration": "メーデー、メーデー、メーデー。急減圧、緊急降下します。",
+   "telop": "「メーデー」",
+   "background": "nightRadio",
+   "voice": "takahashi",
+   "bgProps": {
+    "label": "東京コントロール",
+    "color": "#7AB6C4"
+   },
+   "reading": "メーデー、メーデー、メーデー。きゅうげんあつ、きんきゅうこうかします。"
+  },
+  {
+   "narration": "高橋副操縦士が、機体を、一気に下へ向ける。",
+   "telop": "一気に【下へ】",
+   "background": "skyPlane",
+   "bgProps": {
+    "sky": "night",
+    "pitch": -10,
+    "pitchAt": 0.4
+   },
+   "overlays": [
+    {
+     "type": "altitude",
+     "from": 35000,
+     "to": 30000,
+     "changeAt": 0.6,
+     "duration": 3.2,
+     "y": 260
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/roar.wav",
+     "at": 0.4,
+     "volume": 0.45
+    }
+   ]
+  },
+  {
+   "narration": "これは、墜落ではない。人がふつうに息ができる、およそ3000メートルまで、わざと急いで下りているのだ。",
+   "telop": "ルール#4 急降下は【わざと】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#4",
+     "at": 0
+    },
+    {
+     "type": "bigText",
+     "text": "目標：約3,000m（10,000ft）",
+     "at": 1.6,
+     "y": 520,
+     "color": "#F2C14E",
+     "size": 72
+    }
+   ],
+   "reading": "これは、ついらくではない。ひとが、ふつうに、いきができる、およそ、さんぜんメートルまで、わざと、いそいで、おりているのだ。"
+  },
+  {
+   "narration": "その頃、客室。あなたは、マスクの袋を見て、不安になった。",
+   "telop": "袋が【ふくらまない】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     600,
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "down",
+     "mask": true,
+     "maskTube": 500,
+     "expression": "panic",
+     "sweat": true
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "mask": true,
+     "maskTube": 690,
+     "expression": "panic"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.6,
+     "zoom": 1.7,
+     "focusX": 600,
+     "focusY": 1050
+    }
+   ]
+  },
+  {
+   "narration": "袋が、ふくらまない。これ、壊れてる……？",
+   "telop": "「これ、【壊れてる】…？」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     600,
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "down",
+     "mask": true,
+     "maskTube": 500,
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "mask": true,
+     "maskTube": 690,
+     "expression": "panic"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.7,
+     "focusX": 600,
+     "focusY": 1050
+    }
+   ]
+  },
+  {
+   "narration": "袋がふくらまなくても、酸素は流れています。マスクを、外さないでください！",
+   "telop": "「マスクを【外さないで】！」",
+   "background": "cabin",
+   "voice": "misaki_pa",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     600,
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "mask": true,
+     "maskTube": 500,
+     "expression": "surprised"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "mask": true,
+     "maskTube": 690,
+     "expression": "panic"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "CAからの放送",
+     "at": 0.1
+    }
+   ],
+   "reading": "ふくろが、ふくらまなくても、さんそは、ながれています。マスクを、はずさないでください！"
+  },
+  {
+   "narration": "酸素は、袋がふくらまなくても、ちゃんと出ている。外すほうが、危ない。",
+   "telop": "ルール#5 袋は【ふくらまなくてOK】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#5",
+     "at": 0
+    },
+    {
+     "type": "bigText",
+     "text": "外すほうが 危ない",
+     "at": 1.6,
+     "y": 520,
+     "color": "#FF6B5E",
+     "size": 96
+    }
+   ]
+  },
+  {
+   "narration": "マスクの酸素が出るのは、およそ12分から20分。",
+   "telop": "酸素は【約12〜20分】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "マスクの酸素",
+     "at": 0.2,
+     "y": 420,
+     "color": "#FFFFFF",
+     "size": 80
+    },
+    {
+     "type": "bigText",
+     "text": "約12〜20分",
+     "at": 0.9,
+     "y": 620,
+     "color": "#F2C14E",
+     "size": 130
+    }
+   ],
+   "reading": "マスクのさんそが、でるのは、およそ、じゅうにふんから、にじゅっぷん。"
+  },
+  {
+   "narration": "そのあいだに、息ができる高さまで、下りられるように、作られている。",
+   "telop": "その間に【下りきれる】",
+   "background": "skyPlane",
+   "bgProps": {
+    "sky": "night",
+    "pitch": -8,
+    "pitchAt": -5
+   },
+   "overlays": [
+    {
+     "type": "altitude",
+     "from": 24000,
+     "to": 14000,
+     "changeAt": 0.3,
+     "duration": 3.6,
+     "y": 260
+    }
+   ]
+  },
+  {
+   "narration": "およそ1万フィート。機体が、ゆっくりと、水平に戻った。",
+   "telop": "【1万フィート】で水平に",
+   "background": "skyPlane",
+   "bgProps": {
+    "sky": "night",
+    "pitch": 0
+   },
+   "overlays": [
+    {
+     "type": "altitude",
+     "from": 10600,
+     "to": 10000,
+     "changeAt": 0.2,
+     "duration": 1.6,
+     "y": 260
+    }
+   ],
+   "reading": "およそ、1万、フィート。機体が、ゆっくりと、水平に、もどった。"
+  },
+  {
+   "narration": "機長です。安全な高さまで下りました。もう、マスクを外して、大丈夫です。",
+   "telop": "「もう【外して大丈夫】です」",
+   "background": "cabin",
+   "voice": "sato_pa",
+   "bgProps": {
+    "sky": "night",
+    "masks": true,
+    "maskAt": -5,
+    "maskTaken": [
+     600,
+     930
+    ]
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "mask": true,
+     "maskTube": 500,
+     "expression": "normal"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "mask": true,
+     "maskTube": 690,
+     "expression": "normal"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "2024年1月、アラスカ航空1282便。離陸から6分後、高度およそ4500メートルで、ふさいであった非常口が、まるごと外れた。",
+   "telop": "実例：【アラスカ航空1282便】",
+   "background": "doorPlug",
+   "bgProps": {
+    "holeAt": 4.5
+   },
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "2024年1月\nアラスカ航空1282便",
+     "at": 0.2
+    }
+   ],
+   "shake": [
+    {
+     "at": 4.5,
+     "duration": 0.6,
+     "amp": 12
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 4.5,
+     "volume": 0.7
+    }
+   ],
+   "reading": "にせんにじゅうよねん、いちがつ、アラスカこうくう、せんにひゃくはちじゅうにびん。りりくから、ろっぷんご、こうど、およそ、よんせんごひゃくメートルで、ふさいであった、ひじょうぐちが、まるごと、はずれた。"
+  },
+  {
+   "narration": "すぐ横の、2つの席は、たまたま、空席だった。",
+   "telop": "すぐ横の2席は【空席】",
+   "background": "doorPlug",
+   "bgProps": {
+    "holeAt": -5,
+    "markAt": 0.6
+   }
+  },
+  {
+   "narration": "マスクが落ち、機体は急いで下りて、出発した空港に、無事に引き返した。",
+   "telop": "【無事に】引き返した",
+   "background": "runway",
+   "bgProps": {
+    "sky": "night",
+    "landAt": 2.0
+   },
+   "reading": "マスクがおち、きたいは、いそいでおりて、しゅっぱつしたくうこうに、ぶじに、ひきかえした。"
+  },
+  {
+   "narration": "あなたたちの飛行機も、近くの空港に、無事に着陸した。",
+   "telop": "【無事に】着陸",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "night",
+    "ground": true,
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "mask": false,
+     "maskTube": 500,
+     "expression": "closed"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "mask": false,
+     "maskTube": 690,
+     "expression": "closed"
+    }
+   ]
+  },
+  {
+   "narration": "パパ、もう着いたの？",
+   "telop": "「パパ、もう【着いたの】？」",
+   "background": "cabin",
+   "voice": "hinata",
+   "bgProps": {
+    "sky": "night",
+    "ground": true,
+    "dim": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "mask": false,
+     "maskTube": 500,
+     "expression": "normal"
+    },
+    {
+     "id": "hinata",
+     "x": 930,
+     "y": 1330,
+     "scale": 0.95,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "mask": false,
+     "maskTube": 690,
+     "expression": "normal",
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "パパ、もう着いたの？",
+     "x": 880,
+     "y": 760,
+     "at": 0.1,
+     "tail": "down",
+     "size": 44
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 780,
+     "focusY": 1020
+    }
+   ]
+  },
+  {
+   "narration": "覚えておくのは、3つ。1つめ、マスクは、自分が先。",
+   "telop": "①マスクは【自分が先】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "マスクが落ちたら",
+     "items": [
+      "マスクは自分が先",
+      "座ったらベルトを締める",
+      "急降下は助かるための操作"
+     ],
+     "show": 1,
+     "at": 0.2,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "2つめ、座っているあいだは、ベルトを締めておく。",
+   "telop": "②ベルトは【締めておく】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "マスクが落ちたら",
+     "items": [
+      "マスクは自分が先",
+      "座ったらベルトを締める",
+      "急降下は助かるための操作"
+     ],
+     "show": 2,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "3つめ、急降下は、助かるための操作。",
+   "telop": "③急降下は【助かるため】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "マスクが落ちたら",
+     "items": [
+      "マスクは自分が先",
+      "座ったらベルトを締める",
+      "急降下は助かるための操作"
+     ],
+     "show": 3,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "落ち着いて、自分のマスクから。それが、大切な人を守る。",
+   "telop": "自分のマスクが【大切な人を守る】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "おわり",
+     "at": 2.4,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

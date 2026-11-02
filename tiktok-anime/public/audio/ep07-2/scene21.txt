@@ -1,0 +1,1 @@
+{"text":"パパ、もう着いたの？","preset":{"speaker":"雨晴はう","style":"ノーマル","speedScale":1.02,"pitchScale":0.06,"intonationScale":1.35,"pauseLengthScale":0.55,"volumeScale":1}}

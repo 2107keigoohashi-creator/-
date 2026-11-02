@@ -1,0 +1,1 @@
+{"text":"前編のあらすじ。上空1万メートルで、機内の気圧が急に下がった。マスクは、自分が先に着けた。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

@@ -462,7 +462,15 @@ export const Character: React.FC<{
             <circle cx={0} cy={HEAD_Y} r={HEAD_R} fill={a.skin ?? SKIN} />
             <Hair a={a} />
             <Face expression={expression} look={spec.look ?? 'center'} blinking={blinking} mouthOpen={mouthOpen} sweat={!!spec.sweat} frame={frame} />
-            {spec.mask && t >= (spec.maskAt ?? 0) && (
+            {spec.mask && spec.maskKind === 'pilot' && t >= (spec.maskAt ?? 0) && (
+              <g>
+                <path d={`M 34,${HEAD_Y + 40} C 90,${HEAD_Y + 90} 60,${HEAD_Y + 170} 110,${HEAD_Y + 230}`} stroke="#3A3E45" strokeWidth={10} fill="none" />
+                <path d={`M ${-HEAD_R},${HEAD_Y - 22} Q 0,${HEAD_Y - 40} ${HEAD_R},${HEAD_Y - 22}`} stroke="#2B2F36" strokeWidth={9} fill="none" />
+                <rect x={-50} y={HEAD_Y - 24} width={100} height={44} rx={16} fill="#BFD8E6" opacity={0.55} stroke="#2B2F36" strokeWidth={6} />
+                <path d={`M -40,${HEAD_Y + 18} Q 0,${HEAD_Y + 72} 40,${HEAD_Y + 18} Z`} fill="#4A4F57" stroke="#2B2F36" strokeWidth={5} />
+              </g>
+            )}
+            {spec.mask && spec.maskKind !== 'pilot' && t >= (spec.maskAt ?? 0) && (
               <g>
                 <path d={`M 0,${HEAD_Y + 30} C 10,${HEAD_Y - 120} -30,${HEAD_Y - (spec.maskTube ?? 500) * 0.6} 0,${HEAD_Y - (spec.maskTube ?? 500)}`} stroke="#E8E4DA" strokeWidth={7} fill="none" />
                 <line x1={-HEAD_R + 2} y1={HEAD_Y + 6} x2={HEAD_R - 2} y2={HEAD_Y + 6} stroke="#8A7F6E" strokeWidth={5} />

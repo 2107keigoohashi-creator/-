@@ -67,6 +67,8 @@ export type CharacterInScene = {
   mask?: boolean;
   maskAt?: number;
   maskTube?: number;
+  // pilot で操縦士用（顔全体を覆うマスク、管は下へ）
+  maskKind?: 'pilot' | 'passenger';
   at?: number;
   reachArm?: 'left' | 'right';
   reachAngle?: number;

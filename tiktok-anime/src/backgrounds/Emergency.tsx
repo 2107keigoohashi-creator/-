@@ -82,6 +82,10 @@ export const SkyPlane: Background = ({layer, p}) => {
   const bob = Math.sin(t * 1.3) * 8;
   const x = 520;
   const y = 860 + bob;
+  // pitch（度、マイナスで機首下げ）を pitchAt 秒から。降下中は雲が上へ流れる
+  const pitchK = Math.min(1, Math.max(0, (t - num(p.pitchAt, 0)) / 1.2));
+  const pitch = num(p.pitch, 0) * pitchK;
+  const rise = Math.max(0, -pitch) * 26;
   return (
     <g>
       <defs>
@@ -90,7 +94,8 @@ export const SkyPlane: Background = ({layer, p}) => {
       <rect x={0} y={0} width={1080} height={1920} fill="url(#sp-sky)" />
       {[0, 1, 2, 3, 4].map((i) => {
         const cx = 1300 - ((t * 160 + i * 330) % 1700);
-        return <Cloud key={i} x={cx} y={420 + ((i * 271) % 900)} s={1.4 + (i % 3) * 0.5} opacity={0.75} />;
+        const cy = (((420 + ((i * 271) % 900) - t * rise) % 1700) + 1700) % 1700;
+        return <Cloud key={i} x={cx} y={cy} s={1.4 + (i % 3) * 0.5} opacity={0.75} />;
       })}
       {smoke &&
         Array.from({length: 7}).map((_, i) => {
@@ -98,7 +103,7 @@ export const SkyPlane: Background = ({layer, p}) => {
           return <circle key={i} cx={x - 40 - u * 520} cy={y + 40 - u * 40} r={18 + u * 50} fill="#6B6E73" opacity={0.5 * (1 - u)} />;
         })}
       <g transform={`translate(${x}, ${y}) scale(1.6)`}>
-        <Airliner x={0} y={0} rot={-2} s={1} />
+        <Airliner x={0} y={0} rot={-2 - pitch} s={1} />
       </g>
       {fire && <Flame x={x - 50} y={y + 80} s={1.1} t={t} />}
     </g>
@@ -487,6 +492,60 @@ export const SfoDiagram: Background = ({layer, p}) => {
         <text x={540} y={420} textAnchor="middle" fontSize={56} fontWeight={900} fill="#7FD39A" fontFamily="Noto Sans JP" opacity={Math.min(1, g * 2)}>
           ゴーアラウンド！
         </text>
+      )}
+    </g>
+  );
+};
+
+// 機体の横の壁に穴があいた図（アラスカ航空1282便）。holeAt 秒で穴、markAt 秒で空席の印
+export const DoorPlug: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const holeAt = num(p.holeAt, 0);
+  const markAt = num(p.markAt, 99);
+  const hole = t >= holeAt;
+  const pop = Math.min(1, Math.max(0, (t - markAt) / 0.3));
+  const hx = 470;
+  const hy = 640;
+  return (
+    <g>
+      <defs>
+        <Grad id="dp-sky" from="#8FB3D1" to="#D7E4EC" />
+      </defs>
+      <rect x={0} y={0} width={1080} height={1920} fill="url(#dp-sky)" />
+      {/* 胴体の一部（横から） */}
+      <rect x={-40} y={380} width={1160} height={620} rx={40} fill="#EDEAE3" />
+      <rect x={-40} y={880} width={1160} height={30} fill="#2F4D7A" />
+      {[90, 250, 730, 890, 1050].map((x) => (
+        <rect key={x} x={x - 40} y={560} width={80} height={110} rx={36} fill="#5C7088" />
+      ))}
+      {/* ドアプラグ（ふさがれた非常口） */}
+      {!hole && <rect x={hx - 90} y={hy - 170} width={180} height={340} rx={24} fill="none" stroke="#C9C6BF" strokeWidth={6} />}
+      {hole && (
+        <g>
+          <rect x={hx - 92} y={hy - 172} width={184} height={344} rx={26} fill="#2A2D33" />
+          {/* 中の座席 26A・26B */}
+          {[0, 1].map((i) => (
+            <g key={i} transform={`translate(${hx - 50 + i * 100}, ${hy + 110})`}>
+              <rect x={-38} y={-150} width={76} height={160} rx={18} fill="#4E6A86" />
+              <rect x={-32} y={-144} width={64} height={36} rx={10} fill="#C9C6BF" />
+            </g>
+          ))}
+          {[0, 1, 2, 3, 4, 5].map((i) => {
+            const u = ((t - holeAt) * 0.9 + i / 6) % 1;
+            return <line key={i} x1={hx + 60 - u * 300} y1={hy - 140 + i * 50} x2={hx - 40 - u * 420} y2={hy - 140 + i * 50} stroke="#FFFFFF" strokeWidth={6} opacity={0.6 * (1 - u)} />;
+          })}
+        </g>
+      )}
+      {pop > 0 && (
+        <g transform={`translate(${hx}, ${hy + 260}) scale(${pop})`}>
+          <rect x={-200} y={0} width={400} height={96} rx={20} fill="#1E1E1E" />
+          <text x={0} y={64} textAnchor="middle" fontSize={50} fontWeight={900} fill="#F2C14E" fontFamily="Noto Sans JP">
+            26A・26B は空席
+          </text>
+        </g>
       )}
     </g>
   );
