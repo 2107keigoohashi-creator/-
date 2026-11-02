@@ -1,0 +1,1 @@
+{"text":"夏の夕方。福岡から、羽田へ向かう便。窓の外には、大きな雲が、見えていた。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

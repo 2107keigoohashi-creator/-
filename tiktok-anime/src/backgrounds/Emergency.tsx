@@ -550,3 +550,67 @@ export const DoorPlug: Background = ({layer, p}) => {
     </g>
   );
 };
+
+// 雷が機体に落ちる図（横から）。strikeAt 秒で機首に落ち、電気が外側を流れて尾翼と翼の先から抜ける
+// wicks で翼の先と尾翼の放電索（静電気を逃がす細い棒）を光らせる、cage で外側を囲む線
+export const LightningPlane: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const at = num(p.strikeAt, 0.5);
+  const u = t - at;
+  const x = 540;
+  const y = 860;
+  const s = 1.7;
+  // 機体の外側をたどる道（機首 → 胴体の上 → 尾翼）
+  const nose: [number, number] = [x + 250 * s, y - 10 * s];
+  const tail: [number, number] = [x - 240 * s, y - 140 * s];
+  const flow = Math.min(1, Math.max(0, u / 0.8));
+  const flash = u >= 0 && u < 0.25;
+  const bolt = (x0: number, y0: number, x1: number, y1: number, seed: number) => {
+    const pts = Array.from({length: 7}).map((_, i) => {
+      const k = i / 6;
+      const j = i === 0 || i === 6 ? 0 : Math.sin(seed * 13 + i * 7.3) * 40;
+      return `${x0 + (x1 - x0) * k + j},${y0 + (y1 - y0) * k}`;
+    });
+    return `M ${pts.join(' L ')}`;
+  };
+  const sky = skyKind(p.sky ?? 'night');
+  return (
+    <g>
+      <defs>
+        <Grad id="lp-sky" from={SKY[sky][0]} to={SKY[sky][1]} />
+      </defs>
+      <rect x={0} y={0} width={1080} height={1920} fill="url(#lp-sky)" />
+      {[0, 1, 2].map((i) => (
+        <Cloud key={i} x={200 + i * 340} y={300 + (i % 2) * 120} s={2.4} fill="#3E4558" opacity={0.9} />
+      ))}
+      {flash && <rect x={0} y={0} width={1080} height={1920} fill="#FFFFFF" opacity={0.35 * (1 - u / 0.25)} />}
+      <g transform={`translate(${x}, ${y}) scale(${s})`}>
+        <Airliner x={0} y={0} rot={0} s={1} />
+      </g>
+      {bool(p.cage) && (
+        <path d={`M ${x - 230 * s},${y - 10 * s} Q ${x - 240 * s},${y - 44 * s} ${x - 200 * s},${y - 46 * s} L ${x + 170 * s},${y - 46 * s} Q ${x + 244 * s},${y - 42 * s} ${x + 254 * s},${y - 6 * s} Q ${x + 244 * s},${y + 22 * s} ${x + 170 * s},${y + 24 * s} L ${x - 200 * s},${y + 24 * s} Q ${x - 238 * s},${y + 20 * s} ${x - 230 * s},${y - 10 * s} Z`} stroke="#7FD3FF" strokeWidth={8} fill="none" strokeDasharray="18 12" opacity={0.9} />
+      )}
+      {u >= 0 && u < 0.6 && <path d={bolt(nose[0] + 40, 0, nose[0], nose[1], 1)} stroke="#FFF6C8" strokeWidth={12} fill="none" strokeLinejoin="bevel" />}
+      {u >= 0 && (
+        <g>
+          {/* 外側を流れる電気 */}
+          <path d={`M ${nose[0]},${nose[1]} L ${x + 170 * s},${y - 46 * s} L ${x - 200 * s},${y - 46 * s} L ${tail[0]},${tail[1]}`} stroke="#FFE36E" strokeWidth={10} fill="none" pathLength={1} strokeDasharray={`${flow} 1`} opacity={u < 2.5 ? 1 : 0.4} />
+          {flow >= 1 && u < 1.4 && <path d={bolt(tail[0], tail[1], tail[0] - 120, -40, 2)} stroke="#FFF6C8" strokeWidth={10} fill="none" strokeLinejoin="bevel" />}
+        </g>
+      )}
+      {bool(p.wicks) &&
+        [[tail[0] + 4, tail[1] + 4], [x - 120 * s + 4, y + 70 * s]].map(([wx, wy], i) => {
+          const glow = 0.5 + 0.5 * Math.sin(t * 6 + i);
+          return (
+            <g key={i}>
+              <circle cx={wx} cy={wy} r={30 + glow * 16} fill="#7FD3FF" opacity={0.3} />
+              <line x1={wx} y1={wy} x2={wx - 40} y2={wy + 6} stroke="#E9E4DA" strokeWidth={6} />
+            </g>
+          );
+        })}
+    </g>
+  );
+};

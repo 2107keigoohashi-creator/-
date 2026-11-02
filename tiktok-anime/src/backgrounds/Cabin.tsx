@@ -43,6 +43,7 @@ export const Cabin: Background = ({layer, p}) => {
         {flash && <rect x={0} y={0} width={1080} height={1920} fill="#E53935" opacity={0.08 * pulse} />}
         {fireScale > 0 && <rect x={0} y={0} width={1080} height={1920} fill="#F08A3C" opacity={0.07 * fireScale} />}
         {bool(p.dim) && <rect x={0} y={0} width={1080} height={1920} fill="#1A2546" opacity={0.42} />}
+        {p.boltAt !== undefined && t >= num(p.boltAt, 0) && t < num(p.boltAt, 0) + 0.35 && <rect x={0} y={0} width={1080} height={1920} fill="#FFFFFF" opacity={0.5 * (1 - (t - num(p.boltAt, 0)) / 0.35)} />}
       </g>
     );
   }
@@ -110,6 +111,12 @@ export const Cabin: Background = ({layer, p}) => {
           </g>
         )}
       </g>
+      {p.boltAt !== undefined && t >= num(p.boltAt, 0) && t < num(p.boltAt, 0) + 0.5 && (
+        <g clipPath="url(#cabin-win)">
+          <rect x={win.x} y={win.y} width={win.w} height={win.h} fill="#FFFFFF" opacity={0.75 * (1 - (t - num(p.boltAt, 0)) / 0.5)} />
+          <path d={`M ${win.x + 190},${win.y} L ${win.x + 140},${win.y + 140} L ${win.x + 190},${win.y + 150} L ${win.x + 110},${win.y + 330}`} stroke="#FFF6C8" strokeWidth={10} fill="none" strokeLinejoin="bevel" />
+        </g>
+      )}
       <rect x={win.x} y={win.y} width={win.w} height={win.h} rx={130} fill="none" stroke="#B8AE9C" strokeWidth={10} />
       {/* シェード */}
       <rect x={win.x + 20} y={win.y - 16} width={win.w - 40} height={34} rx={14} fill="#DCD4C6" />

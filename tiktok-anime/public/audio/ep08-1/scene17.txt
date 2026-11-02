@@ -1,0 +1,1 @@
+{"text":"落雷があると、パイロットが報告し、着陸のあと、整備士が、機体をくわしく調べる。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

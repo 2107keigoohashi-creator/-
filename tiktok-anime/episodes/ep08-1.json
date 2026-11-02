@@ -1,0 +1,659 @@
+{
+ "title": "飛行機に、雷が落ちたら（前編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "夏の夕方。福岡から、羽田へ向かう便。窓の外には、大きな雲が、見えていた。",
+   "telop": "窓の外に【大きな雲】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "福岡 → 羽田\n夏の夕方",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "その時。",
+   "telop": "",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "boltAt": 0.2
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "surprised"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "surprised"
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.2,
+     "duration": 0.6,
+     "amp": 14
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 0.2,
+     "volume": 0.8
+    }
+   ],
+   "subtitles": false,
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 300,
+     "focusY": 700
+    }
+   ]
+  },
+  {
+   "narration": "窓の外が、真っ白に光り、ドーンという音が、響いた。",
+   "telop": "真っ白に【光った】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "boltAt": 0.1
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic"
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.1,
+     "duration": 0.5,
+     "amp": 8
+    }
+   ],
+   "overlays": [
+    {
+     "type": "zawa",
+     "x": 800,
+     "y": 700,
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "narration": "今の、雷！？落ちたの！？",
+   "telop": "「今の、【雷】！？」",
+   "background": "cabin",
+   "voice": "neighbor",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "panic"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "今の、雷！？",
+     "x": 900,
+     "y": 760,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "飛行機に、雷って……大丈夫なの？",
+   "telop": "「飛行機に【雷】って…」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 620,
+     "focusY": 980
+    }
+   ]
+  },
+  {
+   "narration": "実は、旅客機に雷が落ちるのは、めずらしいことではない。",
+   "telop": "ルール#1 雷は【めずらしくない】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "1機あたり、およそ1年に1回は、落ちると言われている。",
+   "telop": "1機あたり【年に約1回】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "1機あたり 年に約1回",
+     "at": 0.4,
+     "y": 520,
+     "color": "#F2C14E",
+     "size": 96
+    }
+   ],
+   "reading": "いっきあたり、およそ、いちねんに、いっかいは、おちると、いわれている。"
+  },
+  {
+   "narration": "それでも、中にいる人が、ケガをすることは、まずない。なぜだろう。",
+   "telop": "中の人は【なぜ無事】？",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "なぜ？",
+     "at": 1.8,
+     "y": 560,
+     "color": "#FFFFFF",
+     "size": 140
+    }
+   ]
+  },
+  {
+   "narration": "雷は、たとえば、機首に落ちる。",
+   "telop": "雷は【機首】に落ちる",
+   "background": "lightningPlane",
+   "bgProps": {
+    "strikeAt": 1.0
+   },
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 1.0,
+     "volume": 0.6
+    }
+   ],
+   "reading": "かみなりは、たとえば、きしゅに、おちる。"
+  },
+  {
+   "narration": "電気は、機体の外側を流れて、尾翼などから、また空へ、抜けていく。",
+   "telop": "電気は【外側】を流れて抜ける",
+   "background": "lightningPlane",
+   "bgProps": {
+    "strikeAt": 0.3
+   }
+  },
+  {
+   "narration": "飛行機の外側は、電気を通しやすく作られていて、中まで電気が入りにくい。",
+   "telop": "ルール#2 電気は【外側】を通る",
+   "background": "lightningPlane",
+   "bgProps": {
+    "strikeAt": -5,
+    "cage": true
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "まるで、鳥かごのように、中を守ってくれるのだ。",
+   "telop": "【鳥かご】のように中を守る",
+   "background": "lightningPlane",
+   "bgProps": {
+    "strikeAt": -5,
+    "cage": true
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "鳥かごのしくみ",
+     "at": 0.4,
+     "y": 300,
+     "color": "#7FD3FF",
+     "size": 90
+    }
+   ]
+  },
+  {
+   "narration": "翼の先や尾翼には、電気を空へ逃がす、細い棒も、ついている。",
+   "telop": "翼の先に【細い棒】",
+   "background": "lightningPlane",
+   "bgProps": {
+    "strikeAt": -5,
+    "wicks": true
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "放電索（ほうでんさく）",
+     "at": 0.8,
+     "y": 300,
+     "color": "#F2C14E",
+     "size": 64
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.4,
+     "zoom": 1.3,
+     "focusX": 400,
+     "focusY": 800
+    }
+   ]
+  },
+  {
+   "narration": "一方、コックピット。",
+   "telop": "【コックピット】では",
+   "background": "cockpit",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right"
+    }
+   ]
+  },
+  {
+   "narration": "落雷です。計器は、すべて正常。",
+   "telop": "「計器は【すべて正常】」",
+   "background": "cockpit",
+   "voice": "takahashi",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right",
+     "talking": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 300,
+     "focusY": 800
+    }
+   ],
+   "reading": "らくらいです。けいきは、すべて、せいじょう。"
+  },
+  {
+   "narration": "了解。着いたら、念のため、機体を点検してもらおう。",
+   "telop": "「着いたら【点検】しよう」",
+   "background": "cockpit",
+   "voice": "sato",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "talking": true,
+     "look": "left"
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 780,
+     "focusY": 800
+    }
+   ]
+  },
+  {
+   "narration": "落雷があると、パイロットが報告し、着陸のあと、整備士が、機体をくわしく調べる。",
+   "telop": "着陸後に【整備士が点検】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "落雷のあと",
+     "items": [
+      "パイロットが報告",
+      "着陸後に整備士が点検"
+     ],
+     "show": 2,
+     "at": 0.3,
+     "y": 360
+    }
+   ]
+  },
+  {
+   "narration": "機長です。先ほど、雷が機体に当たりましたが、飛行には、問題ありません。",
+   "telop": "「飛行には【問題ありません】」",
+   "background": "cabin",
+   "voice": "sato_pa",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "よかった……",
+   "telop": "「【よかった】…」",
+   "background": "cabin",
+   "voice": "neighbor",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "normal"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "closed",
+     "talking": true
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 800,
+     "focusY": 1000
+    }
+   ]
+  },
+  {
+   "narration": "でも。昔は、そうでは、なかった。",
+   "telop": "昔は【ちがった】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   }
+  },
+  {
+   "narration": "1963年、アメリカ。雷のあとに、旅客機が、空中で爆発する事故が、起きていた。",
+   "telop": "【1963年】アメリカ",
+   "background": "plain",
+   "bgProps": {
+    "from": "#1E1E24",
+    "to": "#0E0E12"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "1963年",
+     "at": 0.4,
+     "y": 440,
+     "color": "#FF6B5E",
+     "size": 110
+    },
+    {
+     "type": "bigText",
+     "text": "パンアメリカン航空214便",
+     "at": 1.2,
+     "y": 680,
+     "color": "#FFFFFF",
+     "size": 60
+    }
+   ],
+   "reading": "せんきゅうひゃくろくじゅうさんねん、アメリカ。かみなりのあとに、りょかくきが、くうちゅうで、ばくはつする、じこが、おきていた。"
+  },
+  {
+   "narration": "いったい、何が起きたのか。後編に、つづく。",
+   "telop": "何が【起きた】のか",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "後編につづく",
+     "at": 1.4,
+     "y": 560,
+     "color": "#FFFFFF",
+     "bg": "#1E1E1E"
+    }
+   ]
+  }
+ ]
+}
