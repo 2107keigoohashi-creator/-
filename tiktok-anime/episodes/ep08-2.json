@@ -1,0 +1,424 @@
+{
+ "title": "飛行機に、雷が落ちたら（後編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "前編のあらすじ。飛行中の旅客機に、雷が落ちた。でも、計器はすべて正常。乗客も、無事だった。",
+   "telop": "【前編】のおさらい",
+   "background": "lightningPlane",
+   "bgProps": {
+    "strikeAt": 0.8
+   }
+  },
+  {
+   "narration": "ところが、1963年のアメリカでは、ちがう結末が、待っていた。",
+   "telop": "1963年は【ちがった】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#1E1E24",
+    "to": "#0E0E12"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "1963年",
+     "at": 0.4,
+     "y": 520,
+     "color": "#FF6B5E",
+     "size": 120
+    }
+   ],
+   "reading": "ところが、せんきゅうひゃくろくじゅうさんねんの、アメリカでは、ちがう、けつまつが、まっていた。"
+  },
+  {
+   "narration": "12月8日の夜。パンアメリカン航空214便は、空港の上空で、着陸の順番を待って、旋回していた。",
+   "telop": "【214便】は上空で待機",
+   "background": "skyPlane",
+   "bgProps": {
+    "sky": "night"
+   },
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "1963年12月8日\nパンアメリカン航空214便",
+     "at": 0.2
+    }
+   ],
+   "reading": "12月、8日の、夜。パンアメリカン航空、214便は、空港の上で、着陸の順番を待って、旋回していた。"
+  },
+  {
+   "narration": "その時、雷が、機体に落ちた。",
+   "telop": "雷が【落ちた】",
+   "background": "lightningPlane",
+   "bgProps": {
+    "strikeAt": 0.3
+   },
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 0.3,
+     "volume": 0.7
+    }
+   ]
+  },
+  {
+   "narration": "雷の熱が、翼の燃料タンクの中の、燃料の蒸気に、火をつけた。",
+   "telop": "燃料の【蒸気】に火がついた",
+   "background": "fuelTank",
+   "bgProps": {
+    "sparkAt": 1.2
+   },
+   "reading": "かみなりのねつが、つばさの、ねんりょうタンクのなかの、ねんりょうの、じょうきに、ひをつけた。"
+  },
+  {
+   "narration": "翼は壊れ、機体は墜落。乗っていた81人、全員が亡くなった。",
+   "telop": "【81人】全員が死亡",
+   "background": "plain",
+   "bgProps": {
+    "from": "#1E1E24",
+    "to": "#0E0E12"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "81人 全員が死亡",
+     "at": 0.6,
+     "y": 520,
+     "color": "#FFFFFF",
+     "size": 96
+    }
+   ],
+   "reading": "つばさはこわれ、きたいは、ついらく。のっていた、はちじゅういちにん、ぜんいんが、なくなった。"
+  },
+  {
+   "narration": "事故を調べた当時の調査委員会は、雷が燃料の蒸気に火をつけた、と結論づけた。",
+   "telop": "調査の結論【雷で引火】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#1E1E24",
+    "to": "#0E0E12"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "雷 → 燃料の蒸気に引火",
+     "at": 0.6,
+     "y": 520,
+     "color": "#F2C14E",
+     "size": 80
+    },
+    {
+     "type": "bigText",
+     "text": "（米国CAB 1965年報告）",
+     "at": 0.6,
+     "y": 760,
+     "color": "#9AA1A8",
+     "size": 44
+    }
+   ],
+   "reading": "じこをしらべた、とうじの、ちょうさいいんかいは、かみなりが、ねんりょうのじょうきに、ひをつけた、とけつろんづけた。"
+  },
+  {
+   "narration": "この事故をきっかけに、飛行機の雷対策は、大きく進んだ。",
+   "telop": "雷対策が【大きく進んだ】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "今では、燃料タンクは、雷が落ちても、中で火花が出ないように作ることが、基準で決められている。",
+   "telop": "燃料タンクに【火花を出さない】",
+   "background": "fuelTank",
+   "bgProps": {
+    "safe": true,
+    "sparkAt": 1.0
+   },
+   "reading": "いまでは、ねんりょうタンクは、かみなりがおちても、なかで、ひばながでないように、つくることが、きじゅんで、きめられている。"
+  },
+  {
+   "narration": "電気は、タンクの中に入らず、外側を通って、逃げていく。",
+   "telop": "電気は【外側】を通って逃げる",
+   "background": "fuelTank",
+   "bgProps": {
+    "safe": true,
+    "sparkAt": 0.2
+   }
+  },
+  {
+   "narration": "翼の先の、放電索も、そのひとつだ。",
+   "telop": "翼の先の【放電索】",
+   "background": "lightningPlane",
+   "bgProps": {
+    "strikeAt": -5,
+    "wicks": true
+   }
+  },
+  {
+   "narration": "そして、新しい飛行機は、作るときに、雷と同じくらい強い電気を、部品に当てて、試験をする。",
+   "telop": "雷と同じ電気で【試験】",
+   "background": "labTest",
+   "bgProps": {
+    "boltEvery": 1.4
+   },
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 0,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "narration": "安全だと確かめられて、はじめて、空を飛べるのだ。",
+   "telop": "確かめてから【空へ】",
+   "background": "labTest",
+   "bgProps": {
+    "boltEvery": 1.8
+   }
+  },
+  {
+   "narration": "物語に、もどろう。あなたの飛行機は、羽田に、無事に着陸した。",
+   "telop": "羽田に【無事に着陸】",
+   "background": "runway",
+   "bgProps": {
+    "sky": "night",
+    "landAt": 2.0
+   }
+  },
+  {
+   "narration": "その夜。整備士の田中は、ライトを手に、機体を見て回った。",
+   "telop": "整備士が【機体を点検】",
+   "background": "rampNose",
+   "bgProps": {
+    "burn": false
+   },
+   "characters": [
+    {
+     "id": "mechanic",
+     "x": 380,
+     "y": 1400,
+     "scale": 1.15,
+     "pose": "stand",
+     "item": "flashlight",
+     "look": "right"
+    }
+   ]
+  },
+  {
+   "narration": "雷が当たったところは、小さな焦げあとになることがある。",
+   "telop": "雷のあとは【小さな焦げあと】",
+   "background": "rampNose",
+   "bgProps": {
+    "burn": true,
+    "burnAt": 1.0
+   },
+   "characters": [
+    {
+     "id": "mechanic",
+     "x": 380,
+     "y": 1400,
+     "scale": 1.15,
+     "pose": "stand",
+     "item": "flashlight",
+     "look": "right"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 1.0,
+     "zoom": 1.6,
+     "focusX": 880,
+     "focusY": 900
+    }
+   ]
+  },
+  {
+   "narration": "あった。機首に、雷の当たったあとだ。",
+   "telop": "「機首に【当たったあと】」",
+   "background": "rampNose",
+   "voice": "mechanic",
+   "bgProps": {
+    "burn": true,
+    "burnAt": 0
+   },
+   "characters": [
+    {
+     "id": "mechanic",
+     "x": 380,
+     "y": 1400,
+     "scale": 1.15,
+     "pose": "stand",
+     "item": "flashlight",
+     "look": "right",
+     "talking": true,
+     "expression": "surprised"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "あった。機首だ。",
+     "x": 380,
+     "y": 880,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ],
+   "reading": "あった。きしゅに、かみなりのあたった、あとだ。"
+  },
+  {
+   "narration": "雷が抜けていった、尾翼のほうも、調べないとな。",
+   "telop": "「【抜けたほう】も調べる」",
+   "background": "rampNose",
+   "voice": "mechanic",
+   "bgProps": {
+    "burn": true,
+    "burnAt": -5
+   },
+   "characters": [
+    {
+     "id": "mechanic",
+     "x": 380,
+     "y": 1400,
+     "scale": 1.15,
+     "pose": "stand",
+     "item": null,
+     "look": "left",
+     "talking": true,
+     "flip": true
+    }
+   ]
+  },
+  {
+   "narration": "落雷のあとは、決められた手順で、機体をくわしく点検する。",
+   "telop": "決められた【手順】で点検",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "落雷のあとの点検",
+     "items": [
+      "当たった場所をさがす",
+      "抜けた場所をさがす",
+      "直してから次の便へ"
+     ],
+     "show": 3,
+     "at": 0.3,
+     "y": 360
+    }
+   ]
+  },
+  {
+   "narration": "修理が終わって、問題がなければ、機体は、また次の空へ、飛び立つ。",
+   "telop": "直して【次の空へ】",
+   "background": "skyPlane",
+   "bgProps": {
+    "sky": "day"
+   }
+  },
+  {
+   "narration": "覚えておくのは、3つ。1つめ、雷は、1機あたり、年に1回ほど当たる。めずらしくない。",
+   "telop": "①雷は【めずらしくない】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "雷が落ちたら",
+     "items": [
+      "雷は年に1回ほど当たる",
+      "電気は外側を流れて抜ける",
+      "ベルトをして放送を聞く"
+     ],
+     "show": 1,
+     "at": 0.2,
+     "y": 300
+    }
+   ],
+   "reading": "おぼえておくのは、みっつ。ひとつめ、かみなりは、いっきあたり、ねんにいっかいほど、あたる。めずらしくない。"
+  },
+  {
+   "narration": "2つめ、電気は、機体の外側を流れて、抜けていく。",
+   "telop": "②電気は【外側】を流れる",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "雷が落ちたら",
+     "items": [
+      "雷は年に1回ほど当たる",
+      "電気は外側を流れて抜ける",
+      "ベルトをして放送を聞く"
+     ],
+     "show": 2,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "3つめ、席では、ベルトを締めて、機長の放送を聞く。",
+   "telop": "③ベルトをして【放送を聞く】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "雷が落ちたら",
+     "items": [
+      "雷は年に1回ほど当たる",
+      "電気は外側を流れて抜ける",
+      "ベルトをして放送を聞く"
+     ],
+     "show": 3,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "ピカッと光っても、あわてなくて大丈夫。飛行機は、雷から、あなたを守るように、作られている。",
+   "telop": "飛行機は【雷からあなたを守る】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "おわり",
+     "at": 3.6,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

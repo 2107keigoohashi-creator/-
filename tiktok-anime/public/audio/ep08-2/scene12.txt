@@ -1,0 +1,1 @@
+{"text":"そして、新しい飛行機は、作るときに、雷と同じくらい強い電気を、部品に当てて、試験をする。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

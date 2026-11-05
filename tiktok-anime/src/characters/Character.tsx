@@ -264,6 +264,12 @@ export const Character: React.FC<{
     hand = (s) => (s === 1 ? [78, -40] : base(s));
     elbow = (s) => (s === 1 ? [80, -110] : baseE(s));
   }
+  if (spec.item === 'flashlight') {
+    const base = hand;
+    const baseE = elbow;
+    hand = (s) => (s === 1 ? [96, -176] : base(s));
+    elbow = (s) => (s === 1 ? [74, -112] : baseE(s));
+  }
   if (spec.item === 'phone') {
     const base = hand;
     const baseE = elbow;
@@ -417,6 +423,13 @@ export const Character: React.FC<{
               <rect x={-14} y={-34} width={36} height={28} rx={6} fill="#2A2D33" />
               <path d="M 4,-30 Q -40,-60 -80,-30" fill="none" stroke="#2A2D33" strokeWidth={9} strokeLinecap="round" />
               <rect x={-20} y={40} width={48} height={40} rx={6} fill="#F2EEE6" />
+            </g>
+          )}
+          {spec.item === 'flashlight' && (
+            <g transform="translate(96, -176) rotate(-28)">
+              <path d="M 30,-14 L 420,-110 L 420,130 L 30,14 Z" fill="#FFF3B0" opacity={0.28} />
+              <rect x={-14} y={-12} width={50} height={24} rx={6} fill="#3A3E45" />
+              <rect x={30} y={-15} width={10} height={30} rx={3} fill="#F2E7A8" />
             </g>
           )}
           {spec.item === 'aed' && (

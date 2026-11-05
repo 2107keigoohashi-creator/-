@@ -104,5 +104,14 @@
       "hair": "#4A3A30",
       "hairStyle": "bun"
     }
+  },
+  "mechanic": {
+    "tagName": "整備士の田中",
+    "tagDesc": "羽田・夜勤",
+    "appearance": {
+      "clothes": "#2F4D7A",
+      "hair": "#2E2926",
+      "hairStyle": "short"
+    }
   }
 }

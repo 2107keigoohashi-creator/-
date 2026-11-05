@@ -1,0 +1,1 @@
+{"text":"12月、8日の、夜。パンアメリカン航空、214便は、空港の上で、着陸の順番を待って、旋回していた。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

@@ -1,0 +1,1 @@
+{"text":"物語に、もどろう。あなたの飛行機は、羽田に、無事に着陸した。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

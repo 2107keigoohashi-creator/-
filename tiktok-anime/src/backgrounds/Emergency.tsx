@@ -614,3 +614,115 @@ export const LightningPlane: Background = ({layer, p}) => {
     </g>
   );
 };
+
+// 夜の駐機場で機首のアップ。burn で小さな焦げ跡、burnAt 秒から光って目立つ
+export const RampNose: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const burnAt = num(p.burnAt, 0);
+  const lit = bool(p.burn) && t >= burnAt;
+  const ring = lit ? 0.5 + 0.5 * Math.sin((t - burnAt) * 6) : 0;
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill="#141A26" />
+      {[160, 540, 920].map((x) => (
+        <g key={x}>
+          <rect x={x - 6} y={120} width={12} height={360} fill="#2C3444" />
+          <ellipse cx={x} cy={120} rx={40} ry={14} fill="#F7E7B0" />
+          <path d={`M ${x - 30},130 L ${x - 260},1500 L ${x + 260},1500 L ${x + 30},130 Z`} fill="#F7E7B0" opacity={0.05} />
+        </g>
+      ))}
+      <rect x={0} y={1480} width={1080} height={440} fill="#2A2F38" />
+      <rect x={0} y={1600} width={1080} height={14} fill="#C9A43A" opacity={0.6} />
+      {/* 機首（右向き、画面の右からはみ出す） */}
+      <path d="M -60,520 L 700,520 Q 1040,540 1120,820 Q 1040,1100 700,1120 L -60,1120 Z" fill="#E3E0D8" />
+      <path d="M 820,600 Q 960,640 1010,760 L 860,760 Z" fill="#2E3A4C" />
+      <rect x={-60} y={1000} width={1180} height={30} fill="#2F4D7A" />
+      {[80, 260, 440].map((x) => (
+        <rect key={x} x={x} y={700} width={70} height={100} rx={32} fill="#4E5E72" />
+      ))}
+      <rect x={560} y={600} width={150} height={360} rx={14} fill="none" stroke="#B9B5AE" strokeWidth={6} />
+      <line x1={700} y1={1120} x2={700} y2={1440} stroke="#3A3E45" strokeWidth={22} />
+      <circle cx={700} cy={1450} r={44} fill="#22252B" />
+      {bool(p.burn) && (
+        <g>
+          {lit && <circle cx={930} cy={900} r={60 + ring * 30} fill="none" stroke="#F2C14E" strokeWidth={8} opacity={0.9 - ring * 0.5} />}
+          <circle cx={930} cy={900} r={14} fill="#3A3330" />
+          <circle cx={922} cy={894} r={7} fill="#1E1A18" />
+        </g>
+      )}
+    </g>
+  );
+};
+
+// 翼の中の燃料タンクの断面。sparkAt 秒で火花（safe なら火花は外側で止まる）
+export const FuelTank: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const safe = bool(p.safe);
+  const sparkAt = num(p.sparkAt, 99);
+  const u = t - sparkAt;
+  const boom = !safe && u >= 0 ? Math.min(1, u / 0.6) : 0;
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill={safe ? '#1E2A3C' : '#1A1414'} />
+      {/* 翼の断面 */}
+      <path d="M 80,760 Q 200,520 560,500 Q 900,500 1000,700 Q 900,820 560,840 Q 220,860 80,760 Z" fill="#C9CED3" stroke={safe ? '#7FD3FF' : '#9AA1A8'} strokeWidth={safe ? 12 : 6} />
+      <rect x={300} y={580} width={480} height={200} rx={20} fill="#3A3E45" />
+      <rect x={300} y={700} width={480} height={80} rx={14} fill="#B98A3A" opacity={0.85} />
+      {/* 燃料の蒸気 */}
+      {Array.from({length: 14}).map((_, i) => {
+        const x = 330 + ((i * 67 + t * 30) % 420);
+        const y = 610 + ((i * 37) % 80) + Math.sin(t * 2 + i) * 6;
+        return <circle key={i} cx={x} cy={y} r={8} fill="#D9C27A" opacity={0.6} />;
+      })}
+      <text x={540} y={460} textAnchor="middle" fontSize={44} fontWeight={900} fill="#EDE7DA" fontFamily="Noto Sans JP">
+        翼の中の燃料タンク
+      </text>
+      {u >= 0 && u < 0.5 && <path d="M 560,0 L 520,220 L 580,240 L 540,500" stroke="#FFF6C8" strokeWidth={12} fill="none" strokeLinejoin="bevel" />}
+      {u >= 0 && !safe && u < 0.4 && <circle cx={540} cy={640} r={16} fill="#FFF6C8" />}
+      {boom > 0 && <circle cx={540} cy={680} r={40 + boom * 320} fill="#E8692E" opacity={0.8 * (1 - boom * 0.6)} />}
+      {safe && u >= 0 && u < 1.2 && (
+        <path d="M 540,500 Q 300,520 120,740" stroke="#FFE36E" strokeWidth={10} fill="none" pathLength={1} strokeDasharray={`${Math.min(1, u / 0.6)} 1`} />
+      )}
+    </g>
+  );
+};
+
+// 雷の試験（研究所で部品に強い電気を当てる）。boltEvery 秒ごとに放電
+export const LabTest: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const every = num(p.boltEvery, 1.6);
+  const k = (t % every) / every;
+  const on = k < 0.12;
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill="#232833" />
+      <rect x={0} y={1300} width={1080} height={620} fill="#30353F" />
+      {/* 発生装置 */}
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <rect key={i} x={120} y={380 + i * 120} width={180} height={90} rx={14} fill="#5C6676" stroke="#8A94A6" strokeWidth={4} />
+      ))}
+      <circle cx={210} cy={330} r={56} fill="#9AA1A8" />
+      {/* 試験する翼のパネル */}
+      <path d="M 560,1000 L 980,940 L 1000,1080 L 580,1150 Z" fill="#C9CED3" stroke="#7FD3FF" strokeWidth={6} />
+      <rect x={760} y={1150} width={20} height={150} fill="#4A4F57" />
+      {on && (
+        <g>
+          <rect x={0} y={0} width={1080} height={1920} fill="#FFFFFF" opacity={0.25} />
+          <path d="M 260,330 L 420,520 L 380,560 L 560,760 L 520,800 L 760,1010" stroke="#FFF6C8" strokeWidth={14} fill="none" strokeLinejoin="bevel" />
+        </g>
+      )}
+      <text x={540} y={1440} textAnchor="middle" fontSize={44} fontWeight={900} fill="#EDE7DA" fontFamily="Noto Sans JP">
+        雷の試験（イメージ）
+      </text>
+    </g>
+  );
+};
