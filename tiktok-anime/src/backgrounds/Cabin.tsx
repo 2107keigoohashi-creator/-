@@ -95,6 +95,28 @@ export const Cabin: Background = ({layer, p}) => {
             <rect x={win.x + 120} y={win.y + 322} width={110} height={52} rx={26} fill="#C9CED3" />
             <ellipse cx={win.x + 228} cy={win.y + 348} rx={12} ry={24} fill="#5E646D" />
             <Flame x={win.x + 124} y={win.y + 348} s={fireScale} t={t} />
+            {bool(p.engineOut) && t >= num(p.engineOutAt, 0) &&
+              [0, 1, 2, 3].map((i) => {
+                const u = (t * 0.8 + i / 4) % 1;
+                return <circle key={i} cx={win.x + 110 - u * 200} cy={win.y + 344 - u * 20} r={10 + u * 26} fill="#6B6E73" opacity={0.5 * (1 - u)} />;
+              })}
+          </g>
+        )}
+        {/* 鳥の群れ（birdsAt 秒に窓の外を横切る） */}
+        {p.birdsAt !== undefined &&
+          Array.from({length: 9}).map((_, i) => {
+            const u = (t - num(p.birdsAt, 0)) * 1.1 - (i % 3) * 0.08;
+            if (u < 0 || u > 1.2) return null;
+            const bx = win.x + win.w + 40 - u * (win.w + 120) + (i % 3) * 30;
+            const by = win.y + 120 + Math.floor(i / 3) * 50 + (i % 2) * 18 + u * 80;
+            const flap = Math.sin(t * 20 + i) * 8;
+            return <path key={i} d={`M ${bx - 22},${by - flap} Q ${bx - 10},${by - 10} ${bx},${by} Q ${bx + 10},${by - 10} ${bx + 22},${by - flap}`} stroke="#2A2D33" strokeWidth={6} fill="none" strokeLinecap="round" />;
+          })}
+        {/* 窓の外が水（着水後） */}
+        {bool(p.water) && (
+          <g>
+            <rect x={win.x} y={win.y + 170} width={win.w} height={win.h} fill="#3E6A80" />
+            <path d={`M ${win.x},${win.y + 170 + Math.sin(t * 2) * 8} q 75,-16 150,0 t 150,0 v 20 h -300 Z`} fill="#6E98AC" />
           </g>
         )}
         {ground && (

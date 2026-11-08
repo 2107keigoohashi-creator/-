@@ -726,3 +726,122 @@ export const LabTest: Background = ({layer, p}) => {
     </g>
   );
 };
+
+// 上から見た地図：空港には届かない／目の前に川。airportAt で空港へのルートに✕、riverAt で川へのルート
+export const GlideMap: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const aAt = num(p.airportAt, 99);
+  const rAt = num(p.riverAt, 99);
+  const ka = Math.min(1, Math.max(0, (t - aAt) / 1.0));
+  const kr = Math.min(1, Math.max(0, (t - rAt) / 1.0));
+  const plane: [number, number] = [620, 1000];
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill="#5E6B57" />
+      {Array.from({length: 40}).map((_, i) => (
+        <rect key={i} x={(i % 8) * 140 + 10} y={Math.floor(i / 8) * 170 + 150} width={110} height={130} rx={8} fill="#7A8270" opacity={0.6} />
+      ))}
+      {/* 大きな川（縦に流れる） */}
+      <path d="M 220,0 Q 300,500 240,900 Q 180,1300 300,1920 L 520,1920 Q 400,1300 460,900 Q 520,500 440,0 Z" fill="#4E7FA0" />
+      {/* 空港（右上） */}
+      <g transform="translate(860, 330) rotate(-20)">
+        <rect x={-150} y={-24} width={300} height={48} fill="#3A3E45" />
+        <rect x={-150} y={-2} width={300} height={4} fill="#E9E4DA" />
+      </g>
+      <text x={860} y={250} textAnchor="middle" fontSize={44} fontWeight={900} fill="#F4F1EA" fontFamily="Noto Sans JP">空港</text>
+      <text x={420} y={560} textAnchor="middle" fontSize={56} fontWeight={900} fill="#F4F1EA" fontFamily="Noto Sans JP">川</text>
+      {ka > 0 && (
+        <g>
+          <path d={`M ${plane[0]},${plane[1]} Q 900,800 860,360`} stroke="#FF6B5E" strokeWidth={10} fill="none" strokeDasharray="20 16" pathLength={1} opacity={0.9} />
+          <g transform={`translate(840, 640) scale(${ka})`}>
+            <circle r={70} fill="#E53935" />
+            <path d="M -32,-32 L 32,32 M 32,-32 L -32,32" stroke="#FFFFFF" strokeWidth={16} strokeLinecap="round" />
+          </g>
+          <text x={840} y={780} textAnchor="middle" fontSize={44} fontWeight={900} fill="#FFFFFF" fontFamily="Noto Sans JP" opacity={ka}>届かない</text>
+        </g>
+      )}
+      {kr > 0 && <path d={`M ${plane[0]},${plane[1]} Q 420,1000 360,${1000 + 300 * kr}`} stroke="#7FE0A0" strokeWidth={12} fill="none" strokeDasharray="20 14" />}
+      <PlaneTop x={plane[0]} y={plane[1]} />
+    </g>
+  );
+};
+
+const PlaneTop: React.FC<{x: number; y: number}> = ({x, y}) => (
+  <g transform={`translate(${x}, ${y}) rotate(-90) scale(1.4)`}>
+    <path d="M 0,-40 Q 7,-34 7,-18 L 7,-6 L 40,12 L 40,20 L 7,10 L 6,28 L 18,36 L 18,42 L 0,37 L -18,42 L -18,36 L -6,28 L -7,10 L -40,20 L -40,12 L -7,-6 L -7,-18 Q -7,-34 0,-40 Z" fill="#F4F1EA" stroke="#1B2433" strokeWidth={3} />
+  </g>
+);
+
+// 川に着水する（横から）。touchAt 秒で水面に触れて水しぶき、その後は浮いている
+// floating で最初から浮いている、wing で翼の上に人、ferry で救助の船
+export const RiverDitch: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = frame / fps;
+  const touch = num(p.touchAt, 2.4);
+  const floating = bool(p.floating);
+  const waterY = 1180;
+  if (layer === 'front') {
+    return (
+      <g>
+        <rect x={0} y={waterY + 40} width={1080} height={1920 - waterY} fill="#3E6A80" opacity={0.55} />
+        {[0, 1, 2].map((i) => (
+          <path key={i} d={`M 0,${waterY + 60 + i * 120 + Math.sin(t * 1.5 + i) * 6} q 135,-14 270,0 t 270,0 t 270,0 t 270,0`} stroke="#8DB3C6" strokeWidth={5} fill="none" opacity={0.6} />
+        ))}
+      </g>
+    );
+  }
+  const u = floating ? 99 : t - touch;
+  const k = Math.min(1, Math.max(0, (t + 0.0001) / Math.max(0.1, touch)));
+  const px = floating ? 560 : u < 0 ? interpolate(k, [0, 1], [-100, 520]) : 520 + (1 - Math.exp(-u * 1.5)) * 60;
+  const py = floating ? waterY + 10 : u < 0 ? interpolate(k, [0, 1], [700, waterY - 10]) : waterY + Math.min(20, u * 40);
+  const rot = floating ? 0 : u < 0 ? 6 : Math.max(0, 6 - u * 6);
+  const bob = Math.sin(t * 1.4) * 4;
+  return (
+    <g>
+      <defs>
+        <Grad id="rd-sky" from="#9BB2C4" to="#D3DCE2" />
+      </defs>
+      <rect x={0} y={0} width={1080} height={1920} fill="url(#rd-sky)" />
+      {/* 街並み */}
+      {Array.from({length: 14}).map((_, i) => {
+        const h = 160 + ((i * 97) % 260);
+        return <rect key={i} x={i * 80 - 10} y={waterY - 40 - h} width={70} height={h} fill={i % 2 ? '#8A96A3' : '#7A8794'} />;
+      })}
+      <rect x={0} y={waterY - 40} width={1080} height={40} fill="#6D7A70" />
+      <rect x={0} y={waterY} width={1080} height={1920 - waterY} fill="#4E7FA0" />
+      {bool(p.ferry) && (
+        <g transform={`translate(${1180 - Math.min(1, t / 3) * 360}, ${waterY + 120 + bob})`}>
+          <path d="M -200,0 L 200,0 L 170,60 L -170,60 Z" fill="#F2EEE6" />
+          <rect x={-150} y={-90} width={260} height={90} rx={10} fill="#F2EEE6" />
+          {[0, 1, 2, 3].map((i) => <rect key={i} x={-130 + i * 60} y={-70} width={36} height={30} rx={6} fill="#5C7088" />)}
+          <rect x={-200} y={30} width={400} height={14} fill="#2F4D7A" />
+        </g>
+      )}
+      <g transform={`translate(0, ${floating ? bob : 0})`}>
+        <Airliner x={px} y={py} rot={rot} s={1.3} />
+        {bool(p.wing) &&
+          [0, 1, 2, 3, 4].map((i) => {
+            const x = px - 120 + i * 50;
+            const y = py + 60;
+            return (
+              <g key={i}>
+                <line x1={x} y1={y} x2={x} y2={y - 60} stroke="#2E2A28" strokeWidth={6} />
+                <rect x={x - 14} y={y - 110} width={28} height={50} rx={10} fill={['#F2C14E', '#F2C14E', '#E8692E', '#F2C14E', '#E8692E'][i]} />
+                <circle cx={x} cy={y - 126} r={16} fill="#F1D6C1" />
+              </g>
+            );
+          })}
+      </g>
+      {!floating && u >= 0 && u < 1.6 &&
+        Array.from({length: 10}).map((_, i) => {
+          const a = (i / 10) * Math.PI;
+          const r = 60 + u * 260;
+          return <circle key={i} cx={px + Math.cos(a) * r} cy={waterY - Math.sin(a) * r * 0.6} r={20 + u * 10} fill="#E6F1F6" opacity={0.8 * (1 - u / 1.6)} />;
+        })}
+    </g>
+  );
+};

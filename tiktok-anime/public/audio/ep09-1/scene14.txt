@@ -1,0 +1,1 @@
+{"text":"空港までは、高さが足りない。でも、目の前には、大きな川があった。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}
