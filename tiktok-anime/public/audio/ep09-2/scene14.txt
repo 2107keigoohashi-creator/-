@@ -1,0 +1,1 @@
+{"text":"水の中で体を浮かせてくれる。でも、冬の川の水は、とても冷たい。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

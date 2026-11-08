@@ -1,0 +1,542 @@
+{
+ "title": "飛行機が、川に着水したら（後編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "前編のあらすじ。両方のエンジンが止まった飛行機は、大きな川に、着水した。",
+   "telop": "【前編】のおさらい",
+   "background": "riverDitch",
+   "bgProps": {
+    "touchAt": 1.6
+   },
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 1.6,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "narration": "機体は、水に浮いている。でも、ゆっくりと、沈みはじめていた。",
+   "telop": "機体は【浮いている】",
+   "background": "riverDitch",
+   "bgProps": {
+    "floating": true
+   }
+  },
+  {
+   "narration": "ベルトを外して！前の出口へ！",
+   "telop": "「【前の出口】へ！」",
+   "background": "cabinAisle",
+   "voice": "misaki",
+   "bgProps": {
+    "murmur": true,
+    "exit": true
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 540,
+     "y": 1450,
+     "scale": 1.1,
+     "pose": "stand",
+     "talking": true,
+     "expression": "panic",
+     "action": "stop",
+     "vest": "flat"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "前の出口へ！",
+     "x": 540,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "あなたは、座席の下から、救命胴衣を取り出した。",
+   "telop": "座席の下の【救命胴衣】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "day",
+    "water": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": false,
+     "look": "down",
+     "expression": "panic",
+     "vest": "flat"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": false,
+     "look": "down",
+     "expression": "panic"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.5,
+     "zoom": 1.5,
+     "focusX": 620,
+     "focusY": 1050
+    }
+   ]
+  },
+  {
+   "narration": "ふくらませた方が、安心かも……",
+   "telop": "「ふくらませた方が…」",
+   "background": "cabin",
+   "voice": "neighbor",
+   "bgProps": {
+    "sky": "day",
+    "water": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": false,
+     "look": "right",
+     "vest": "flat"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": false,
+     "look": "left",
+     "expression": "panic",
+     "talking": true,
+     "vest": "flat"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "もう、ふくらませる？",
+     "x": 900,
+     "y": 760,
+     "at": 0.1,
+     "tail": "down",
+     "size": 44
+    }
+   ]
+  },
+  {
+   "narration": "だめです！ふくらませるのは、外に出てから！",
+   "telop": "「ふくらませるのは【外に出てから】！」",
+   "background": "cabinAisle",
+   "voice": "misaki",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 540,
+     "y": 1450,
+     "scale": 1.1,
+     "pose": "stand",
+     "talking": true,
+     "expression": "panic",
+     "action": "stop",
+     "vest": "flat",
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "外に出てから！",
+     "x": 540,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.4,
+     "focusX": 540,
+     "focusY": 1000
+    }
+   ]
+  },
+  {
+   "narration": "救命胴衣は、機内では、ふくらませない。",
+   "telop": "ルール#3 機内では【ふくらませない】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "機内でふくらませると、水が入ってきたとき、体が浮いて、天井に押しつけられてしまう。",
+   "telop": "【天井】に押しつけられる",
+   "background": "vestDanger",
+   "bgProps": {
+    "waterAt": 0.4
+   }
+  },
+  {
+   "narration": "出口は、水の中。もぐって、外へ出られなくなるのだ。",
+   "telop": "出口が【水の中】に",
+   "background": "vestDanger",
+   "bgProps": {
+    "waterAt": -5
+   }
+  },
+  {
+   "narration": "1996年には、機内でふくらませて、逃げ遅れた人がいたとされている。",
+   "telop": "実際に【逃げ遅れた】例も",
+   "background": "plain",
+   "bgProps": {
+    "from": "#1E1E24",
+    "to": "#0E0E12"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "1996年 エチオピア航空961便",
+     "at": 0.4,
+     "y": 520,
+     "color": "#FF6B5E",
+     "size": 62
+    }
+   ],
+   "reading": "せんきゅうひゃくきゅうじゅうろくねんには、きないで、ふくらませて、にげおくれたひとが、いたと、されている。"
+  },
+  {
+   "narration": "荷物は、置いていってください！",
+   "telop": "「荷物は【置いて】！」",
+   "background": "cabinAisle",
+   "voice": "misaki",
+   "bgProps": {
+    "murmur": true,
+    "exit": true
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 540,
+     "y": 1450,
+     "scale": 1.1,
+     "pose": "stand",
+     "talking": true,
+     "expression": "panic",
+     "action": "stop",
+     "vest": "flat",
+     "tag": false
+    }
+   ],
+   "overlays": [
+    {
+     "type": "noSign",
+     "kind": "bag",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "narration": "あなたは、何も持たずに、翼の上へ出た。",
+   "telop": "何も持たずに【翼の上へ】",
+   "background": "riverDitch",
+   "bgProps": {
+    "floating": true,
+    "wing": true
+   }
+  },
+  {
+   "narration": "外に出たら、ひもを引く。救命胴衣が、一気にふくらむ。",
+   "telop": "ひもを引くと【ふくらむ】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#9BB2C4",
+    "to": "#D3DCE2"
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 540,
+     "y": 1300,
+     "scale": 1.5,
+     "pose": "stand",
+     "look": "down",
+     "vest": "flat",
+     "vestAt": 1.6,
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": 20,
+     "at": 1.0,
+     "tag": false
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/whoosh.wav",
+     "at": 1.6,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "narration": "水の中で体を浮かせてくれる。でも、冬の川の水は、とても冷たい。",
+   "telop": "冬の川は【とても冷たい】",
+   "background": "riverDitch",
+   "bgProps": {
+    "floating": true,
+    "wing": true
+   }
+  },
+  {
+   "narration": "その時。近くを走っていた船が、こちらへ向かってきた。",
+   "telop": "【船】が来た！",
+   "background": "riverDitch",
+   "bgProps": {
+    "floating": true,
+    "wing": true,
+    "ferry": true
+   },
+   "se": [
+    {
+     "file": "assets/audio/evac_horn.wav",
+     "at": 1.5,
+     "volume": 0.3
+    }
+   ]
+  },
+  {
+   "narration": "こっちだ！つかまって！",
+   "telop": "「こっちだ！【つかまって】！」",
+   "background": "riverDitch",
+   "voice": "passenger",
+   "bgProps": {
+    "floating": true,
+    "wing": true,
+    "ferry": true
+   },
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "つかまって！",
+     "x": 800,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "乗っていた人は、全員、助け出された。",
+   "telop": "【全員】助かった",
+   "background": "riverDitch",
+   "bgProps": {
+    "floating": true,
+    "ferry": true
+   },
+   "camera": {
+    "from": 1.0,
+    "to": 1.15
+   }
+  },
+  {
+   "narration": "実は、これは、本当にあった話を、もとにしている。",
+   "telop": "【本当にあった】話",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "実話をもとにしています",
+     "at": 0.3,
+     "y": 560,
+     "color": "#F2C14E",
+     "size": 80
+    }
+   ]
+  },
+  {
+   "narration": "2009年1月15日。アメリカの、USエアウェイズ1549便。",
+   "telop": "2009年1月15日 【1549便】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "2009年1月15日\nUSエアウェイズ1549便",
+     "at": 0.2
+    },
+    {
+     "type": "bigText",
+     "text": "ハドソン川の奇跡",
+     "at": 1.4,
+     "y": 560,
+     "color": "#FFFFFF",
+     "size": 96
+    }
+   ],
+   "reading": "2009年、1月15日。アメリカの、ユーエスエアウェイズ、1549便。"
+  },
+  {
+   "narration": "離陸の直後に、鳥の群れを、両方のエンジンに吸いこみ、ニューヨークのハドソン川に、着水した。",
+   "telop": "鳥で両エンジン停止→【ハドソン川】へ",
+   "background": "riverDitch",
+   "bgProps": {
+    "touchAt": 2.5
+   },
+   "reading": "離陸の直後に、鳥の群れを、両方のエンジンに吸いこみ、ニューヨークの、ハドソン川に、着水した。"
+  },
+  {
+   "narration": "すぐに近くのフェリーが駆けつけ、乗客150人と乗員5人、155人全員が、助かった。",
+   "telop": "【155人全員】が生還",
+   "background": "riverDitch",
+   "bgProps": {
+    "floating": true,
+    "wing": true,
+    "ferry": true
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "155人 全員生還",
+     "at": 1.4,
+     "y": 300,
+     "color": "#1E1E1E",
+     "bg": "#F2C14E",
+     "size": 90
+    }
+   ],
+   "reading": "すぐに、ちかくのフェリーが、かけつけ、じょうきゃく、ひゃくごじゅうにんと、じょういん、ごにん、ひゃくごじゅうごにん、ぜんいんが、たすかった。"
+  },
+  {
+   "narration": "覚えておくのは、3つ。1つめ、衝撃に備えて、頭を下げる姿勢を、とる。",
+   "telop": "①【衝撃防止の姿勢】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "水の上に降りたら",
+     "items": [
+      "衝撃防止の姿勢をとる",
+      "救命胴衣は外でふくらませる",
+      "荷物は持たない"
+     ],
+     "show": 1,
+     "at": 0.2,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "2つめ、救命胴衣は、外に出てから、ふくらませる。",
+   "telop": "②救命胴衣は【外で】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "水の上に降りたら",
+     "items": [
+      "衝撃防止の姿勢をとる",
+      "救命胴衣は外でふくらませる",
+      "荷物は持たない"
+     ],
+     "show": 2,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "3つめ、荷物は持たずに、すぐに外へ。",
+   "telop": "③荷物は【持たない】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "水の上に降りたら",
+     "items": [
+      "衝撃防止の姿勢をとる",
+      "救命胴衣は外でふくらませる",
+      "荷物は持たない"
+     ],
+     "show": 3,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "座席の下の救命胴衣。次に乗ったとき、場所を、確かめてみよう。",
+   "telop": "次に乗ったら【場所を確かめよう】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "おわり",
+     "at": 3.0,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

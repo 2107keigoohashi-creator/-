@@ -1,0 +1,1 @@
+{"text":"覚えておくのは、3つ。1つめ、衝撃に備えて、頭を下げる姿勢を、とる。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

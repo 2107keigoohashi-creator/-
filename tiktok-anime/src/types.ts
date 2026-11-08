@@ -63,6 +63,9 @@ export type CharacterInScene = {
   airDur?: number;
   // シートベルトを締めている
   belt?: boolean;
+  // 救命胴衣：flat（ふくらむ前）／inflated。vestAt 秒からふくらむ（flat → inflated）
+  vest?: 'flat' | 'inflated';
+  vestAt?: number;
   // 酸素マスクを着ける（maskAt 秒から。maskTube は上へのびる管の長さ）
   mask?: boolean;
   maskAt?: number;

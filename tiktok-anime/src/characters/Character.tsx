@@ -411,6 +411,19 @@ export const Character: React.FC<{
               <rect x={-18} y={-34} width={36} height={28} rx={5} fill="#B9BEC3" stroke="#6E747C" strokeWidth={3} />
             </g>
           )}
+          {spec.vest && (() => {
+            const inf = spec.vest === 'inflated' ? 1 : spec.vestAt !== undefined ? Math.min(1, Math.max(0, (t - spec.vestAt) / 0.6)) : 0;
+            const w = 26 + inf * 22;
+            return (
+              <g>
+                <path d="M -40,-200 Q 0,-176 40,-200" stroke="#E0A92E" strokeWidth={10} fill="none" />
+                {[-1, 1].map((s) => (
+                  <rect key={s} x={s === -1 ? -14 - w : 14} y={-196} width={w} height={110 + inf * 24} rx={10 + inf * 14} fill="#F2C14E" stroke="#C99A2E" strokeWidth={4} />
+                ))}
+                <rect x={-50} y={-70} width={100} height={8} rx={4} fill="#3A3F47" />
+              </g>
+            );
+          })()}
           {spec.item === 'bottle' && (
             <g transform="translate(130, -320) rotate(-130)">
               <rect x={-18} y={-50} width={36} height={100} rx={12} fill="#BFE3F0" stroke="#7AB6C4" strokeWidth={4} opacity={0.95} />

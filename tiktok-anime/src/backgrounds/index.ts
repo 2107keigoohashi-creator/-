@@ -2,7 +2,7 @@ import {Cabin} from './Cabin';
 import {CabinAisle} from './CabinAisle';
 import {Cockpit} from './Cockpit';
 import {Background} from './common';
-import {Approach, DoorPlug, EvacSlide, FuelTank, GlideMap, RiverDitch, LabTest, LightningPlane, RampNose, FireHandle, PathDiagram, SeatGap, SfoDiagram, SkyPlane, StopBar, WeatherRadar} from './Emergency';
+import {Approach, DoorPlug, EvacSlide, FuelTank, GlideMap, RiverDitch, VestDanger, LabTest, LightningPlane, RampNose, FireHandle, PathDiagram, SeatGap, SfoDiagram, SkyPlane, StopBar, WeatherRadar} from './Emergency';
 import {JapanMap} from './JapanMap';
 import {Black, CockpitDoor, NightRadio, Plain, YokeCloseup} from './Misc';
 import {Runway} from './Runway';
@@ -35,6 +35,7 @@ export const BACKGROUNDS: Record<string, Background> = {
   labTest: LabTest,
   glideMap: GlideMap,
   riverDitch: RiverDitch,
+  vestDanger: VestDanger,
   plain: Plain,
   black: Black,
 };

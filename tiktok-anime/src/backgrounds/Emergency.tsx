@@ -783,7 +783,7 @@ export const RiverDitch: Background = ({layer, p}) => {
   const t = frame / fps;
   const touch = num(p.touchAt, 2.4);
   const floating = bool(p.floating);
-  const waterY = 1180;
+  const waterY = num(p.waterY, 1000);
   if (layer === 'front') {
     return (
       <g>
@@ -822,11 +822,11 @@ export const RiverDitch: Background = ({layer, p}) => {
         </g>
       )}
       <g transform={`translate(0, ${floating ? bob : 0})`}>
-        <Airliner x={px} y={py} rot={rot} s={1.3} />
+        <Airliner x={px} y={py} rot={rot} s={floating ? 1.6 : 1.3} />
         {bool(p.wing) &&
           [0, 1, 2, 3, 4].map((i) => {
-            const x = px - 120 + i * 50;
-            const y = py + 60;
+            const x = px - 150 + i * 62;
+            const y = py + 70;
             return (
               <g key={i}>
                 <line x1={x} y1={y} x2={x} y2={y - 60} stroke="#2E2A28" strokeWidth={6} />
@@ -842,6 +842,47 @@ export const RiverDitch: Background = ({layer, p}) => {
           const r = 60 + u * 260;
           return <circle key={i} cx={px + Math.cos(a) * r} cy={waterY - Math.sin(a) * r * 0.6} r={20 + u * 10} fill="#E6F1F6" opacity={0.8 * (1 - u / 1.6)} />;
         })}
+    </g>
+  );
+};
+
+// 機内でふくらませると危ない図（客室の断面）。waterAt 秒から水位が上がり、ふくらませた人は天井へ押しつけられる
+export const VestDanger: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const k = Math.min(1, Math.max(0, (t - num(p.waterAt, 0.5)) / 3));
+  const top = 520;
+  const bottom = 1100;
+  const water = bottom - k * (bottom - top - 60);
+  const floatY = Math.min(bottom - 120, water - 60);
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill="#1E2A3C" />
+      {/* 客室の断面（丸い胴体） */}
+      <rect x={120} y={top} width={840} height={bottom - top} rx={200} fill="#E9E3D7" />
+      {/* 出口（低い位置） */}
+      <rect x={880} y={bottom - 260} width={80} height={220} fill="#3A3F47" />
+      <clipPath id="vd-clip"><rect x={120} y={top} width={840} height={bottom - top} rx={200} /></clipPath>
+      <g clipPath="url(#vd-clip)">
+        <rect x={120} y={water} width={840} height={bottom - water + 10} fill="#3E6A80" opacity={0.85} />
+      </g>
+      <rect x={880} y={bottom - 260} width={80} height={220} fill="none" stroke="#F2C14E" strokeWidth={6} />
+      <text x={1010} y={bottom - 140} textAnchor="middle" fontSize={36} fontWeight={900} fill="#F2C14E" fontFamily="Noto Sans JP">出口</text>
+      {/* ふくらませた人：天井に押しつけられる */}
+      <g transform={`translate(420, ${Math.max(top + 90, floatY)})`}>
+        <circle cx={0} cy={-50} r={34} fill="#F1D6C1" />
+        <rect x={-46} y={-14} width={92} height={70} rx={30} fill="#F2C14E" stroke="#C99A2E" strokeWidth={4} />
+      </g>
+      {k > 0.6 && (
+        <g>
+          <path d={`M 420,${top + 20} l -20,-30 M 420,${top + 20} l 20,-30`} stroke="#FF6B5E" strokeWidth={8} />
+          <text x={420} y={top - 40} textAnchor="middle" fontSize={44} fontWeight={900} fill="#FF6B5E" fontFamily="Noto Sans JP">天井に押しつけられる</text>
+        </g>
+      )}
+      <path d={`M 560,${Math.max(top + 90, floatY) + 20} Q 760,${bottom - 60} 880,${bottom - 150}`} stroke="#9AA1A8" strokeWidth={6} fill="none" strokeDasharray="14 12" />
+      <text x={700} y={bottom + 80} textAnchor="middle" fontSize={40} fontWeight={900} fill="#EDE7DA" fontFamily="Noto Sans JP">出口は水の中</text>
     </g>
   );
 };
