@@ -123,6 +123,37 @@ export const Cabin: Background = ({layer, p}) => {
           <g>
             <rect x={win.x} y={win.y + 250} width={win.w} height={win.h} fill={sky === 'night' ? '#1C2230' : '#6F7A63'} />
             <rect x={win.x} y={win.y + 300} width={win.w} height={40} fill="#4C5058" />
+            {p.roll !== undefined && (() => {
+              // 地上走行：rollAt から加速、brakeAt から減速して止まる。景色の位置を積分する
+              const ra = num(p.rollAt, 0);
+              const ba = num(p.brakeAt, 9999);
+              const v0 = num(p.roll, 0);
+              const pos = (tt: number) => {
+                const a1 = Math.max(0, Math.min(tt, ba) - ra);
+                let d = v0 * a1 + 240 * a1 * a1;
+                if (tt > ba) {
+                  const vb = v0 + 480 * Math.max(0, ba - ra);
+                  const dt = Math.min(tt - ba, vb / 700);
+                  d += vb * dt - 350 * dt * dt;
+                }
+                return d;
+              };
+              const off = pos(t);
+              return Array.from({length: 8}).map((_, i) => {
+                const x = win.x + win.w - ((off + i * 90) % 720);
+                return (
+                  <g key={i}>
+                    <rect x={x} y={win.y + 316} width={50} height={6} fill="#E9E4DA" />
+                    <circle cx={x + 20} cy={win.y + 292} r={5} fill="#F2C14E" />
+                  </g>
+                );
+              });
+            })()}
+            {bool(p.wheelSmoke) &&
+              Array.from({length: 6}).map((_, i) => {
+                const u = (t * 0.5 + i / 6) % 1;
+                return <circle key={i} cx={win.x + 120 + (i % 3) * 50 + u * 30} cy={win.y + 380 - u * 220} r={18 + u * 46} fill="#EDEDED" opacity={0.65 * (1 - u)} />;
+              })}
             {flash && (
               <g>
                 <circle cx={win.x + 210} cy={win.y + 280} r={60} fill="#E53935" opacity={0.35 * pulse} />

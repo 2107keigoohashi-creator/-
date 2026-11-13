@@ -1,0 +1,733 @@
+{
+ "title": "離陸の途中で、急ブレーキがかかったら（前編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "夕方の空港。あなたの乗った飛行機が、滑走路に入った。",
+   "telop": "滑走路に【入った】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 0
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "infoBox",
+     "text": "夕方\n離陸の直前",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "エンジンの音が大きくなり、機体が、走り出した。",
+   "telop": "機体が【走り出した】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 40,
+    "rollAt": 0.6
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left"
+    }
+   ],
+   "shake": [
+    {
+     "at": 0.6,
+     "duration": 3,
+     "amp": 3
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/roar.wav",
+     "at": 0.3,
+     "volume": 0.45
+    }
+   ]
+  },
+  {
+   "narration": "窓の外の景色が、どんどん、速く流れていく。",
+   "telop": "景色が【どんどん速く】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 400
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 260,
+     "focusY": 760
+    }
+   ],
+   "shake": [
+    {
+     "at": 0,
+     "duration": 4,
+     "amp": 4
+    }
+   ]
+  },
+  {
+   "narration": "コックピットでは、副操縦士が、速さを、読み上げていく。",
+   "telop": "【速さ】を読み上げる",
+   "background": "cockpit",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "speedo",
+     "from": 40,
+     "to": 90,
+     "riseAt": 0,
+     "riseDur": 3.5,
+     "v1": 140,
+     "y": 500
+    }
+   ]
+  },
+  {
+   "narration": "100ノット。",
+   "telop": "「【100ノット】」",
+   "background": "cockpit",
+   "voice": "takahashi",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right",
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "speedo",
+     "from": 95,
+     "to": 110,
+     "riseAt": 0,
+     "riseDur": 1.4,
+     "v1": 140,
+     "y": 500
+    }
+   ],
+   "reading": "ひゃくノット。"
+  },
+  {
+   "narration": "もうすぐ、浮き上がる。その時。",
+   "telop": "もうすぐ【浮き上がる】",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 900
+   }
+  },
+  {
+   "narration": "ドン！",
+   "telop": "",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 950
+   },
+   "shake": [
+    {
+     "at": 0.1,
+     "duration": 0.6,
+     "amp": 20
+    }
+   ],
+   "overlays": [
+    {
+     "type": "flash",
+     "at": 0.1,
+     "duration": 0.3,
+     "color": "#FF8A80"
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/crunch.wav",
+     "at": 0.1,
+     "volume": 0.8
+    }
+   ],
+   "subtitles": false
+  },
+  {
+   "narration": "ストップ！",
+   "telop": "「【ストップ】！」",
+   "background": "cockpit",
+   "voice": "sato",
+   "bgProps": {
+    "sky": "dusk"
+   },
+   "characters": [
+    {
+     "id": "sato",
+     "x": 780,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "talking": true,
+     "expression": "panic"
+    },
+    {
+     "id": "takahashi",
+     "x": 300,
+     "y": 1120,
+     "scale": 1.15,
+     "pose": "sit",
+     "seat": "pilot",
+     "yoke": true,
+     "hold": true,
+     "look": "right"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "alarm",
+     "text": "ENG FAIL",
+     "at": 0,
+     "y": 560
+    },
+    {
+     "type": "speedo",
+     "from": 120,
+     "to": 125,
+     "riseAt": 0,
+     "riseDur": 0.4,
+     "stopAt": 0.6,
+     "v1": 140,
+     "y": 240
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/fire_bell.wav",
+     "at": 0,
+     "volume": 0.35
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.3,
+     "focusX": 780,
+     "focusY": 800
+    }
+   ]
+  },
+  {
+   "narration": "エンジンの力を絞り、ブレーキを、全力でかける。",
+   "telop": "ブレーキを【全力で】",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 950,
+    "brakeAt": 0.2
+   },
+   "shake": [
+    {
+     "at": 0.2,
+     "duration": 2.5,
+     "amp": 12
+    }
+   ]
+  },
+  {
+   "narration": "体が、前に、ぐっと押し出された。",
+   "telop": "体が【前へ】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 900,
+    "brakeAt": 0
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "action": "brace",
+     "at": 0.1,
+     "expression": "panic"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "action": "brace",
+     "at": 0.1,
+     "expression": "panic"
+    }
+   ],
+   "shake": [
+    {
+     "at": 0,
+     "duration": 2,
+     "amp": 14
+    }
+   ]
+  },
+  {
+   "narration": "うわっ……！",
+   "telop": "「うわっ…！」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 300,
+    "brakeAt": 0
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "action": "brace",
+     "at": -5,
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "action": "brace",
+     "at": -5,
+     "expression": "panic"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0,
+     "zoom": 1.5,
+     "focusX": 620,
+     "focusY": 1000
+    }
+   ]
+  },
+  {
+   "narration": "離陸には、V1という、決められた速さがある。",
+   "telop": "ルール#1 【V1】という速さ",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#1",
+     "at": 0
+    },
+    {
+     "type": "bigText",
+     "text": "V1（ブイワン）",
+     "at": 1.4,
+     "y": 520,
+     "color": "#F2C14E",
+     "size": 110
+    }
+   ],
+   "reading": "りりくには、ブイワンという、きめられた、はやさがある。"
+  },
+  {
+   "narration": "V1より前なら、止まる。V1を過ぎたら、そのまま、飛び上がる。",
+   "telop": "前なら【止まる】、過ぎたら【飛ぶ】",
+   "background": "v1Diagram",
+   "bgProps": {
+    "markAt": 0.6
+   },
+   "reading": "ブイワンより、まえなら、とまる。ブイワンを、すぎたら、そのまま、とびあがる。"
+  },
+  {
+   "narration": "V1までなら、残りの滑走路で、止まりきれるように、毎回、計算されているのだ。",
+   "telop": "止まれるように【毎回計算】",
+   "background": "v1Diagram",
+   "bgProps": {
+    "markAt": -5
+   },
+   "reading": "ブイワンまでなら、のこりの、かっそうろで、とまりきれるように、まいかい、けいさんされているのだ。"
+  },
+  {
+   "narration": "機体は、滑走路の上で、止まった。",
+   "telop": "滑走路の上で【止まった】",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 0
+   }
+  },
+  {
+   "narration": "え、なんで止まったの……？",
+   "telop": "「なんで【止まった】の？」",
+   "background": "cabin",
+   "voice": "neighbor",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 0
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "panic"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic",
+     "talking": true
+    }
+   ],
+   "overlays": [
+    {
+     "type": "zawa",
+     "x": 820,
+     "y": 700,
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "narration": "機長です。離陸を、取りやめました。安全のため、その場で、お待ちください。",
+   "telop": "「その場で【お待ちください】」",
+   "background": "cabin",
+   "voice": "sato_pa",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 0
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ],
+   "reading": "きちょうです。りりくを、とりやめました。あんぜんのため、そのばで、おまちください。"
+  },
+  {
+   "narration": "これを、離陸中止という。めったにないが、パイロットは、何度も訓練している。",
+   "telop": "ルール#2 【離陸中止】も訓練済み",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#2",
+     "at": 0
+    },
+    {
+     "type": "bigText",
+     "text": "離陸中止",
+     "at": 1.4,
+     "y": 520,
+     "color": "#FF6B5E",
+     "size": 110
+    }
+   ],
+   "reading": "これを、りりくちゅうしという。めったにないが、パイロットは、なんども、くんれんしている。"
+  },
+  {
+   "narration": "ほっとして、窓の外を見た、その時。",
+   "telop": "ほっとした【その時】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 0
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "closed"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left"
+    }
+   ]
+  },
+  {
+   "narration": "車輪のあたりから、白い煙が、上がっていた。",
+   "telop": "車輪から【白い煙】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 0,
+    "wheelSmoke": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "surprised"
+    }
+   ],
+   "cuts": [
+    {
+     "at": 0.4,
+     "zoom": 1.6,
+     "focusX": 230,
+     "focusY": 760
+    }
+   ]
+  },
+  {
+   "narration": "煙……！？",
+   "telop": "「【煙】…！？」",
+   "background": "cabin",
+   "voice": "you",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 0,
+    "wheelSmoke": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "panic",
+     "talking": true,
+     "sweat": true
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic"
+    }
+   ]
+  },
+  {
+   "narration": "いったい、何が起きているのか。後編に、つづく。",
+   "telop": "何が【起きている】のか",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 0,
+    "smoke": true,
+    "hot": true
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "後編につづく",
+     "at": 1.6,
+     "y": 420,
+     "color": "#FFFFFF",
+     "bg": "#1E1E1E"
+    }
+   ]
+  }
+ ]
+}

@@ -663,7 +663,44 @@ const Fog: React.FC<{o: Overlay}> = ({o}) => {
   );
 };
 
+// 速度計（ノット）。riseAt から上がり、stopAt から 0 へ。v1 の目盛りを表示
+const Speedo: React.FC<{o: Overlay}> = ({o}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = f / fps;
+  const from = n(o.from, 0);
+  const to = n(o.to, 130);
+  const riseAt = n(o.riseAt, 0);
+  const riseDur = n(o.riseDur, 3);
+  const stopAt = n(o.stopAt, 9999);
+  let v = interpolate(t, [riseAt, riseAt + riseDur], [from, to], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  if (t > stopAt) v = interpolate(t, [stopAt, stopAt + n(o.stopDur, 2.5)], [v, 0], {extrapolateRight: 'clamp', easing: Easing.out(Easing.quad)});
+  const v1 = n(o.v1, 140);
+  const max = 180;
+  const p = useIn(6);
+  const stopping = t > stopAt;
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: n(o.y, 260), display: 'flex', justifyContent: 'center', opacity: p}}>
+      <div style={{...font, background: '#121417', border: `8px solid ${stopping ? COLORS.accent : '#44484F'}`, borderRadius: 24, padding: '18px 36px', width: 640}}>
+        <div style={{color: '#9AA1A8', fontWeight: 900, fontSize: 30, letterSpacing: 4}}>SPEED（速さ）</div>
+        <div style={{color: stopping ? '#FF6B5E' : '#7FB89A', fontWeight: 900, fontSize: 110, fontVariantNumeric: 'tabular-nums', lineHeight: 1.1}}>
+          {Math.round(v)}
+          <span style={{fontSize: 44}}> kt</span>
+        </div>
+        <div style={{position: 'relative', height: 40, background: '#2A2D33', borderRadius: 10, marginTop: 10}}>
+          <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${(v / max) * 100}%`, background: stopping ? '#FF6B5E' : '#7FB89A', borderRadius: 10}} />
+          <div style={{position: 'absolute', left: `${(v1 / max) * 100}%`, top: -12, bottom: -12, width: 6, background: '#F2C14E'}} />
+        </div>
+        <div style={{position: 'relative', height: 44}}>
+          <div style={{position: 'absolute', left: `calc(${(v1 / max) * 100}% - 40px)`, color: '#F2C14E', fontWeight: 900, fontSize: 34}}>V1</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const SCREEN: Record<string, React.FC<{o: Overlay}>> = {
+  speedo: Speedo,
   fog: Fog,
   aedPanel: AedPanel,
   flash: Flash,

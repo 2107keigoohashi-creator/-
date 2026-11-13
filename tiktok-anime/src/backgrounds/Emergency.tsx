@@ -886,3 +886,91 @@ export const VestDanger: Background = ({layer, p}) => {
     </g>
   );
 };
+
+// 滑走路を走る機体（横から）。機体は真ん中に固定し、地面が流れる。brakeAt から減速、hot でブレーキが赤く、smoke で車輪から煙
+export const RollSide: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const ra = num(p.rollAt, 0);
+  const ba = num(p.brakeAt, 9999);
+  const v0 = num(p.speed, 0);
+  const pos = (tt: number) => {
+    const a1 = Math.max(0, Math.min(tt, ba) - ra);
+    let d = v0 * a1 + 300 * a1 * a1;
+    if (tt > ba) {
+      const vb = v0 + 600 * Math.max(0, ba - ra);
+      const dt = Math.min(tt - ba, vb / 900);
+      d += vb * dt - 450 * dt * dt;
+    }
+    return d;
+  };
+  const off = pos(t);
+  const sky = skyKind(p.sky ?? 'dusk');
+  const x = 540;
+  const y = 980;
+  const hot = bool(p.hot);
+  const glow = hot ? 0.6 + 0.4 * Math.sin(t * 5) : 0;
+  return (
+    <g>
+      <defs>
+        <Grad id="rs-sky" from={SKY[sky][0]} to={SKY[sky][1]} />
+      </defs>
+      <rect x={0} y={0} width={1080} height={1920} fill="url(#rs-sky)" />
+      <rect x={0} y={880} width={1080} height={1040} fill="#6F7A63" />
+      <rect x={0} y={1040} width={1080} height={120} fill="#4C5058" />
+      {Array.from({length: 10}).map((_, i) => {
+        const lx = 1200 - ((off + i * 160) % 1600);
+        return <rect key={i} x={lx} y={1094} width={90} height={10} fill="#E9E4DA" />;
+      })}
+      {Array.from({length: 12}).map((_, i) => {
+        const lx = 1200 - ((off * 0.6 + i * 120) % 1440);
+        return <circle key={i} cx={lx} cy={1180} r={7} fill="#F2C14E" />;
+      })}
+      <g transform={`translate(${x}, ${y}) scale(1.5)`}>
+        <Airliner x={0} y={0} rot={0} s={1} />
+      </g>
+      {hot && (
+        <g>
+          <circle cx={x - 45} cy={y + 90} r={30} fill="#FF5A3C" opacity={0.5 * glow} />
+          <circle cx={x - 45} cy={y + 90} r={14} fill="#FF8A3D" opacity={glow} />
+        </g>
+      )}
+      {bool(p.smoke) &&
+        Array.from({length: 7}).map((_, i) => {
+          const u = (t * 0.6 + i / 7) % 1;
+          return <circle key={i} cx={x - 45 - u * 120} cy={y + 80 - u * 260} r={20 + u * 60} fill="#EDEDED" opacity={0.6 * (1 - u)} />;
+        })}
+    </g>
+  );
+};
+
+// V1 の図（滑走路を上から）。markAt で「止まる」「飛ぶ」の矢印
+export const V1Diagram: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const k = Math.min(1, Math.max(0, (t - num(p.markAt, 0.4)) / 0.8));
+  const v1x = 620;
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill="#2A3142" />
+      <rect x={60} y={600} width={960} height={180} rx={10} fill="#4C5058" />
+      {Array.from({length: 8}).map((_, i) => <rect key={i} x={100 + i * 120} y={684} width={70} height={10} fill="#E9E4DA" />)}
+      <rect x={v1x - 4} y={560} width={8} height={260} fill="#F2C14E" />
+      <text x={v1x} y={540} textAnchor="middle" fontSize={64} fontWeight={900} fill="#F2C14E" fontFamily="Noto Sans JP">V1</text>
+      <g opacity={k}>
+        <path d={`M 120,880 L ${v1x - 20},880`} stroke="#7FE0A0" strokeWidth={12} />
+        <text x={(120 + v1x) / 2} y={960} textAnchor="middle" fontSize={52} fontWeight={900} fill="#7FE0A0" fontFamily="Noto Sans JP">ここまでなら 止まる</text>
+        <path d={`M ${v1x + 20},880 L 980,880`} stroke="#7FD3FF" strokeWidth={12} />
+        <path d="M 980,880 l -30,-20 l 0,40 Z" fill="#7FD3FF" />
+        <text x={(v1x + 980) / 2} y={1040} textAnchor="middle" fontSize={52} fontWeight={900} fill="#7FD3FF" fontFamily="Noto Sans JP">過ぎたら 飛ぶ</text>
+      </g>
+      <g transform="translate(200, 690) rotate(90) scale(1.2)">
+        <path d="M 0,-40 Q 7,-34 7,-18 L 7,-6 L 40,12 L 40,20 L 7,10 L 6,28 L 18,36 L 18,42 L 0,37 L -18,42 L -18,36 L -6,28 L -7,10 L -40,20 L -40,12 L -7,-6 L -7,-18 Q -7,-34 0,-40 Z" fill="#F4F1EA" stroke="#1B2433" strokeWidth={3} />
+      </g>
+    </g>
+  );
+};
