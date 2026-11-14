@@ -1,0 +1,1 @@
+{"text":"火が出ていないのに、外に出ると、熱い車輪や、動いている車に、近づいてしまう。","preset":{"speaker":"青山龍星","style":"ノーマル","speedScale":1.06,"pitchScale":0,"intonationScale":1.3,"pauseLengthScale":0.55,"volumeScale":1}}

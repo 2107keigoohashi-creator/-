@@ -1,0 +1,490 @@
+{
+ "title": "離陸の途中で、急ブレーキがかかったら（後編）",
+ "bgm": {
+  "file": "assets/audio/bgm.mp3",
+  "volume": 0.12
+ },
+ "scenes": [
+  {
+   "narration": "前編のあらすじ。離陸の途中でエンジンが故障し、飛行機は、全力のブレーキで止まった。",
+   "telop": "【前編】のおさらい",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 900,
+    "brakeAt": 1.2
+   },
+   "shake": [
+    {
+     "at": 1.2,
+     "duration": 1.5,
+     "amp": 10
+    }
+   ]
+  },
+  {
+   "narration": "ところが、車輪のあたりから、白い煙が上がっていた。",
+   "telop": "車輪から【白い煙】",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 0,
+    "smoke": true,
+    "hot": true
+   }
+  },
+  {
+   "narration": "全力のブレーキは、走る勢いを、熱に変えて止める。",
+   "telop": "勢いを【熱】に変える",
+   "background": "wheelSection",
+   "bgProps": {
+    "heatAt": 0.4,
+    "labels": true
+   }
+  },
+  {
+   "narration": "だから、ブレーキは、ものすごく熱くなる。数百度になることもある。",
+   "telop": "ブレーキは【数百度】に",
+   "background": "wheelSection",
+   "bgProps": {
+    "heatAt": -5,
+    "labels": true
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "数百℃",
+     "at": 0.8,
+     "y": 300,
+     "color": "#FF6B5E",
+     "size": 130
+    }
+   ],
+   "reading": "だから、ブレーキは、ものすごく、あつくなる。すうひゃくどに、なることもある。"
+  },
+  {
+   "narration": "しかも、止まったあとも、熱は、車輪に伝わり続ける。",
+   "telop": "止まったあとも【熱くなる】",
+   "background": "wheelSection",
+   "bgProps": {
+    "heatAt": -5
+   }
+  },
+  {
+   "narration": "タイヤの中の空気が熱くなると、ふくらんで、破裂するおそれがある。",
+   "telop": "タイヤが【破裂】するおそれ",
+   "background": "wheelSection",
+   "bgProps": {
+    "heatAt": -5
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "破裂のおそれ",
+     "at": 0.6,
+     "y": 300,
+     "color": "#FF6B5E",
+     "size": 100
+    }
+   ]
+  },
+  {
+   "narration": "そこで、車輪には、ある仕かけが、ついている。",
+   "telop": "車輪の【仕かけ】",
+   "background": "wheelSection",
+   "bgProps": {
+    "heatAt": -5,
+    "labelPlug": true
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "決まった温度で溶ける、小さな栓。ヒューズプラグだ。",
+   "telop": "溶ける栓【ヒューズプラグ】",
+   "background": "wheelSection",
+   "bgProps": {
+    "heatAt": -5,
+    "labelPlug": true
+   },
+   "cuts": [
+    {
+     "at": 0.6,
+     "zoom": 1.6,
+     "focusX": 690,
+     "focusY": 700
+    }
+   ]
+  },
+  {
+   "narration": "熱くなりすぎると、栓が溶けて、タイヤの空気を逃がす。破裂する前に、しぼませるのだ。",
+   "telop": "溶けて【空気を逃がす】",
+   "background": "wheelSection",
+   "bgProps": {
+    "heatAt": -5,
+    "labelPlug": true,
+    "plugAt": 1.2
+   },
+   "se": [
+    {
+     "file": "assets/audio/whoosh.wav",
+     "at": 1.2,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "その頃、消防車が、駆けつけていた。",
+   "telop": "【消防車】が来た",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 0,
+    "smoke": true,
+    "hot": true,
+    "trucks": true
+   },
+   "se": [
+    {
+     "file": "assets/audio/siren.wav",
+     "at": 0,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "narration": "消防の人たちは、熱いタイヤに、横からは近づかない。",
+   "telop": "タイヤの【横】には近づかない",
+   "background": "tireZone",
+   "bgProps": {
+    "okAt": 99
+   }
+  },
+  {
+   "narration": "もしタイヤが破裂したら、横に向かって、破片が飛ぶおそれがあるからだ。前か後ろから、ななめに近づく。",
+   "telop": "前か後ろから【ななめに】",
+   "background": "tireZone",
+   "bgProps": {
+    "okAt": 2.6
+   },
+   "reading": "もし、タイヤが、はれつしたら、よこにむかって、はへんが、とぶおそれがあるからだ。まえか、うしろから、ななめに、ちかづく。"
+  },
+  {
+   "narration": "そして、様子を見ながら、ブレーキを、冷やしていく。",
+   "telop": "様子を見ながら【冷やす】",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 0,
+    "hot": true,
+    "trucks": true,
+    "mist": true
+   }
+  },
+  {
+   "narration": "客室では、何人かが、立ち上がろうとしていた。",
+   "telop": "立ち上がろうとする【乗客】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 0,
+    "wheelSmoke": true
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "right",
+     "expression": "panic"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "left",
+     "expression": "panic",
+     "action": "reach",
+     "reachArm": "right",
+     "reachAngle": -60,
+     "at": 0.4
+    }
+   ],
+   "overlays": [
+    {
+     "type": "zawa",
+     "x": 820,
+     "y": 700,
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "narration": "ドアは、開けません！指示があるまで、席で、お待ちください！",
+   "telop": "「【席で】お待ちください！」",
+   "background": "cabinAisle",
+   "voice": "misaki",
+   "bgProps": {
+    "murmur": true
+   },
+   "characters": [
+    {
+     "id": "misaki",
+     "x": 540,
+     "y": 1450,
+     "scale": 1.1,
+     "pose": "stand",
+     "talking": true,
+     "expression": "panic",
+     "action": "stop"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "bubble",
+     "text": "ドアは開けません！",
+     "x": 540,
+     "y": 820,
+     "at": 0.1,
+     "tail": "down"
+    }
+   ]
+  },
+  {
+   "narration": "火が出ていないのに、外に出ると、熱い車輪や、動いている車に、近づいてしまう。",
+   "telop": "ルール#4 勝手に【外へ出ない】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "ruleCard",
+     "text": "ルール#4",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "narration": "外に出るかどうかは、機長と消防が、決める。乗客は、指示を待つ。",
+   "telop": "出るかどうかは【機長と消防が決める】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "bigText",
+     "text": "指示を待つ",
+     "at": 0.8,
+     "y": 520,
+     "color": "#F2C14E",
+     "size": 110
+    }
+   ]
+  },
+  {
+   "narration": "しばらくして、機長から、放送が入った。",
+   "telop": "機長から【放送】",
+   "background": "cabin",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 0
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up"
+    }
+   ]
+  },
+  {
+   "narration": "機長です。ブレーキは、安全に冷えました。このあと、バスで、ターミナルに戻ります。",
+   "telop": "「バスで【ターミナルへ】」",
+   "background": "cabin",
+   "voice": "sato_pa",
+   "bgProps": {
+    "sky": "dusk",
+    "ground": true,
+    "roll": 0
+   },
+   "characters": [
+    {
+     "id": "you",
+     "x": 600,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "normal"
+    },
+    {
+     "id": "neighbor",
+     "x": 930,
+     "y": 1330,
+     "scale": 1.3,
+     "pose": "sit",
+     "seat": "cabin",
+     "belt": true,
+     "look": "up",
+     "expression": "normal"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "paIcon",
+     "text": "機長からの放送",
+     "at": 0.1
+    }
+   ],
+   "se": [
+    {
+     "file": "assets/audio/chime.wav",
+     "at": 0,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "narration": "ブレーキとタイヤは、点検と交換をしてから、また空へ戻る。",
+   "telop": "点検・交換して【また空へ】",
+   "background": "rollSide",
+   "bgProps": {
+    "sky": "dusk",
+    "speed": 0,
+    "trucks": true
+   }
+  },
+  {
+   "narration": "離陸をやめるのは、失敗ではない。決められた、安全のための判断だ。",
+   "telop": "離陸中止は【失敗じゃない】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   }
+  },
+  {
+   "narration": "覚えておくのは、3つ。1つめ、急ブレーキでは、体を踏ん張る。",
+   "telop": "①急ブレーキでは【踏ん張る】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "離陸をやめたら",
+     "items": [
+      "急ブレーキでは踏ん張る",
+      "止まったら指示を待つ",
+      "離陸をやめるのは安全のため"
+     ],
+     "show": 1,
+     "at": 0.2,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "2つめ、止まったら、指示があるまで、席で待つ。",
+   "telop": "②止まったら【指示を待つ】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "離陸をやめたら",
+     "items": [
+      "急ブレーキでは踏ん張る",
+      "止まったら指示を待つ",
+      "離陸をやめるのは安全のため"
+     ],
+     "show": 2,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "3つめ、離陸をやめるのは、安全のため。",
+   "telop": "③離陸をやめるのは【安全のため】",
+   "background": "plain",
+   "bgProps": {
+    "from": "#2A3142",
+    "to": "#1A1F2B"
+   },
+   "overlays": [
+    {
+     "type": "checklist",
+     "title": "離陸をやめたら",
+     "items": [
+      "急ブレーキでは踏ん張る",
+      "止まったら指示を待つ",
+      "離陸をやめるのは安全のため"
+     ],
+     "show": 3,
+     "at": 0,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "narration": "急に止まっても、あわてない。それは、あなたを守るブレーキだ。",
+   "telop": "あなたを【守るブレーキ】",
+   "background": "black",
+   "camera": {
+    "from": 1.0,
+    "to": 1.0
+   },
+   "overlays": [
+    {
+     "type": "centerText",
+     "text": "おわり",
+     "at": 2.8,
+     "size": 96,
+     "cps": 12
+    }
+   ]
+  }
+ ]
+}

@@ -19,7 +19,7 @@ export const Airliner: React.FC<{x: number; y: number; rot: number; s?: number}>
   </g>
 );
 
-const Vehicle: React.FC<{x: number; y: number; kind: 'ambulance' | 'fire'; on: boolean; s?: number}> = ({x, y, kind, on, s = 1}) => {
+export const Vehicle: React.FC<{x: number; y: number; kind: 'ambulance' | 'fire'; on: boolean; s?: number}> = ({x, y, kind, on, s = 1}) => {
   const body = kind === 'ambulance' ? '#EEEBE4' : '#B7473F';
   const stripe = kind === 'ambulance' ? '#C9483F' : '#E9E2D2';
   const len = kind === 'ambulance' ? 300 : 380;

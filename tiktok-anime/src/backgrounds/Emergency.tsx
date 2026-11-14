@@ -2,7 +2,7 @@ import React from 'react';
 import {Easing, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {Flame} from './Cabin';
 import {Background, bool, Cloud, Grad, num, SKY, skyKind} from './common';
-import {Airliner} from './Runway';
+import {Airliner, Vehicle} from './Runway';
 
 // 火災ハンドルのアップ。pullAt 秒で手が伸びて引き、rotateAt 秒で回して消火（DISCH が点灯）
 export const FireHandle: Background = ({layer, p}) => {
@@ -942,6 +942,17 @@ export const RollSide: Background = ({layer, p}) => {
           const u = (t * 0.6 + i / 7) % 1;
           return <circle key={i} cx={x - 45 - u * 120} cy={y + 80 - u * 260} r={20 + u * 60} fill="#EDEDED" opacity={0.6 * (1 - u)} />;
         })}
+      {bool(p.trucks) && (
+        <g>
+          <Vehicle x={-40 + Math.min(1, t / 2) * 60} y={1170} kind="fire" on={Math.floor(t * 3) % 2 === 0} s={1.0} />
+          <Vehicle x={1120 - Math.min(1, t / 2) * 380} y={1180} kind="fire" on={Math.floor(t * 3) % 2 === 1} s={0.9} />
+          {bool(p.mist) &&
+            Array.from({length: 12}).map((_, i) => {
+              const u = (t * 0.9 + i / 12) % 1;
+              return <circle key={i} cx={330 + u * (x - 45 - 330)} cy={1060 - Math.sin(u * Math.PI) * 120} r={6 + u * 6} fill="#CFE6F2" opacity={0.8 * (1 - u * 0.5)} />;
+            })}
+        </g>
+      )}
     </g>
   );
 };
@@ -970,6 +981,98 @@ export const V1Diagram: Background = ({layer, p}) => {
       </g>
       <g transform="translate(200, 690) rotate(90) scale(1.2)">
         <path d="M 0,-40 Q 7,-34 7,-18 L 7,-6 L 40,12 L 40,20 L 7,10 L 6,28 L 18,36 L 18,42 L 0,37 L -18,42 L -18,36 L -6,28 L -7,10 L -40,20 L -40,12 L -7,-6 L -7,-18 Q -7,-34 0,-40 Z" fill="#F4F1EA" stroke="#1B2433" strokeWidth={3} />
+      </g>
+    </g>
+  );
+};
+
+// 車輪の断面（タイヤ・ホイール・ブレーキ）。heatAt から赤くなり、plugAt でヒューズプラグが溶けて空気が抜ける
+export const WheelSection: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const heat = Math.min(1, Math.max(0, (t - num(p.heatAt, 0)) / 2));
+  const plugAt = num(p.plugAt, 99);
+  const vent = Math.min(1, Math.max(0, (t - plugAt) / 2.5));
+  const cx = 540;
+  const cy = 820;
+  const R = 330 - vent * 40;
+  const hot = `rgb(${120 + heat * 135}, ${110 - heat * 40}, ${100 - heat * 60})`;
+  const pulse = 0.5 + 0.5 * Math.sin(t * 5);
+  return (
+    <g>
+      <rect x={0} y={0} width={1080} height={1920} fill="#1E2430" />
+      {/* タイヤ */}
+      <ellipse cx={cx} cy={cy + vent * 30} rx={R} ry={R - vent * 30} fill="#2A2D33" stroke="#44484F" strokeWidth={10} />
+      {/* ホイール */}
+      <circle cx={cx} cy={cy} r={200} fill="#9AA1A8" stroke="#6E747C" strokeWidth={8} />
+      {/* ブレーキ（中の円盤） */}
+      <circle cx={cx} cy={cy} r={140} fill={hot} />
+      {heat > 0.3 && <circle cx={cx} cy={cy} r={150 + pulse * 20} fill="#FF6B3C" opacity={0.25 * heat} />}
+      {[0, 1, 2, 3].map((i) => <circle key={i} cx={cx} cy={cy} r={40 + i * 26} fill="none" stroke="#3A3E45" strokeWidth={4} opacity={0.5} />)}
+      <circle cx={cx} cy={cy} r={36} fill="#4A4F57" />
+      {/* 熱が広がる矢印 */}
+      {heat > 0.5 &&
+        [0, 1, 2, 3, 4, 5].map((i) => {
+          const a = (i / 6) * Math.PI * 2;
+          return <path key={i} d={`M ${cx + Math.cos(a) * 150},${cy + Math.sin(a) * 150} L ${cx + Math.cos(a) * 190},${cy + Math.sin(a) * 190}`} stroke="#FF8A3D" strokeWidth={8} opacity={heat} />;
+        })}
+      {/* ヒューズプラグ */}
+      <g transform={`translate(${cx + 150}, ${cy - 120})`}>
+        <rect x={-18} y={-18} width={36} height={36} rx={8} fill={t >= plugAt ? '#3A3E45' : '#F2C14E'} stroke="#FFFFFF" strokeWidth={4} />
+        {bool(p.labelPlug) && (
+          <g>
+            <line x1={20} y1={-20} x2={140} y2={-200} stroke="#F2C14E" strokeWidth={5} />
+            <text x={150} y={-210} fontSize={44} fontWeight={900} fill="#F2C14E" fontFamily="Noto Sans JP" textAnchor="middle">ヒューズプラグ</text>
+          </g>
+        )}
+        {t >= plugAt && vent < 1 &&
+          [0, 1, 2, 3].map((i) => {
+            const u = ((t - plugAt) * 1.5 + i / 4) % 1;
+            return <path key={i} d={`M ${20 + u * 160},${-10 - u * 120} q 20,-10 40,0`} stroke="#DDEFF7" strokeWidth={6} fill="none" opacity={1 - u} />;
+          })}
+      </g>
+      {bool(p.labels) && (
+        <g fontFamily="Noto Sans JP" fontWeight={900} fontSize={40}>
+          <text x={cx} y={cy + R + 70} textAnchor="middle" fill="#EDE7DA">タイヤ</text>
+          <text x={cx} y={cy + 10} textAnchor="middle" fill="#1E1E1E" fontSize={34}>ブレーキ</text>
+        </g>
+      )}
+    </g>
+  );
+};
+
+// 熱いタイヤへの近づき方（上から）。横は危ない、前と後ろからななめに
+export const TireZone: Background = ({layer, p}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  if (layer === 'front') return null;
+  const t = frame / fps;
+  const k = Math.min(1, Math.max(0, (t - num(p.okAt, 1.2)) / 0.8));
+  const cx = 540;
+  const cy = 680;
+  return (
+    <g fontFamily="Noto Sans JP" fontWeight={900}>
+      <rect x={0} y={0} width={1080} height={1920} fill="#3A3F47" />
+      {/* 横の危ない範囲 */}
+      <path d={`M ${cx - 90},${cy - 120} L 40,${cy - 260} L 40,${cy + 260} L ${cx - 90},${cy + 120} Z`} fill="#E53935" opacity={0.45} />
+      <path d={`M ${cx + 90},${cy - 120} L 1040,${cy - 260} L 1040,${cy + 260} L ${cx + 90},${cy + 120} Z`} fill="#E53935" opacity={0.45} />
+      <text x={170} y={cy + 16} textAnchor="middle" fontSize={56} fill="#FFFFFF">✕ 横</text>
+      <text x={910} y={cy + 16} textAnchor="middle" fontSize={56} fill="#FFFFFF">✕ 横</text>
+      {/* タイヤ（上から） */}
+      <rect x={cx - 90} y={cy - 160} width={180} height={320} rx={40} fill="#22252B" />
+      <rect x={cx - 100} y={cy - 20} width={200} height={40} fill="#9AA1A8" />
+      <text x={cx} y={cy - 190} textAnchor="middle" fontSize={40} fill="#EDE7DA">進む向き ↑</text>
+      <g opacity={k}>
+        {[[-1, -1], [1, -1], [-1, 1], [1, 1]].map(([sx, sy], i) => (
+          <g key={i}>
+            <line x1={cx + sx * 330} y1={cy + sy * 380} x2={cx + sx * 140} y2={cy + sy * 220} stroke="#7FE0A0" strokeWidth={12} />
+            <circle cx={cx + sx * 140} cy={cy + sy * 220} r={14} fill="#7FE0A0" />
+          </g>
+        ))}
+        <text x={cx} y={cy - 400} textAnchor="middle" fontSize={56} fill="#7FE0A0">○ 前からななめに</text>
+        <text x={cx} y={cy + 450} textAnchor="middle" fontSize={56} fill="#7FE0A0">○ 後ろからななめに</text>
       </g>
     </g>
   );
